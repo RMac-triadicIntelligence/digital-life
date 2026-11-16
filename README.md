@@ -45,7 +45,6 @@ All of this is listed, with full sha256 hashes, in `WITHHELD.md`.
 - Inside the filtered folders, each pack's own `SHA256SUMS` or manifest will report the removed files as missing. That is expected.
 - Inside the packs, some reports name local working folders or attachment numbers from the seats' own machines. Those names describe where the work happened. They are not paths in this repository.
 - The workbench packings and the RAISED toy were marked keel-only. They are included here because the keel asked for the whole upload. He reviews before anything is made public.
-- Name Badge Networking, Room 1 theater speaker work and Soulshine business material are not in this archive. "Soulshine" appears only as the authoring name.
 
 ## Checking the files
 
