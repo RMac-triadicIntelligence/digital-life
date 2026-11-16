@@ -1,0 +1,61 @@
+{
+ "conditions": {
+  "A_none": {
+   "mean": {
+    "d120": 0.9855,
+    "d199": 0.9873,
+    "d79": 0.987,
+    "d81": 0.9869
+   },
+   "median_first_below": null,
+   "released_of_50": 0
+  },
+  "B_grace": {
+   "mean": {
+    "d120": 0.9866,
+    "d199": 0.987,
+    "d79": 0.987,
+    "d81": 0.9873
+   },
+   "median_first_below": null,
+   "released_of_50": 0
+  },
+  "C_grace_love": {
+   "mean": {
+    "d120": 0.9865,
+    "d199": 0.9869,
+    "d79": 0.9858,
+    "d81": 0.9866
+   },
+   "median_first_below": null,
+   "released_of_50": 0
+  },
+  "D_world_like_root": {
+   "mean": {
+    "d120": 0.191,
+    "d199": 0.2841,
+    "d79": 0.9676,
+    "d81": 0.8971
+   },
+   "median_first_below": 90,
+   "released_of_50": 50
+  },
+  "E_world_like_root_no_grace": {
+   "mean": {
+    "d120": 0.9203,
+    "d199": 0.9477,
+    "d79": 0.9676,
+    "d81": 0.9621
+   },
+   "median_first_below": null,
+   "released_of_50": 0
+  }
+ },
+ "prereg_sha256": "c049e28f59898990884139a9399a05a5e0bbbce6cf676780b949ac8d6adab416",
+ "verdicts": {
+  "R1": true,
+  "R2": true,
+  "R3": false,
+  "R4": true
+ }
+}

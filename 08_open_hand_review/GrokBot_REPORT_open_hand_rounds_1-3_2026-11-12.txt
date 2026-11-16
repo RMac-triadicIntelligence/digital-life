@@ -1,0 +1,210 @@
+REPORT: open-hand toy, rounds 1 to 3. Falsifier B (history) seat, Grok bot. 2026-11-12, America/Chicago (CT).
+Review file: attachment-1815.txt, 601 lines, sha256 13b7f79ae69e30c805702aad01664a5781558ab1dfbd698b402fc9758e75994f (checked).
+Tags: DOC = from the review file. OBS = I observed it by running code. PRIOR = outside knowledge.
+Everything is in /workspace/open-hand-review-2026-11-12/ (originals/, runs/, attacks/, attacks/out/, predictions.md).
+
+==================== SUMMARY ====================
+REPRODUCTION: matched exactly. All 11 embedded files extract to their stated sha256 (DOC+OBS). All three scripts, run on two
+stacks (Python 3.12.16 + numpy 2.3.5 venv; Python 3.13.5 + numpy 2.5.4 system), print the same results hashes as the file and
+produce stdout that is byte-identical to the file's raw outputs (stdout sha256 equals the stated raw_output sha256) (OBS):
+  round1 results.json         e6deb22bc073d8ecc356c22d8eb772000de75d30ad0ce18bde017a2197164871
+  round2 results_round2.json  4b1d684b9b076f645df5fbe15913ae8a40de6f1577ee4a95937cbd48354569ce
+  round3 results_round3.json  b263767f2aee6fd6401365c7f725b48a7bf3b40e98e8f57f4d7509a224457c89
+
+TOP SCORING PROBLEMS:
+ - R5 (spill-before-eating "BREAK") is true by construction: the 93.8% want is exactly the share of members whose hand is smaller
+   than their need (96.9/95.3/89.1% for seeds 1/2/3), and none of those members was ever fully fed (OBS).
+ - R3 ("grid with 10% fists: flow goes around, little want") was scored "only partly". It should be scored false. The 9% want is a
+   small-grid effect: it is 24% on 16x16, 40% on 32x32, 41% on 48x48 (OBS). The 8x8 result ranges from 0.1% to 27% across seeds
+   1-10 (OBS). Round 3 B3 itself gives 47% (DOC).
+ - OH3 ("BARNS dry half in want however much rain") holds only because plenty was never above 1.3x. The dry half's rain scales with
+   plenty: dry-half want is 68% at 3x, 12% at 6x and 0% at 10x (OBS).
+ - The drought result and the keel-hope match "the remainder was for the future" (DOC) are bookkeeping of a pile that the rule says
+   no hand can hold (see the strongest attack below). U3 and ledger 17 were scored too kindly.
+ - R4 (one rain point, ring: "nobody in want after start-up") was never scored in the ledger. It is false in every one of seeds
+   1-10: want 0.3-0.9%, and the worst member is short 6-14% (OBS).
+ - B1 failed at day 12,000 (Claude says so), but it comes true by construction at day 22,000 (under 2%) and day 24,500 (zero) (OBS).
+   Only the timing was ever at risk.
+
+STRONGEST ATTACK (rule untouched; this is an artefact of the code): "a hand holds only its size" is enforced only at the moment of
+spilling. Spillover that lands on a full hand is held and eaten from later, and it never has to run on. So the OPEN community is an
+unbounded barn. At day 3,000 of round 1 (1.3x), the 60 members hold 363-416 times the sum of all their hands. Every member is above
+its own hand, and one holds 1,135 times its hand (OBS). On the round-3 grid at day 12,000, the community holds 2,369 times the sum
+of hands (OBS). The ~940 drought days equal this stock (942 days of need, seed 1). Survival scales with how long plenty ran first:
+148 / 232 / 361 / 650 / 951 days after 250 / 500 / 1,000 / 2,000 / 3,000 days of plenty (OBS). Every "no want in plenty" result,
+the drought reserve, and the slow "crawl" all rest on this pile.
+Second-strongest, a world not tried: a valley with ends (a line instead of a ring), same rule. At 1.3x, want is 7.3% with reflecting
+ends and 19.2% with open ends, against 0% on the ring. The far end is in want 62% and 96% of days (OBS).
+Third: the grid fist and leak "breaks" depend on the blind equal split. With a split by free room (same rule), 10% fists on the grid
+go from 9% to 0.6% want, 30% fists from 34.5% to 13.8%, and 20% leak on the grid from 26% to 12.5%. On a ring the split barely
+matters (OBS).
+
+4a/4b PREDICTIONS: in predictions.md, sha256 2b3fb6d498c954446502de3f6cc272e7b8a9dcd9fed31d511c5139f41e9c45ff, written
+2026-11-12 18:18:24 CST, before ANY code in this review was run. Nothing about 4a or 4b was built or run.
+Headline predictions: hand-limited goods scouts change timing, not the long-run outcome, in lossless worlds. 1% scouts do not bring
+B1 under 2% by day 12,000 (S1). Knowledge-only scouts that aim overflow cut settling time at least 5x (S3), but cannot rescue a
+ring dammed by fists (S5), and leave the 74-hop band missing over half its need under 5% loss (S4). For 4b, "no one above whole"
+makes ledger entry 2's 16-35x fill impossible BY CONSTRUCTION (B1x, not to be scored as a hit). B2x-B6x are low confidence because
+the society model's code is not in the file.
+
+==================== 1. EXTRACTION AND REPRODUCTION ====================
+1.1 Extraction (OBS). I used extract.py, which takes the text between each "===== FILE: name | sha256 H =====" line and its END line,
+    plus one trailing newline. All 11 files match their stated sha256, scripts included:
+      round1/open_hand.py   fb1c28f9efd5cb819487601865dd6bbdedcbef015788a05b9615745f4bb5decf  stated: same
+      round2/open_hand2.py  46522af398eb40bc11e17b84c5802f7ec54556ed047d00e07a6e14ffb0155523  stated: same
+      round3/open_hand3.py  d038857169d4ad199fb7327326b6675afc9dccf1355fe451366ff0d41fe6b732  stated: same
+    The predictions files, raw outputs, keel note and ledger also match (see originals/). The scripts were not edited. The attacks
+    load them with importlib and do not modify them.
+1.2 Runs (OBS). The six runs (3 scripts x 2 stacks) ran in parallel and finished in about 94 s of wall time. Exit code 0, empty
+    stderr. My timing.txt per-run wall field is blank because bc is missing on the box, so I have no per-script times.
+1.3 Line-by-line match (OBS). diff of each stdout.txt against the extracted raw_output file: IDENTICAL for all 6 runs. Every number
+    in the file's three raw outputs is reproduced exactly on both stacks, including the float32 round-3 numbers. Raw stdout is saved
+    in runs/{venv312,sys313}/round{1,2,3}/stdout.txt, with the results JSON next to it.
+1.4 Mass check, round 3 (OBS, faithful copy a8b, verified against the original's printed windows): rain - eaten - held drifts by
+    -3.7e-8 (day 12,000) and 4.2e-7 (day 40,000) of total rain. float32 is not a problem at this length.
+
+==================== 2. SCORING OF CLAUDE'S OWN PREDICTIONS ====================
+Round 1
+- OH1 (OPEN < BARNS want, 1.3x): true (0.0 vs 0.485, DOC). Near construction: BARNS cannot move rain, and the dry half gets only
+  23% of its need as rain at 1.3x (OBS a2), so BARNS want is about 0.5 or more. OPEN, with conservation and unlimited holding of
+  received spill, cannot do worse. Claude already calls it a safe bet (DOC).
+- OH2 (dry half fed nearly as well as wet half): true at 1.3x (0 vs 0, DOC). OH2 names no rain level, and it is false at 1.0x (dry
+  10.4% vs wet 0%) and at 0.8x (50.6% vs 0%) (DOC). If it was scored as an unconditional hit, that is too kind.
+- OH3 (BARNS dry half in want however much rain falls on the wet half): true by construction at the tested levels, and false as
+  worded. The code ties dry rain to wet rain (0.1 ratio), so more rain on the wet half means more on the dry half. Dry-half want is
+  0.972 at 1.3x, 0.682 at 3x, 0.116 at 6x and 0.000 at 10x and 20x (OBS a2_oh3_plenty).
+- U3 / ledger 17 (drought: no one in want for ~940 steps): the code produces it, but not through what the rule describes. The ~940
+  days are the pile of received spill that no hand could hold, by the rule's own words (OBS a1: 942 days of need held at day 3,000,
+  363-416x total hand). The keel-hope note's "matches round 1's drought" (DOC) is scored too kindly.
+- ASKED "made as favourable as I can" (DOC): it is not very favourable. One random neighbour, asked only after a day in want, gives
+  half of its holdings, and gifts never chain. Dry members' neighbours are mostly dry. Ledger 15 notes the dependence (DOC). I agree,
+  and add that the comparison says little about asking as such (code reading, DOC).
+Round 2
+- R1: 5% part wrong (scored wrong, honest). 20% part true. 10 seeds give 38.1-40.3% at 5% leak (OBS), stable.
+- R2 (ring, 10% fists break): true. The 3-seed mean of 31.6% hides a seed range of 18.8%-46.3% (OBS a4).
+- R3: should be FALSE, not "partly". See the summary: 9% on 8x8 rises to 24/40/41% on 16/32/48 grids (OBS a5). The 8x8 seed range
+  is 0.1%-26.6% want, with the worst member short 1.3%-83.8% (OBS a4).
+- R4 (one rain point, ring: after start-up, nobody in want): not scored anywhere in the ledger (DOC). It is false: want above 0 in
+  all of seeds 1-10 (0.3%-0.9%), worst member short 6.1%-14.1% (OBS a4).
+- R5 (BREAK, spill before eating with tiny hands): true by construction. With cap_first a member can never eat more than its hand
+  after spilling, so every member with hand < need is in want every day and every member with hand >= need is fed. Observed want
+  equals the hand<need share exactly: 0.969 / 0.953 / 0.891 for seeds 1-3, mean 0.938 (DOC 0.938). Zero hand<need members were ever
+  fully fed (OBS a4). Ledger 20 scores it as a predicted break. It carried no risk.
+- R6 (plenty: ASKED+ and CENTRAL no want, OPEN matches): true, but close to construction. CENTRAL pools everything and splits by
+  need, and ASKED+ tops up from the global richest; with 1.3x and a growing stock neither can be in want after the start. OPEN's
+  "match" leaves a worst member short 0.8% (DOC). Not scored in the ledger.
+- R7: true (DOC: worst 0.894 vs 0.201). The CENTRAL half is by construction: eat = need x the same fraction for everyone, so
+  worst = mean (DOC 0.201 = 0.201). Only the OPEN half carried risk.
+Round 3 (one seed for everything, seed 1, DOC)
+- B1: wrong at 12,000 (scored wrong, honest). It comes true by construction later: under 2% in the window ending day 22,000, 0% from
+  day 24,500 (OBS a8b). In a lossless plenty world the pile guarantees it, so B1 only ever tested speed.
+- B2 / B7: true (1.06% in days 0-499, then 0, DOC). Low risk: with 25% of members as rain patches, almost every member is within 1-2
+  hops of one.
+- B3 ("5% or more" with 10% fists): scored as predicted. It is a floor bet that carried little risk, and the 47% outcome contradicts
+  the mechanism of R3. Too kind. Ledger 25 notes that the size was unexpected (DOC).
+- B4 ("far band in want; >= 20%"): true (47%). Not scored in the ledger.
+- B5 ("under 5%"): 5.17% / 5.03% / 5.18% for seeds 1/2/3 (OBS a8). It misses on every seed. "Narrow miss" (ledger 26) is fair.
+- B6 (scarcity: fed band, then near-total miss): matches the profile (0 to 20 hops, 0.837 at 40 and 74, DOC). The run had not
+  settled (want 0.479 to 0.339, still falling, DOC), so the band edge is a transient. Not scored in the ledger.
+- Ledger 25's reading "fists act like a loss per hop" (DOC): the B3 and B4 hop profiles are identical at every hop >= 5 (DOC; seed 2
+  too, OBS a8), and both equal the value for an isolated dry member who never receives spill, 0.741 (OBS a9). The far-band numbers
+  show that no flow arrived. They cannot tell fists from leak.
+
+==================== 3. ATTACKS (rule unchanged; scripts in attacks/, fixed seeds, outputs in attacks/out/) ====================
+Every attack that copies code asserts that its copy reproduces the original exactly (a1: want arrays equal for seeds 1-5; a3: unmet
+equal for leak 0.05 ring and grid fists 0.1, seeds 1-3; a8b: windows equal). The others call the original functions directly. a7
+monkeypatches graph() at runtime.
+A1 (a1_stock.py) THE UNBOUNDED BARN. Covered in the summary. Day 3,000, 1.3x, seeds 1-5: total held / total hand = 393.4, 415.8,
+   386.0, 412.8, 363.4. Members above their own hand: 60/60. Max held / own hand: 975-1,135. Seed 1 over time: 23x (day 100), 87x
+   (500), 148x (1,000), 270x (2,000), 393x (3,000). At 1.0x (no surplus) half are in want 192-231 days after the rain stops, against
+   930-974 at 1.3x. This is an artefact of how received spill is applied (synchronous update, no re-spill of inflow, no limit on the
+   whole). I did NOT build a variant that caps what the community can hold, because that is close to the 4b question (a basin that
+   cannot be more than whole) and the request said not to build 4b.
+A2 (a2_oh3_plenty.py) OH3 at high plenty: see item 2.
+A3 (a3_split.py) SPLIT BY FREE ROOM. The rule is the same (overflow beyond the hand runs to neighbours). Overflow goes in proportion
+   to each neighbour's free room, and is split equally only when no neighbour has room. Fists count as having no room. Results,
+   equal -> room, 3 seeds:
+   baseline ring want 0.0% -> 4.8% (worse); leak 0.05 ring 39.4 -> 38.2; leak 0.2 ring 45.2 -> 43.6; leak 0.2 grid 26.3 -> 12.5;
+   fists 0.1 ring 31.6 -> 29.5; fists 0.1 grid 9.0 -> 0.6 (worst member 50.5% -> 4.5%); fists 0.3 grid 34.5 -> 13.8;
+   scarcity 0.8 ring 24.6 -> 24.5 (worst 89.4 -> 75.8); 1.0x ring 5.9 -> 11.8 (worst 69.3 -> 41.0); point ring 0.4 -> 3.0.
+   Reading: on grids, the fist and leak "breaks" are partly an artefact of the blind equal split. On a ring they are not, so my
+   prediction X3 was FALSE. The baseline getting worse was unexpected (open ledger).
+A4 (a4_seeds_and_construction.py): seed spreads and R5 construction (item 2).
+A5 (a5_gridsize.py) R3 on bigger grids: 0% fists stays 0-0.1%; 10% fists 9.0 / 24.0 / 39.8 / 41.3% on 8/16/32/48 grids.
+A6 (a6_metric_ring600.py) "first day fed" on the ring of 600: the original metric says day 531 (DOC+OBS). Member 450 never had even
+   10 consecutive fed days in 30,000 days, and it was fed on 6-8% of days in every 2,500-day window. In the last 2,500 days the dry
+   half is at 0% want up to 100 hops, then 99.4% at 125 and 93.6% at 149 hops. The middle of the dry half was never reached. This is
+   stronger than "fooled by local rain" (DOC).
+A7 (a7_boundary.py) A VALLEY WITH ENDS, a world not tried. On a line of 64 (dry half at one end, max 31 hops instead of 15), at 1.3x:
+   reflecting ends give 7.3% want, worst member short 47.7%, and the far end in want 62% of days. Open ends (half of an end member's
+   spill leaves the world) give 19.2% want, worst 83.1%. At 2.0x: 0.9% and 1.5%. The ring wrap is a boundary choice that gives the
+   dry half two wet shores. With reflecting ends nothing is lost, so the lossless line should settle eventually (A1). This is a
+   2,500-day-window break.
+A8 (a8_round3_more.py, a8b_b1_windows.py): B5 on seeds 2-3; B3 and B4 on seed 2; B1 run to 40,000 days (all 80 windows are in
+   attacks/out/a8b_b1_windows.txt).
+A9 (a9_dry_rain_only.py): an isolated dry member at 1.3x gets mean rain 0.236 against mean need 1.0 and misses 74.1% (OBS), which is
+   the 0.735-0.742 plateau in B1, B3 and B4.
+My own attack predictions (written in predictions.md before running; I had already read the file's results): X1 true (>100x: 363-416x).
+X2 roughly true (survival rises with plenty duration but is not proportional: 1,000 vs 3,000 gives 0.38, not 0.33). X3 FALSE. X4 true.
+X5 true.
+
+==================== 4. PREDICTIONS FOR 4a (SCOUTS) AND 4b (BASIN) ====================
+File: predictions.md. sha256 2b3fb6d498c954446502de3f6cc272e7b8a9dcd9fed31d511c5139f41e9c45ff. Written 2026-11-12 18:18:24 CST,
+before any code in this review ran (also recorded in PREDICTIONS_HASH.txt). No outside timestamp. Not built, not run.
+Too vague to predict as written (said in the file):
+- 4a: whether scouts move goods, knowledge or themselves; whether what they carry is limited by hand size; cost or leak of carrying;
+  how many scouts, how far, whether they return. The Mark 6 mapping does not fix a mechanism.
+- 4b: the society model's code is not in this file (only ledger 1-14 describe it). What "whole" means, where the excess runs, and
+  whether hoarders are capped are all unspecified.
+Main predictions (full text in the file): S1 1% hand-limited carriers do not bring B1 under 2% by day 12,000. S2 carriers in the 5%
+leak world bring want below 47% in proportion to carried volume. S3 aimed overflow (knowledge) cuts lossless settling time at least
+5x. S4 5%-leak grid: want 15-35%, and the 74-hop band still misses over half. S5 a fist-dammed ring stays at 25% or more; a fisted
+grid falls under 20%. S6 drought days stay within 10% of ~940. S7 the worst-off member is still a far member. B1x the 16-35x fill
+cannot recur BY CONSTRUCTION. B2x the fill/turning inversion shrinks to under 3 points. B3x hoarder share rises above 57% if
+hoarders are uncapped and the excess runs to neighbours, and falls to 40% or less if they are capped. B4x pass-on still makes no
+difference if the excess runs off. B5x if the excess runs off, drought tolerance falls by more than half. B6x overall turning moves
+less than 10 points.
+Caveat on my own result: after writing these I found the unbounded-pile artefact (A1) and that the split rule matters on grids (A3).
+I have NOT revised the predictions. S6 in particular rests on the pile.
+
+==================== 5. OPEN LEDGER LINES (to add; nothing explained away, no rule change proposed) ====================
+OL-1 | open_hand round 1, re-run | OPEN at day 3,000 (1.3x) holds 363-416x the sum of all hands. All 60 members hold more than their
+      own hand, one 1,135x its hand | Expected (DOC rule): no hand holds more than its size | Kept (OBS)
+OL-2 | open_hand round 1 | Days until half are in want after the rain stops follow how long plenty ran: 148/232/361/650/951 after
+      250/500/1,000/2,000/3,000 days | Not predicted by anyone | Kept (OBS)
+OL-3 | open_hand3 B1 run to 40,000 days | Want under 2% at day 22,000 and 0 at 24,500. The grid held 2,369x the sum of hands at day
+      12,000. Want fell steadily (about 1.1 points per 500 days early, 0.5 late) and then hit zero with no long tail | B1 said under 2% by
+      day 12,000 | Kept (OBS)
+OL-4 | open_hand2 R5 | Want equals exactly the share of members whose hand < need (seeds 1-3); no such member was ever fully fed |
+      Scored as a predicted break | Kept (OBS)
+OL-5 | open_hand2 R3 | 10%-fist grid want grows with size: 9 / 24 / 40 / 41% on 8 / 16 / 32 / 48 grids. 8x8 seeds 1-10 range from
+      0.1% to 27% | "Little want" | Kept (OBS)
+OL-6 | open_hand2, split by free room | Same rule, different split: the lossless plenty ring went from 0% to 4.8% want and 1.0x from
+      5.9% to 11.8% (worst member better: 69% to 41%), while the 10%-fist grid fell from 9% to 0.6% | My X3 predicted the ring leak
+      would halve; it did not | Kept (OBS)
+OL-7 | open_hand2 ring of 600 | The middle of the dry half was fed on 6-8% of days in every 2,500-day window over 30,000 days, never
+      10 days in a row. The front sits between 100 and 125 hops | Reported as first fed on day 531 | Kept (OBS)
+OL-8 | open_hand3 B3 vs B4 | Identical unmet at every hop >= 5 (seeds 1 and 2), equal to an isolated dry member's 0.741 | Read as
+      "fists act like a loss per hop" | Kept (OBS)
+OL-9 | open_hand round 1 BARNS | Dry-half want 68% at 3x, 12% at 6x, 0% at 10x | OH3: "however much rain" | Kept (OBS)
+OL-10 | open_hand2 on a line (valley with ends) | 7.3% want (reflecting ends) and 19.2% (open ends) at 1.3x, against 0% on the ring;
+      far end in want 62% / 96% of days | Not tried | Kept (OBS)
+OL-11 | open_hand2 cap_first with normal hands | 5.2% want over seeds 1-3 but 3.8% over seeds 1-10 (seed 2 alone 10.9%) | Not
+      predicted | Kept (OBS)
+
+==================== BLINDNESS DISCLOSURE ====================
+I am not blind. Earlier copies of open_hand exist on this box: /workspace/github-staging-2026-11-10/triadic/batch2/open_hand/
+(v1, v2, v3, plus received/open_hand_v{1,2,3}.zip), /workspace/github-publish-2026-11-10/triadic-in-action-builds/open_hand/ (same
+layout), /workspace/triadic-work-2026-11-10/unpack/*/open_hand_v*, and a lab-notebook draft
+(2026-11-10-open-hand-and-triad-closeout.md). I listed their file names and computed sha256 of the .py files only. I did not open
+or read any of their contents, outputs or notes. PRIOR: every earlier open_hand.py / open_hand2.py / open_hand3.py has the same sha256
+as the copy extracted from this review file (fb1c28f9..., 46522af3..., d0388571...). I did not open, list or touch
+/workspace/github-staging-2026-11-10/triadic/hold-round5/ (it was excluded from my search). Everything else in this review comes from
+attachment-1815.txt and my own runs. I may also have general background (PRIOR) on diffusion and random walks. The "~d vs ~d^2 hops"
+reasoning in predictions S3 is PRIOR. Nothing was published, pushed or sent.
+
+==================== ENVIRONMENT ====================
+Box: Debian GNU/Linux 13 (trixie), kernel 6.12.113+, x86_64, 8 CPUs. Stack A: /workspace/dc-builder-handoff-2026-11-12/venv312, Python
+3.12.16, numpy 2.3.5 (works). Stack B: system python3 3.13.5, numpy 2.5.4. Attacks ran on stack A. Times are CT (UTC-6). The work ran
+from 18:15 to about 18:30 CST on 2026-11-12. Secret scan of this folder: see the last line.
+Secret scan 2026-11-12 18:25 CST: rg over the whole folder for salt / api key / secret / token / password / private-key blocks / ghp_ / sk- / AKIA / xox patterns. No hits outside this sentence, nothing withheld. The only long hex strings are sha256 digests.

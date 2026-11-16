@@ -1,0 +1,29 @@
+OK  SEAL_MANIFEST.sha256 -> 8eb7ebf76961… (expected 8eb7ebf76961…)
+OK  8f2998fe2caa  DEVIATIONS.md
+OK  c526d49258aa  ERRATA_2026-10-12.md
+OK  c22d0d4733dd  EXPLORATORY_T_long_horizon.txt
+OK  fb2e7bb88b15  MANIFEST.sha256
+OK  2164c8365da6  PREREG_G2.frozen_at
+OK  9228a974f5cc  PREREG_G2.json
+OK  96687d9d9480  PREREG_G2.sha256
+OK  177c10b8d932  PREREG_S.frozen_at
+OK  6c47f7f23860  PREREG_S.json
+OK  209b9089c133  PREREG_S.sha256
+OK  177c10b8d932  PREREG_T.frozen_at
+OK  949fab60680b  PREREG_T.json
+OK  24f810624ac7  PREREG_T.sha256
+OK  0dc02968bf8b  README.md
+OK  520a393d3b95  RECEIVED.sha256
+OK  aed14e2c37f1  SCORE_G2.json
+OK  0223e6fe6a83  SCORE_S.json
+OK  8e3798f0a0ed  SCORE_T.json
+OK  3ef44fe5e7e0  received/origami_kenta_sdkp.py
+OK  ece108602291  received/triadic_model.py
+OK  a96562bd3b34  results_G2.json
+OK  9e1a46b16cbf  results_S.json
+OK  154e1f466ac7  results_T.json
+OK  ce84f45c6421  test_G2.py
+OK  67118a497895  test_S.py
+OK  d5bf96e77199  test_T.py
+
+SEAL INTACT

@@ -1,0 +1,63 @@
+{
+ "per_seed": [
+  {
+   "M10_mean_place_overlap_all_pairs": 0.4329,
+   "M10_mean_place_overlap_same_colour": 0.4427,
+   "M10_same_colour_pairs": 83,
+   "M10_share_in_different_places": 0.988,
+   "M11_ranging_unknown": 200477,
+   "M11_share_found": 0.1818,
+   "M12_grace_events": 0,
+   "M12_grace_receivers": 0,
+   "M1_survived": true,
+   "M2_cap_hit": false,
+   "M2_pop_final": 37,
+   "M2_pop_peak": 47,
+   "M3_lineages_alive": 4,
+   "M4_founders_alive": 8,
+   "M4_oldest_born_day": 0,
+   "M5_finds_expired": 46439,
+   "M5_finds_laid": 47417,
+   "M5_finds_witnessed": 861,
+   "M5_share_expired": 0.9794,
+   "M6_kin_dist_expired": 6.352,
+   "M6_kin_dist_witnessed": 2.758,
+   "M7_keeper_mean_curiosity": 0.2633,
+   "M7_keepers": 30,
+   "M7_median_colour_keeper": [
+    0.2271,
+    0.184,
+    0.5733
+   ],
+   "M7_median_colour_scout": [
+    0.6848,
+    0.1548,
+    0.1596
+   ],
+   "M7_qualifying_members": 67,
+   "M7_rarest_for_median_keeper": "verbosity",
+   "M7_rarest_for_median_scout": "verbosity",
+   "M7_scout_mean_curiosity": 0.703,
+   "M7_scouts": 37,
+   "M7_share_with_formality_commonest": 0.2985,
+   "M8_living_qualifying": 37,
+   "M8_mean_colour_distance_within_household": 0.0669,
+   "M9_households_compared": 7,
+   "M9_households_fuller_than_most_even_member": 0,
+   "days": 1000,
+   "deaths": 81,
+   "e_mean_by_decade": [],
+   "ever_born": 118,
+   "extinct_at_day": null,
+   "lineages_by_decade": [],
+   "median_lifetime_days_of_the_dead": 7,
+   "output_sha256": "6753816cf37d8c6c818a36df0bffe57b183856208fdf8c7d3a0b22bdfdfb25cc",
+   "pop_by_decade": [],
+   "seed": 999,
+   "stock_by_decade": []
+  }
+ ],
+ "seeds_reported": [
+  999
+ ]
+}

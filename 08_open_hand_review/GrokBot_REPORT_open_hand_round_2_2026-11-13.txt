@@ -1,0 +1,306 @@
+REPORT, ROUND 2 OF THE OPEN-HAND REVIEW. Grok bot (Chief of Staff, history seat). 2026-11-13, times in America/Chicago (CST, UTC-6).
+Review file: attachment-0640.txt, 1052 lines, sha256 45f625cd647eeaa2886b19b20682023723933efa96c79a01bc90fbf18f5d5330 (checked).
+Tags: DOC = from this round's file. OBS = I ran it and saw it. PRIOR = outside knowledge, including my own round-1 work.
+Every run used fixed seeds. Every script ran on both stacks (Python 3.12.16 + numpy 2.3.5; Python 3.13.5 + numpy 2.5.4), and each
+script's output was byte-identical across the two (OBS). There are no folder paths in this report.
+
+==================== SUMMARY ====================
+- Extraction (OBS): all 18 embedded files match their stated sha256. One needs a note. The wrapper FOR_REVIEW_open_hand_rounds_1_to_3.txt
+  matches 20b70b8b... only with one extra trailing newline. Its content is byte-identical to the round-1 review file (sha 13b7f79a...).
+  My own round-1 report embedded here (paths removed) differs from my original only where paths were replaced (OBS, PRIOR own work).
+- T1 (OBS): water poured onto a full hand stays overnight on top of that hand. The member eats from it first the next morning, and
+  then whatever is still above its hand is passed on again, all of it, every day. Each description is half right. Nothing limits the
+  pile's size and members eat from it ("barn"). But none of it stays put: 100% of above-hand water is passed on daily ("transit"). Yet
+  its net movement is almost nil: on day 3,000 about 58,000 units are passed on, and only 26-47 units net cross into the dry half. My
+  wording: an unbounded pile that is passed on in full every day and sloshes back and forth with almost no net drift.
+- T2 one-way ring (OBS): in plenty, want is ZERO on all 20 seeds (n=64) and on all 5 seeds of the round-1 world, and in every
+  5,000-day window on the ring of 600 (two-way: 36% falling to 10%). Grok Expert's forecast (dry side in want in plenty) fails on a
+  closed ring. It holds on a one-way LINE with the dry half upstream (about 94-99% want in the dry half). One-way also beats two-way
+  under 5% leak (22-23% vs 39%) and at 1.0x (0.9% vs 5.9%).
+- B3, my own artefact (OBS): the room-split result I reported in round 1 (ledger 42: the plain ring got WORSE) came from rounding
+  noise in my own code. Just after a member spills, its "free room" (hand minus holding) comes out as +4e-16 instead of 0 for about 9%
+  of members. When the other neighbour has exactly 0 room, that noise pulls 100% of an overflow one way. Counting room <= 1e-9 as none,
+  the room split matches or beats the equal split on 16-20 of 20 seeds at every ring size (16-600) and rain level (1.0/1.3/2.0x). The
+  worsening disappears, and so does the "better worst member at 1.0x". Two versions of the identical formula that differ only in
+  summation order gave different want on 20 of 20 seeds. On the grid, noise inflated the fist result (10% fists: 0.5% vs 3.8%), but the
+  gain over the equal split survives (equal 15.4% over 20 seeds). Entry 42 stays; this is new evidence beside it.
+- B1 (OBS): ledger 32 reproduces exactly (2,581 severe; 1,339 at distance 2). No severe member is within one hop of a wet site.
+  Ledger 35 reproduces (ASKED+ at 1.0x: 0.5% to 0.3%; 2,639 to 1,390 member-days). The rain is bit-identical to OPEN's only with the
+  separate stream.
+- B2 (OBS): ledger 29 reproduces (0.5 / 0.2), and so does ledger 30 (one bridge 44-45%, 16 bridges 0) with my own rebuild. Unexpected
+  (OBS): the alternating-rain failure mostly disappears on an ODD ring (63: want 10.5%; 65: 11.5%). The one-bridge failure is partly a
+  3,000-day transient: 11.5-12.1% at 12,000 days.
+- T5 disagreements: R4 should not stand as plainly "false". On seeds 1-10 every shortage ends between day 668 and 912, and there is
+  none after day 1,000 (OBS). My round-1 "false" depended on the scoring window, which R4 never fixed. Entry 38's "counting differs by a
+  few days" is wrong: the conductor's numbers are exactly my seed-1 values, and mine were 5-seed means.
+- Prediction hashes (all written before the runs they cover):
+  predictions_round2.md                    ec7d8f2f6d91ea4c24e5a0325ff0c138dcf8099963c9840c8283f632c26b0dfc  2026-11-13 06:44:09 CST
+  predictions_round2_addendum_B3.md        525604708f0167b3acf9435f7b2b502ee7e065026a353de10a9af0ffa59c0b88  2026-11-13 06:47:31 CST
+  predictions_round2_addendum2_grid.md     39aae2342a1105922ac2398cd0f0878fce849d6559c24feda2d5a4277d7f5f81  2026-11-13 06:49:53 CST
+
+==================== T1. THE PILE ====================
+What the round-1 loop does each day (DOC, code reading of open_hand.py; confirmed OBS):
+  1. Rain is added to L, the member's holding. L already includes what neighbours spilled onto it the day before.
+  2. The member eats min(L, need) from all of L, including yesterday's inflow, before anything else happens.
+  3. Whatever is above its hand is removed and split half left, half right. In the same statement, those halves are added to the
+     neighbours' L.
+  4. So water poured onto a full hand sits overnight in that neighbour's L, above its hand. The next day that neighbour eats from it
+     first, and everything still above its hand is passed on again, in full. Nothing ever forces it on before the next day, and nothing
+     caps how much can sit there overnight.
+Evidence (OBS; copied loop, asserted identical to the original for seeds 1-5; day 3,000, 1.3x):
+- The share of above-hand water passed on each day is 1.000 (all of it) on every seed.
+- Gross water passed on per day: 58,075 / 58,997 / 58,361 / 60,757 / 55,719 units (seeds 1-5).
+- Net flow into the dry half that day (across both wet/dry edges): 35.8 / 36.6 / 37.4 / 47.3 / 26.0 units. That is 0.05-0.08% of
+  what is passed on.
+- Where the pile sits: above-hand water in the wet half vs the dry half is 34,073 vs 24,002 (seed 1), and about 58/42 on every seed.
+  It is spread round the ring, not stacked at the rain.
+- Within hands: 2.40 / 2.32 / 2.52 / 2.30 / 2.56 days of need. Total: 942.3 / 965.6 / 973.3 / 947.3 / 929.8 days. All 60 members
+  are above their own hand. These are the same water as ledger 34 and 37 (DOC; the conductor's check script, rerun unchanged, prints
+  the same 942.3 / 2.4 and 965.6 / 2.3, OBS).
+- In the round-2 world (n=64, 1.3x, seed 1), within hands is 2.32-2.41 days and hands plus water in flight is 221.6 / 515.7 / 810.9
+  days at days 500 / 1,500 / 2,500 (OBS, B3 v2 tracking).
+Which description is more accurate:
+- "In transit" (ChatGPT) is right that no water stays above a hand for more than one night, and that all of it moves every day. It
+  misleads if read as travelling toward someone: the net drift is under 0.1% of the gross movement.
+- "Unbounded barn" (mine, round 1) is right that nothing limits the size, that it grows with every day of plenty (ledger 38), and that
+  members eat from it before their own hand's water. It misleads if read as a store that stays in one place or belongs to one member.
+- My wording: an unbounded pile that is passed on in full every day, sloshing back and forth with almost no net movement, and that
+  whoever it lands on eats from first.
+Prediction check (predictions_round2.md): T1a held. T1b held for gross (>= 50,000) and ratio (< 0.1%). My net range of 20-30 was
+too low (observed 26-47). T1c held.
+
+==================== T2. THE ONE-WAY RING ====================
+Build (OBS): the ORIGINAL open_hand2.run with graph() replaced at runtime. Each member's overflow goes 100% to i+1 (CW) or 100% to i-1
+(CCW). Everything else is round 2: n=64, rain on half (members 0-31 wet), eat first, no fists. Seeds 1-3 unless stated. The file was
+left untouched. The round-1 world was run with a copied loop (asserted identical for the two-way case).
+Results (OBS), as want / mean unmet / worst member's unmet:
+- 1.3x, no leak: two-way 0.0 / 0.0 / 0.008. CW 0.0 / 0.0 / 0.0. CCW 0.0 / 0.0 / 0.0. CW over seeds 1-20: 0.0 on every seed.
+- Round-1 world (n=60, seeds 1-5), CW: want 0.0 in days 500-3,000 on every seed.
+- Ring of 600, seed 1, 30,000 days, want per 5,000-day window: two-way 0.36 / 0.277 / 0.222 / 0.175 / 0.136 / 0.102. CW
+  0.0 / 0.0 / 0.0 / 0.0 / 0.0 / 0.0.
+- 1.3x, 5% leak: two-way 0.394 / 0.300 / 0.833. CW 0.234 / 0.176 / 0.831. CCW 0.221 / 0.170 / 0.829. Want is at the downstream end
+  of the dry half (CW: member 56 in want 99% of days, 63 96%; member 40 0.4%).
+- 1.0x: two-way 0.059 / 0.040 / 0.693. CW 0.009 / 0.005 / 0.094. CCW 0.009 / 0.005 / 0.120.
+- 0.8x: two-way 0.246 / 0.200 / 0.894 (middle of the dry half). CW 0.243 / 0.197 / 0.883 (downstream end: members 56 and 63 at
+  98-99.5%). CCW 0.222 / 0.183 / 0.893 (the mirror end). Some wet members are also short under CW at 0.8x (member 0: 4%).
+- Upstream vs downstream: on a ring the dry half is downstream of one wet edge and upstream of the other, so only a LINE separates
+  them. One-way line, last member's overflow runs off the end, 1.3x: dry half DOWNSTREAM of the rain 0.001 / 0.000 / 0.009. Dry half
+  UPSTREAM of the rain 0.486 / 0.376 / 0.835, with dry members in want 94-99.5% of days.
+Reading: Grok Expert's forecast (ledger 36: dry side in want even in plenty) fails on a closed ring and holds on an upstream line.
+Prediction check: T2a, T2b, T2d, T2e, T2f and T2g held. T2c (CW and CCW within 1 point) held at 1.3x and 1.0x and failed at 5% leak
+(23.4 vs 22.1) and at 0.8x (24.3 vs 22.2).
+
+==================== T3. STRICT HAND (FORECAST ONLY, NOT BUILT) ====================
+The forecast is in predictions_round2.md (sha ec7d8f2f..., 06:44:09 CST), written before any run this round. Restated:
+- Unspecified (the forecast depends on each choice):
+  (i) Where water goes when every hand in reach is full: runs off and is lost, travels on the same day, or waits outside hands.
+  (ii) Whether overflow can travel more than one hop in a day.
+  (iii) Whether a member can eat from water passing through it before the cap applies. If not, every member whose hand is smaller
+  than its need is in want every day by construction, as in R5. With hand U(1,4) and need U(0.5,1.5) that is about 4% of members
+  (PRIOR arithmetic: 0.5^2/2/3 = 0.042).
+  (iv) Whether rain falling on a full hand counts as overflow.
+- Two variants: V1 is one hop per day, with water that cannot be placed lost. V2 is a same-day cascade until the water finds room.
+- (a) Plenty, patchy rain: V2 under 0.5% want after start-up. V1 under 3%, concentrated two or more hops from any patch.
+- (b) Rain on half: V1 leaves the dry band beyond a few hops unreached (35-48% want, like the leak and fist plateaus). V2 is near 0 at
+  1.3x on a ring of 64 and below 5% on a 300 grid.
+- (c) Drought: the reserve is at most the sum of hands, about 2.4 days of community need. Half in want within 2-5 days, all within 10.
+  Nothing like 940 days.
+- (d) Remainder for the future: at most what hands hold (about 2.4 days, OBS T1: 2.30-2.56 days sit within hands now), and it does not
+  grow with how long plenty lasted. Anything larger requires water held outside hands, which is the pile again.
+Added after the forecast, without changing it (OBS context): the within-hands holding is 2.3-2.6 days in both the round-1 and round-2
+worlds. That is the size the strict-hand reserve would have if nothing is held outside hands.
+
+==================== T4. SCOUTS (NO REVISION; REASONS ADDED; NOTHING BUILT) ====================
+My forecast on record (predictions.md, sha 2b3fb6d4..., round 1, PRIOR own work) is unchanged. S1: 1% hand-limited goods carriers in
+the B1 world do NOT bring overall want under 2% by day 12,000. Added reasons:
+- DOC (ledger 39) and PRIOR own work: without scouts, B1 reaches under 2% only at day 22,000. Scouts would have to nearly halve that time.
+- OBS round 1 (a9, PRIOR own work): a dry member gets mean rain 0.236 against mean need 1.0. The dry half's deficit is therefore about
+  45,000 x 0.76, roughly 34,000 units a day. 900 carriers holding at most their hand (mean 2.5) move about 2,250 a day if each makes
+  one trip.
+- OBS this round (T2): directed flow can remove the crawl entirely (one-way ring of 600: zero want from the first window). Scouts that
+  steer overflow (my S3) could therefore be far stronger than hand-limited carriers. That supports the direction of ChatGPT's forecast
+  (aimed carrying beats wandering) without changing S1, which is about hand-limited carriers.
+- OBS this round (B3): a purely local steering rule (send overflow toward neighbours with room), once rounding noise is removed, does
+  NOT beat the equal split on a ring. Local "knowledge" of room is not enough. The knowledge has to point at the far band.
+- Whether the forecasts disagree: Grok Expert's is about the FAR BAND under 5%, for carriers or steered spill. Mine is about OVERALL
+  want under 2%, for 1% hand-limited carriers. Both could be true at once, so they contradict each other only if the same scout design
+  is meant. Ledger 49's "the two Groks disagree" depends on that.
+
+==================== T5. THE CONDUCTOR'S SCORING CORRECTIONS ====================
+Agree (DOC, with OBS where rerun): R3 false (it also gets worse with more seeds: 20-seed mean 15.4% on the 8x8 grid with 10% fists,
+OBS); OH3 false as worded (rerun: 0.972 / 0.682 / 0.116 / 0.0, OBS); R5 by construction; OH2 holds only at 1.3x; B3 was a floor bet;
+B5 misses on every seed; U3 / entry 17 scored too kindly; round 3 used one seed.
+Disagree or qualify:
+- R4 "FALSE" (entry 48): too strong. R4 said "after a start-up period" without giving a length. On seeds 1-10 the last shortage day
+  is 698 / 764 / 686 / 912 / 788 / 824 / 797 / 798 / 668 / 673, and want after day 1,000 is 0.0000 on every seed (OBS). ChatGPT's
+  "passed after start-up" (DOC: last shortage days 686-764 on seeds 1-3) is confirmed exactly. My round-1 "false" (want 0.3-0.9% in
+  days 500-3,000) was a fact about the 500-day burn-in window. The fair score is "true with a start-up of about 700-900 days; false if
+  start-up means the 500-day burn-in". It should not be scored false outright.
+- Entry 38, "counting differs by a few days": the conductor's 147 / 230 / 359 / 645 / 941 (seed 1 only; its script prints seed 1) are
+  exactly my seed-1 values in round 1. My 148 / 232 / 361 / 650 / 951 were 5-seed means. The difference is seed 1 vs a 5-seed mean,
+  not counting (OBS: the conductor script rerun prints {250: 147, 500: 230, 1000: 359, 2000: 645, 3000: 941}).
+- R6 "by construction": only the CENTRAL and ASKED+ halves are close to construction. OPEN's match is a measured result, and only at
+  display precision (223 member-days in want, DOC ledger 31, reproduced OBS).
+- Entry 50's wording "lets every member sit under 400x what a hand can hold": the measured facts are that the community total is about
+  400x the sum of hands, and single members reach up to 1,135x their own hand (OBS round 1, confirmed by the conductor's script rerun
+  this round).
+- Entry 42 (my room split): the conductor kept it "not rerun". I now report (OBS, B3 below) that its plain-ring part was produced by
+  rounding noise in my code. The entry should stay as written, with this beside it.
+
+==================== B1. LEDGER 32 AND 35 RERUN ====================
+Ledger 32 (OBS). This uses a faithful copy of open_hand3.run (5% leak, patchy rain, 4,000 days) that also returns per-member unmet and
+the patch mask. I checked it against the ORIGINAL for seed 1 (want windows, share over half and worst member all equal).
+- Seed 1: 22,497 patch members. 2,581 members missed over half their need in the last 500 days. By graph distance to the nearest patch
+  member: distance 0: 0, 1: 0, 2: 1,339, 3: 1,139, 4: 100, 5: 3. Both of ChatGPT's numbers reproduce exactly.
+- Share severe at each distance: 0.0 at 0 and 1, 6.9% at 2, 55.8% at 3, 100% at 4 and 5. Members at each distance: 22,497 / 46,070 /
+  19,287 / 2,043 / 100 / 3.
+- Seed 2: 2,442 severe (2: 1,302; 3: 1,094; 4: 46). Seed 3: 2,605 severe (2: 1,386; 3: 1,135; 4: 82; 5: 2).
+- Choices where the description is silent: "wet site" = a patch member (mean rain 1.0, against 0.02 elsewhere). "Two hops" = shortest
+  path on the wrapping 4-neighbour grid. "Missed over half" = mean of unmet/need over the last 500 days > 0.5, the original's measure.
+Ledger 35 (OBS). This uses a copy of open_hand2.run, asserted equal to the original for OPEN and ASKED+ at each rain level. In it, the
+ASKED+ asking order is drawn from its own generator, default_rng([seed, 35]); that seed choice is mine, since the description gives
+none. Seeds 1-3:
+- 1.3x: 0.0 in both versions.
+- 1.0x: original 0.005 want, 2,639 member-days. Matched weather 0.003, 1,390 member-days.
+- 0.8x: original 0.345 / 0.188 / 0.372. Matched 0.343 / 0.187 / 0.366.
+- Rain arrays bit-identical to OPEN's: False on every seed in the original, True with the separate stream.
+- ChatGPT's 0.5% to 0.3% reproduces. I also confirm from the code (DOC) that each asker tries only one donor, the current richest.
+Prediction check: B1a, B1b, B1c and B1d all held.
+
+==================== B2. LEDGER 29 AND 30 ON MY OWN STACK ====================
+Both worlds were rebuilt from ChatGPT's descriptions (my own code). The conductor's check script was also run unchanged as a
+cross-check, on both stacks (OBS). For that I put the two original modules on its import path. Its output: 29 want 0.5, unmet 0.2;
+30 [0.446, 0.445, 0.449] and [0.0, 0.0, 0.0]; 31 223 and 204; 33 531 and 531; 34 942.3 / 2.4 and 965.6 / 2.3. All as in the ledger.
+Ledger 29, my rebuild (OBS). Choices where the description is silent: ring of 64 with an equal two-way split; 3,000 days scored from
+day 500; holdings start at 0; even-numbered members wet on day 0; "want" = eat below need by more than 1e-9.
+- want 0.5, unmet 0.2, exactly. Uniform rain at the same total: 0.0.
+- Hand 0.6: 0.5 / 0.15. Hand 0.8: 0.5 / 0.05. Hand 0.9, 1.0 and 2.0: 0.0.
+- More rain (3.0 / 0.1, total 1.55x): still 0.5 / 0.2.
+- ODD rings: 63 gives 0.1047 / 0.0406, and 65 gives 0.1151 / 0.0447.
+Ledger 30, my rebuild (OBS). Choices: complete graphs on 128 without self-loops. k bridges between distinct members drawn at random,
+member b joined to member 128+b (the conductor used b = 0..k-1). Need U(0.5,1.5) and hand U(1,4). Group one wet (1.0), group two
+dry (0.1), scaled to 1.3x with exponential draws. Want over the last 500 of 3,000 days, seeds 1-5.
+- Bridges 1: 0.445 / 0.444 / 0.449 / 0.446 / 0.438.
+- Bridges 2: 0.348-0.369. Bridges 4: 0.132-0.177. Bridges 8, 16 and 32: 0.0 on every seed.
+- One bridge over 12,000 days (last 500): 0.115 / 0.118 / 0.121.
+Prediction check: B2a, B2c, B2d and B2e held, and B2b held for hand >= 0.9. B2b FAILED for odd rings: I predicted 0.45-0.50 and
+observed 0.10-0.12.
+
+==================== B3. SPLIT BY FREE ROOM, MORE SEEDS AND SIZES ====================
+What happened, in order (OBS):
+- First run (v1) used a fast np.roll version of my round-1 room split. It matched the original for the equal split and did NOT match my
+  dense round-1 code for the room split: seeds 1-3 gave 0.027 want vs the round-1 0.048. The dense copy reproduces 0.048 exactly.
+- Diagnosis check: after a member spills, hand minus holding comes out as +4.4e-16 for about 9% of spilled members instead of 0.
+  Under the room split, a neighbour with that noise "room" and another with exactly 0 receives 100% of the overflow. Before going
+  further I wrote and hashed an addendum (predictions_round2_addendum_B3.md). Then I ran four splits on the same weather:
+  1. EQUAL (the original rule).
+  2. ROOM-DENSE (my exact round-1 code).
+  3. ROOM-FAST (the same formula with different rounding).
+  4. ROOM-TOL (new: room <= 1e-9 counts as none). Its fast and dense versions agree (OBS).
+- Seeds 1-20 throughout, plus a 10,000-day run at n=64.
+Distribution, 20 seeds, days 500-3,000. For each case: want mean [min, median, max] for each split, then how many of the 20 seeds
+ROOM-TOL beat or lost to EQUAL (ties make up the rest):
+- n=16, 1.3x: EQUAL 0.0000. DENSE 0.0029 [0, 0.0002, 0.0254]. FAST 0.0030. TOL 0.0000 (ties on 20/20).
+- n=32, 1.3x: EQUAL 0.0000. DENSE 0.0050 [0, 0.0020, 0.0176]. FAST 0.0051. TOL 0.0000.
+- n=64, 1.3x: EQUAL 0.0003 [0, 0.0003, 0.0006]. DENSE 0.0205 [0.0008, 0.0083, 0.1023]. FAST 0.0156 [0.0005, 0.0093, 0.0725]. TOL 0.0002
+  [0, 0.0002, 0.0006]. TOL beat EQUAL on 16, lost on 1.
+- n=64, 1.3x, 10,000 days: EQUAL 0.0001. DENSE 0.0081. FAST 0.0068. TOL 0.0001. Last 1,000 days: EQUAL 0.0, DENSE 0.0036, FAST 0.0038,
+  TOL 0.0.
+- n=128, 1.3x: EQUAL 0.0695. DENSE 0.1221 [0.0541, 0.1135, 0.2769]. FAST 0.1305. TOL 0.0685. TOL beat EQUAL on 20.
+- n=256, 1.3x: EQUAL 0.2627. DENSE 0.3032. FAST 0.3047. TOL 0.2619. TOL beat EQUAL on 20.
+- n=600, 1.3x: EQUAL 0.3892. DENSE 0.4007. FAST 0.3999. TOL 0.3889. TOL beat EQUAL on 20.
+- n=64, 2.0x: EQUAL 0.0. DENSE 0.0029. FAST 0.0033. TOL 0.0.
+- n=128, 2.0x: EQUAL 0.0083. DENSE 0.0294. TOL 0.0081. n=256, 2.0x: EQUAL 0.1376. DENSE 0.1849. TOL 0.1369.
+  n=600, 2.0x: EQUAL 0.3078. DENSE 0.3255. TOL 0.3075.
+- n=64, 1.0x: EQUAL 0.0577, worst 0.677. DENSE 0.0778, worst 0.312. FAST 0.0784, worst 0.309. TOL 0.0555, worst 0.677. DENSE's worst
+  member was lower than EQUAL's on 20/20 seeds; TOL's on 10/20 (equal means).
+- n=16 and 32 at 1.0x, and every n at 1.0x: TOL is at or below EQUAL on 19-20/20 seeds. DENSE is above EQUAL on 9-18/20.
+- Under DENSE, almost all the want is in the dry half (n=64, 1.3x: dry 4.05%, wet 0.04%).
+- DENSE and FAST per-seed want differ on 20/20 seeds (n=64, 1.3x). Example seed 1: 0.0911 vs 0.0094.
+Ledger 42's grid claims, rerun (OBS, addendum 2 hashed first). 8x8 grid, 20 seeds:
+- 10% fists: EQUAL 0.154 [0, 0.167, 0.287]. DENSE 0.005. TOL 0.038 [0, 0.025, 0.151]. TOL beat EQUAL on 19/20.
+- 30% fists: EQUAL 0.333. DENSE 0.148. TOL 0.208. TOL beat EQUAL on 20/20.
+- 20% leak: EQUAL 0.275. DENSE 0.129. TOL 0.115. TOL beat EQUAL on 20/20.
+- EQUAL asserted identical to the original.
+What I see, stated plainly and not explained away:
+- The plain-ring worsening I reported in round 1 is reproduced exactly by my round-1 code. It is present on 20 of 20 seeds and at every
+  size and rain level, and it persists at 10,000 days. It is also absent whenever rounding noise in the free-room value is not allowed
+  to steer the split.
+- My own code is the source of the round-1 observation. I am not proposing any rule change. The open-hand rule's own equal split is
+  untouched by any of this.
+Prediction check:
+- Main file: B3a held (DENSE 20/20). B3b FAILED (last 1,000 days 0.36%, not > 1%). B3c held. B3d held for DENSE. B3e FAILED on want
+  (DENSE above EQUAL on only 12/20) and held on worst member (20/20).
+- Addendum 1: P1 half-held (the worsening vanished entirely, but TOL beat EQUAL instead of exceeding it on >= 10/20, so that part
+  FAILED). P2 held (20/20 differ; means 0.0205 vs 0.0156). P3 held. P4 held for EQUAL (hundreds of days). I did not measure DENSE
+  holdings, so its second half is untested.
+- Addendum 2: Q1 held for leak and for the size of the gain over EQUAL. It FAILED on "within 3 points" for 10% fists (3.3) and 30%
+  fists (6.0). Q2 held (19, 20, 20 of 20). The Q1 text contains a mid-sentence self-correction ("...no: ..."). I wrote it before
+  hashing and left it as hashed.
+
+==================== B4. DISCLOSURE ====================
+See the disclosure section at the end.
+
+==================== PREDICTION HASHES AND TIMES ====================
+predictions_round2.md, sha256 ec7d8f2f6d91ea4c24e5a0325ff0c138dcf8099963c9840c8283f632c26b0dfc, written 2026-11-13 06:44:09 CST.
+  Covers T1, T2, R4, B1, B2, B3 and T3. Written before any new build or run this round; only hash extraction had run.
+predictions_round2_addendum_B3.md, sha256 525604708f0167b3acf9435f7b2b502ee7e065026a353de10a9af0ffa59c0b88, written 2026-11-13
+  06:47:31 CST. Written after B3 v1 and the rounding diagnosis, before B3 v2.
+predictions_round2_addendum2_grid.md, sha256 39aae2342a1105922ac2398cd0f0878fce849d6559c24feda2d5a4277d7f5f81, written 2026-11-13
+  06:49:53 CST. Written before the ledger-42 grid rerun.
+Round-1 forecast still on record, unrevised: predictions.md, sha256 2b3fb6d498c954446502de3f6cc272e7b8a9dcd9fed31d511c5139f41e9c45ff
+  (2026-11-12 18:18:24 CST).
+There is no outside timestamp. The times come from the box clock.
+Process notes on my own errors:
+- (a) My first T1 script printed day 4,000 instead of day 3,000, because the round-1 STEPS is 4,000 and the drought starts at 3,000. I
+  fixed it and reran on both stacks. Only the corrected numbers are reported.
+- (b) My v1 B3 "community holding" figure counted only water within hands (2.4 days) and missed water in flight. v2 measures both.
+
+==================== OPEN LEDGER LINES (to add; nothing struck; no rule change proposed) ====================
+L-A | open_hand2, my round-1 room split (beside entry 42) | The plain-ring worsening reproduces exactly with my round-1 code on 20/20
+  seeds and every size from 16 to 600. It disappears when free room <= 1e-9 counts as none (n=64 1.3x: 0.02% vs equal 0.03%). After a
+  spill, about 9% of members show +4e-16 room, which pulls 100% of a neighbour's overflow. Two codings of the same formula, differing
+  only in summation order, gave different want on 20/20 seeds | I had reported it as a property of splitting by room | Kept (OBS)
+L-B | open_hand2 grid, room split (beside entry 42) | 10% fists: room split with tolerance 3.8% vs 0.5% without tolerance (equal 15.4%);
+  30% fists 20.8% vs 14.8% (equal 33.3%). The gain over equal survives; its size does not | Not expected | Kept (OBS)
+L-C | open_hand2 R3 world | 10% fists on the 8x8 grid, equal split, 20 seeds: mean 15.4%, range 0-28.7%. The printed 9% was seeds 1-3 |
+  "Little want" | Kept (OBS)
+L-D | one-way ring (Grok Expert's world, entry 36) | Zero want in plenty on 20/20 seeds (n=64), 5/5 seeds (n=60), and in every 5,000-day
+  window on the ring of 600 (two-way 36% falling to 10%). At 1.0x 0.9% vs 5.9%, worst member 9-12% vs 69%. 5% leak 22-23% vs 39% |
+  Forecast: dry side in want even in plenty | Kept (OBS)
+L-E | one-way line | Dry half upstream of the rain: dry members in want 94-99.5% of days at 1.3x. Downstream: 0.1% | Not tried |
+  Kept (OBS)
+L-F | one-way ring | CW and CCW are not mirror-equal: 0.8x 24.3% vs 22.2%; 5% leak 23.4% vs 22.1% | I predicted within 1 point |
+  Kept (OBS)
+L-G | ledger 29 world | Alternating rain on an ODD ring: want 10.5% (63) and 11.5% (65) instead of 50%. More rain (1.55x) leaves it at
+  50%. Hand 0.8 still 50%, hand 0.9 gives 0% | I predicted 45-50% for odd rings | Kept (OBS)
+L-H | ledger 30 world | One bridge: 44-45% want at day 3,000 but 11.5-12.1% in the last 500 of 12,000 days. Eight bridges already give
+  0%. Four give 13-18% | Ledger read it as a steady width effect | Kept (OBS)
+L-I | ledger 32 world | No severe member (unmet > half) within one hop of a wet site. 6.9% of distance-2 members are severe, 56% at
+  distance 3, 98-100% at 4 and beyond | Not stated before | Kept (OBS)
+L-J | open_hand2 R4 | Every shortage ends between day 668 and 912 (seeds 1-10), with zero want after day 1,000 | Scored FALSE in entry 48
+  | Kept (OBS). The score depends on what "start-up" means
+L-K | open_hand round 1, day 3,000 | 55,700-60,800 units passed on in one day, while the net flow into the dry half is 26-47 units
+  (0.05-0.08%). The pile sits about 58% wet half, 42% dry half | Described as "in transit" and as "a barn" | Kept (OBS)
+
+==================== DISCLOSURE (B4) ====================
+- I am not blind. Earlier copies of open_hand material exist on this box: the 2026-11-10 staging, publish and triadic-work areas.
+  Per B4 I give no paths. I did NOT open, list, hash or read any of them this round. In round 1 I listed file names there and hashed
+  the three .py files (they matched); I did not read their contents then either. I did not touch any hold folder, including
+  hold-round5.
+- Own earlier work used (PRIOR, own work):
+  1. My round-1 review folder: my round-1 REPORT (diffed against the embedded paths-removed copy); my round-1 a3 split code, whose
+     room-split formula I copied into the ROOM-DENSE reference; and my round-1 outputs (a1, a4, a9 figures cited in T4 and T5).
+  2. The round-1 review file I received on 2026-11-12, used only to show that the embedded FOR_REVIEW wrapper is the same text.
+- Everything else comes from this round's file and my own runs.
+- Nothing was published, pushed or sent, and no one was contacted.
+
+==================== ENVIRONMENT ====================
+Debian GNU/Linux 13 (trixie), kernel 6.12.113+, x86_64, 8 CPUs.
+Stack A: venv312 (Python 3.12.16, numpy 2.3.5).
+Stack B: system python3 (Python 3.13.5, numpy 2.5.4).
+All 11 output files (T1, T2, R4, B1 x2, B2, B3 v1, B3 v2, the grid check, and the two conductor scripts) are byte-identical across the
+two stacks (OBS). Wall time per full stack: about 25 s for the main batch and about 45-65 s for B3 v2.
+Work ran from 06:41 to about 06:55 CST on 2026-11-13. The conductor's two check scripts were run unchanged (sha256 7bf25571... and
+eda862a2..., verified), with the hash-verified original modules on their import path.
+Secret scan 2026-11-13 06:53 CST: rg over the whole output folder for salt, api key, secret, token, password, private-key blocks, ghp_, sk-, AKIA, xox and bearer patterns. Only hits: the scan-description sentences quoted from my round-1 report. Nothing withheld. The long hex strings are sha256 digests.

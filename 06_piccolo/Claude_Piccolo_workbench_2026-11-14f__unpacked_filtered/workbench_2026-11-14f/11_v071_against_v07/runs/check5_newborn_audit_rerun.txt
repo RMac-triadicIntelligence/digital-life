@@ -1,0 +1,32 @@
+
+=== humble_seed_v0_7 (sha256 01db270a111f22de45419b562c3f5135f7db44b9036b95d6653060c93584daf5) ===
+A. hatch() only; no checkpoint installed; witness empty
+  owner.audit(live newborn): IntegrityError: No owner checkpoint — state is unattested
+  fresh HumbleSeed.load() from disk: IntegrityError: No owner checkpoint — state is unattested
+C. genesis checkpoint owner-signed and installed (install_checkpoint -> True); witness ledger entries: 0
+  owner.audit(live newborn): returned True
+  fresh HumbleSeed.load() from disk: returned None
+  owner.audit(reloaded newborn): returned True
+  witness.check_current(checkpoint): returned None
+  owner with NO witness: OwnerTool(pem, None).audit(reloaded): AttributeError: 'NoneType' object has no attribute 'check_current'
+  after that: witness.check_successor(genesis cp) (enrollment): returned None
+  then witness.record(genesis cp) (late enrollment): returned None
+  owner.audit(reloaded newborn) after late enrollment: returned True
+B. control: owner.attest(genesis) -> True; witness ledger entries: 1
+  owner.audit(reloaded newborn): returned True
+
+=== humble_seed_v0_7_1 (sha256 8b849cd0710c8c33a0657f09b65da71ff7bf933d9ed3e947ec27f91e297d367b) ===
+A. hatch() only; no checkpoint installed; witness empty
+  owner.audit(live newborn): IntegrityError: No owner checkpoint — state is unattested
+  fresh HumbleSeed.load() from disk: IntegrityError: No owner checkpoint — state is unattested
+C. genesis checkpoint owner-signed and installed (install_checkpoint -> True); witness ledger entries: 0
+  owner.audit(live newborn): RollbackDetected: Unknown organism: witness has never recorded '69d36f5b-3ba3-48d6-8eb0-b7d77edb86a9'. A presented state must belong to an enrolled organism.
+  fresh HumbleSeed.load() from disk: returned None
+  owner.audit(reloaded newborn): RollbackDetected: Unknown organism: witness has never recorded '69d36f5b-3ba3-48d6-8eb0-b7d77edb86a9'. A presented state must belong to an enrolled organism.
+  witness.check_current(checkpoint): RollbackDetected: Unknown organism: witness has never recorded '69d36f5b-3ba3-48d6-8eb0-b7d77edb86a9'. A presented state must belong to an enrolled organism.
+  owner with NO witness: OwnerTool(pem, None).audit(reloaded): returned True
+  after that: witness.check_successor(genesis cp) (enrollment): returned None
+  then witness.record(genesis cp) (late enrollment): returned None
+  owner.audit(reloaded newborn) after late enrollment: returned True
+B. control: owner.attest(genesis) -> True; witness ledger entries: 1
+  owner.audit(reloaded newborn): returned True

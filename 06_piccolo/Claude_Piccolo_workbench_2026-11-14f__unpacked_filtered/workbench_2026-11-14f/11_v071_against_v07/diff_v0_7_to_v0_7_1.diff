@@ -1,0 +1,172 @@
+--- humble_seed_v0_7.py	2026-11-14 19:34:18.113368353 -0600
++++ humble_seed_v0_7_1.py	2026-11-14 19:34:18.113368353 -0600
+@@ -1,5 +1,38 @@
+ #!/usr/bin/env python3
+ """
++Humble Seed v0.7.1 — The Auditor Knows Who It Owns
++===================================================
++
++v0.7.1 is an AUDIT-PATH patch to the merged v0.7 kernel. The organism,
++its state format and SCHEMA_VERSION ("0.7") are unchanged, and every
++v0.7 state file loads. Only OwnerWitness.check_current and OwnerTool.audit
++change.
++
++  I1  check_current returned success for an organism_id the witness had
++      never recorded (reported by ChatGPT 2026-09-04; reproduced as a full
++      root takeover in the 2026-10-15 root-adversary battery, goal G7). Root
++      hatched its own organism in place under its own key and attested it
++      with its own signatures. verify() passed, because the state is
++      self-consistent, and the audit passed, because the witness had no
++      entry to object with.
++      -> check_current now fails closed: an unknown organism is not the
++         one we own.
++
++  I2  verify() takes the public key from the birth record in the state
++      file, so the organism's identity was only as strong as the witness.
++      With the witness lost, a same-id key swap (G7b) loaded cleanly.
++      -> OwnerTool.audit pins identity from OUTSIDE the state: the birth
++         record's public key must equal the key the owner actually holds,
++         and an optional expected_organism_id must match. This works with
++         or without the witness.
++
++  What does NOT change: the organism still cannot detect its own rollback
++  or identity swap from the inside, and does not claim to (R1). Identity is
++  an external fact. The owner knows its own key; the file does not get to
++  say who the owner is.
++
++Lineage header for v0.6/v0.7 follows.
++
+ Humble Seed v0.6 — Attestation Covers the Constitution
+ =======================================================
+ 
+@@ -1108,7 +1141,12 @@
+         """The state an organism presents must BE the branch we recorded."""
+         known = self.ledger.get(cp.organism_id)
+         if known is None:
+-            return
++            # I1: fail closed. An organism this witness never enrolled is not
++            # a branch we recorded; it is a different organism.
++            raise RollbackDetected(
++                f"Unknown organism: witness has never recorded {cp.organism_id!r}. "
++                f"A presented state must belong to an enrolled organism."
++            )
+         self._check_identity(cp, known)
+         if cp.sequence < known["sequence"]:
+             raise RollbackDetected(
+@@ -1178,12 +1216,39 @@
+         self.witness.record(cp)
+         return True
+ 
+-    def audit(self, seed: HumbleSeed) -> bool:
+-        """Full external audit of a loaded organism, including rollback."""
++    def owner_public_key_b64(self) -> str:
++        """The key the owner actually holds — known from OUTSIDE the state file."""
++        pk = serialization.load_pem_private_key(
++            self._pem.encode("ascii"), password=None).public_key()
++        return base64.urlsafe_b64encode(pk.public_bytes(
++            encoding=serialization.Encoding.Raw,
++            format=serialization.PublicFormat.Raw)).decode("ascii")
++
++    def audit(self, seed: HumbleSeed, expected_organism_id: Optional[str] = None) -> bool:
++        """Full external audit of a loaded organism, including rollback.
++
++        I2: identity is pinned from outside the state before anything the
++        state says about itself is believed. verify() checks the state is
++        internally consistent under ITS OWN key; this checks that the key is
++        OURS. Holds even when self.witness is None.
++        """
++        if seed.birth is None:
++            raise IntegrityError("No birth record to audit")
++        if seed.birth.public_key_b64 != self.owner_public_key_b64():
++            raise IntegrityError(
++                "Owner key mismatch: the organism's birth record names a key this "
++                "owner does not hold. The state belongs to someone else."
++            )
++        if expected_organism_id is not None and seed.organism_id != expected_organism_id:
++            raise IntegrityError(
++                f"Organism mismatch: expected {expected_organism_id!r}, "
++                f"state presents {seed.organism_id!r}"
++            )
+         seed.verify()
+         if seed.checkpoint is None:
+             raise IntegrityError("No checkpoint to audit")
+-        self.witness.check_current(seed.checkpoint)
++        if self.witness is not None:
++            self.witness.check_current(seed.checkpoint)
+         return True
+ 
+ 
+@@ -1250,7 +1315,7 @@
+     import shutil
+ 
+     print("=" * 76)
+-    print("Humble Seed v0.6 — Attestation Covers the Constitution")
++    print("Humble Seed v0.7.1 — The Auditor Knows Who It Owns")
+     print("=" * 76)
+ 
+     data_dir = Path("./demo_seed_data_v06")
+@@ -1474,7 +1539,64 @@
+     except RollbackDetected as ex:
+         print(f"    current check  : {ex}")
+ 
++    print("\n[17] I1 — root hatches its own organism in place, self-attests...")
++    snap = s2._state_path().read_text()
++    rogue_dir = data_dir / "_rogue"
++    shutil.rmtree(rogue_dir, ignore_errors=True)
++    imp = HumbleSeed(data_dir=rogue_dir)
++    _, rpem, rgcp = imp.hatch()
++    rogue = OwnerTool(rpem, OwnerWitness(rogue_dir / "rogue_witness.json"))
++    rogue.attest(imp, rgcp)
++    s2._state_path().write_text(imp._state_path().read_text())
++    taken = HumbleSeed(data_dir=data_dir); taken.load()
++    print(f"    Organism's own verify(): {taken.verify()}  (self-consistent, as expected)")
++    try:
++        o2.witness.check_current(taken.checkpoint); print("    witness check_current: ACCEPTED — FAIL")
++    except RollbackDetected as ex:
++        print(f"    witness check_current: {str(ex)[:66]}")
++    try:
++        o2.audit(taken); print("    owner audit          : ACCEPTED — FAIL")
++    except (IntegrityError, RollbackDetected) as ex:
++        print(f"    owner audit          : {str(ex)[:66]}")
++    s2._state_path().write_text(snap)
++
++    print("\n[18] I2 — same organism_id, root's key, witness LOST...")
++    st = json.loads(imp._state_path().read_text())
++    st["organism_id"] = oid2; st["birth"]["organism_id"] = oid2
++    st["birth"]["genesis_hash"] = HumbleSeed._derive_genesis(
++        oid2, st["birth"]["public_key_b64"], st["birth"]["created_at"],
++        st["birth"]["constitution_hash"])
++    st["trace"][0]["organism_id"] = oid2
++    st["trace"][0]["genesis_hash"] = st["birth"]["genesis_hash"]
++    st["checkpoint"] = None; st["checkpoint_sig"] = None
++    s2._state_path().write_text(_canonical_json(st))
++    swapped = HumbleSeed(data_dir=data_dir)
++    swapped.organism_id = st["organism_id"]; swapped.birth = BirthRecord(**st["birth"])
++    swapped.public_key = Ed25519PublicKey.from_public_bytes(
++        base64.urlsafe_b64decode(st["birth"]["public_key_b64"]))
++    swapped.constitution = st["constitution"]; swapped.character = st["character"]
++    swapped.trace = st["trace"]; swapped._trace_head = st["trace_head"]
++    swapped.first_commit_pending = st["first_commit_pending"]
++    swapped.mutation_sequence = st["mutation_sequence"]
++    swapped._trace_head = "0" * 64; t = swapped.trace; swapped.trace = []
++    for e in t:
++        swapped._append_trace({k: v for k, v in e.items() if k not in ("prev_hash", "entry_hash")})
++    cpr = swapped.checkpoint_request()
++    swapped.install_checkpoint(cpr, owner_sign_external(rpem, HumbleSeed.checkpoint_payload(cpr)))
++    reloaded = HumbleSeed(data_dir=data_dir); reloaded.load()
++    no_witness_owner = OwnerTool(pem2, None)
++    try:
++        no_witness_owner.audit(reloaded, expected_organism_id=oid2)
++        print("    owner audit, no witness: ACCEPTED — FAIL")
++    except IntegrityError as ex:
++        print(f"    owner audit, no witness: {str(ex)[:62]}")
++    s2._state_path().write_text(snap)
++    shutil.rmtree(rogue_dir, ignore_errors=True)
++
+     print("\n" + "=" * 76)
++    print("Closed in v0.7.1:")
++    print("  I1 witness fails closed on an organism it never enrolled")
++    print("  I2 owner audit pins the owner's own key (and optional id) from outside the state")
+     print("Closed in v0.6:")
+     print("  G1 first_commit derived from state and revalidated at apply")
+     print("  G2 gates_root inside the owner attestation")

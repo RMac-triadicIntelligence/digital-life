@@ -1,0 +1,25 @@
+module humble_seed_v0_7: file sha256 01db270a111f22de45419b562c3f5135f7db44b9036b95d6653060c93584daf5 SCHEMA_VERSION='0.7'
+module humble_seed_v0_7_1: file sha256 8b849cd0710c8c33a0657f09b65da71ff7bf933d9ed3e947ec27f91e297d367b SCHEMA_VERSION='0.7'
+hatch() source identical: True
+humble_seed_v0_7: constitution_hash = ecb000bdd3c61b3d5f136c6f8b8f55ba4af2dd56b7c056fb4cc02171f5572d14  (birth.constitution_hash agrees: True)
+humble_seed_v0_7: constitution_root (checkpoint field) = ecb000bdd3c61b3d5f136c6f8b8f55ba4af2dd56b7c056fb4cc02171f5572d14
+humble_seed_v0_7_1: constitution_hash = ecb000bdd3c61b3d5f136c6f8b8f55ba4af2dd56b7c056fb4cc02171f5572d14  (birth.constitution_hash agrees: True)
+humble_seed_v0_7_1: constitution_root (checkpoint field) = ecb000bdd3c61b3d5f136c6f8b8f55ba4af2dd56b7c056fb4cc02171f5572d14
+constitution canonical JSON byte-identical: True
+constitution hash identical: True
+
+state written by humble_seed_v0_7: checkpoint sequence 1, character {'verbosity': 0.25, 'formality': 0.5, 'curiosity': 0.6}
+  state file sha256 50288c3f58e19db962c281e245474380ab9b50e088a86ec1a150b416aa9421e8
+  humble_seed_v0_7_1.load(): OK, verify() = True, character {'curiosity': 0.6, 'formality': 0.5, 'verbosity': 0.25}
+  humble_seed_v0_7_1 OwnerTool.audit(seed): True
+  humble_seed_v0_7_1 OwnerTool.audit(seed, expected_organism_id=oid): True
+  humble_seed_v0_7_1 continues growth: authorize_and_apply -> True, attest -> True, sequence 2
+  reload after growth under humble_seed_v0_7_1: OK, audit True
+
+state written by humble_seed_v0_7_1: checkpoint sequence 1, character {'verbosity': 0.25, 'formality': 0.5, 'curiosity': 0.6}
+  state file sha256 6b84260cbad3fde30aa363d0d76ee37b2056a1766fba83bcc15c177ed0cda4e5
+  humble_seed_v0_7.load(): OK, verify() = True, character {'curiosity': 0.6, 'formality': 0.5, 'verbosity': 0.25}
+  humble_seed_v0_7 OwnerTool.audit(seed): True
+  humble_seed_v0_7 OwnerTool.audit(seed, expected_organism_id=oid): not available in this kernel
+  humble_seed_v0_7 continues growth: authorize_and_apply -> True, attest -> True, sequence 2
+  reload after growth under humble_seed_v0_7: OK, audit True

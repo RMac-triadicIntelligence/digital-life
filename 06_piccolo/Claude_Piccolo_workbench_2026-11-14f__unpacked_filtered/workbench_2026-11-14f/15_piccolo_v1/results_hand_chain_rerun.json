@@ -1,0 +1,144 @@
+{
+ "audits": true,
+ "build": "piccolo_v1/hand_chain",
+ "constitution_hash": "cef31059e361efd46dffc3af60d322886cb791ccf383c6684f7fb8ee40887986",
+ "crystal": {
+  "curiosity": [
+   {
+    "day": 0,
+    "grown_from": "248b58a8d9fad629788a9cc7c0307a7a96b4dba8a2824ab3c3747cd89963fbd0",
+    "place": [
+     31,
+     2
+    ]
+   }
+  ],
+  "formality": [
+   {
+    "day": 0,
+    "grown_from": "fd7814060f77bcb80f1c3fd926f642ecbadb99a3b69f6289bf019b04c0cc8aba",
+    "place": [
+     29,
+     5
+    ]
+   }
+  ],
+  "verbosity": [
+   {
+    "day": 0,
+    "grown_from": "1ff0f4ecf7a9de8245bb7b634db80bffc616965bc6f1f893edddb892b889fa30",
+    "place": [
+     29,
+     5
+    ]
+   }
+  ]
+ },
+ "crystal_root": "fd2df84a7b7be7d5f812ac035df8e0547ca04138dab60bdce898d47f7f39586c",
+ "loads": true,
+ "member": {
+  "born": 0,
+  "cur": 36179,
+  "grace": 0,
+  "household": 0,
+  "id": 0,
+  "lineage": 0,
+  "nothing": 168374,
+  "obs": 292000,
+  "scout": true,
+  "tel": 13619,
+  "tru": 16622
+ },
+ "member_born_day": 0,
+ "owner": "bench key made by this script; the keel has signed nothing",
+ "signed_mutations": 3,
+ "source": "century/seed_00.json",
+ "source_sha256": "420bc938b6fbfaec3bb5a66ff84e1c13136d6e90b8b8f6dd1c122dce7acd6a3a",
+ "steps": [
+  {
+   "applied": true,
+   "deposit": {
+    "day": 0,
+    "kind": "curiosity",
+    "member": 0,
+    "place": [
+     31,
+     2
+    ],
+    "seed": 0,
+    "source_sha256": "420bc938b6fbfaec3bb5a66ff84e1c13136d6e90b8b8f6dd1c122dce7acd6a3a",
+    "tick": 0,
+    "value": 0.788455,
+    "what_happened": "ranging found food on ground the family did not know"
+   },
+   "face": "curiosity",
+   "facet": {
+    "day": 0,
+    "grown_from": "248b58a8d9fad629788a9cc7c0307a7a96b4dba8a2824ab3c3747cd89963fbd0",
+    "place": [
+     31,
+     2
+    ]
+   },
+   "first_commit_flag": true,
+   "unsigned_changed_nothing": true
+  },
+  {
+   "applied": true,
+   "deposit": {
+    "day": 0,
+    "kind": "verbosity",
+    "member": 0,
+    "place": [
+     29,
+     5
+    ],
+    "seed": 0,
+    "source_sha256": "420bc938b6fbfaec3bb5a66ff84e1c13136d6e90b8b8f6dd1c122dce7acd6a3a",
+    "tick": 7,
+    "value": 0.438824,
+    "what_happened": "kin came and witnessed what this member laid out"
+   },
+   "face": "verbosity",
+   "facet": {
+    "day": 0,
+    "grown_from": "1ff0f4ecf7a9de8245bb7b634db80bffc616965bc6f1f893edddb892b889fa30",
+    "place": [
+     29,
+     5
+    ]
+   },
+   "first_commit_flag": true,
+   "unsigned_changed_nothing": true
+  },
+  {
+   "applied": true,
+   "deposit": {
+    "day": 0,
+    "kind": "formality",
+    "member": 0,
+    "place": [
+     29,
+     5
+    ],
+    "seed": 0,
+    "source_sha256": "420bc938b6fbfaec3bb5a66ff84e1c13136d6e90b8b8f6dd1c122dce7acd6a3a",
+    "tick": 7,
+    "value": 0.565087,
+    "what_happened": "the ground was as the family said"
+   },
+   "face": "formality",
+   "facet": {
+    "day": 0,
+    "grown_from": "fd7814060f77bcb80f1c3fd926f642ecbadb99a3b69f6289bf019b04c0cc8aba",
+    "place": [
+     29,
+     5
+    ]
+   },
+   "first_commit_flag": true,
+   "unsigned_changed_nothing": true
+  }
+ ],
+ "verdict": "PASS"
+}

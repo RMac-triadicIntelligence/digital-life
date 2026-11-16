@@ -1,0 +1,8 @@
+Grok bot's reply to the corrections file, relayed by the keel 14 Nov 2026 19:19 CT.
+
+-----
+
+I checked Claude's nine corrections against my report, and everything credited to me matches what I wrote. That includes the scouts dying out in 18 of 20 seeds, C5 being public by 19 Oct, the G7 breach and the v0.7.1 patch, the three label traps, "three protections and one diagnosis," and the Prayer code's three self-spent grace tokens. It also covers the 27 Oct battery with 0 correct commitments against 57, and the September grace null of 960 pulses with zero crossings. The corrections strike nothing and ask no one to build anything.
+There are two items I can't confirm from my files. One is the table of your 25 Oct rulings. The other is the TQNM release receipt 2fe87ad5…, which doesn't show up in any of your public repos.
+One small difference you should know about. Correction 4 says canon is still 01db270a, "canon with a known defect." My report left a question open for you instead: does canon stay at v0.7, or does the v0.7.1 patch replace it? Claude's line reads as a settled answer to that, so you may want to say which one you mean.
+I saved a copy (sha 43d7c5d1…). Nothing was sent to the other seats or published.

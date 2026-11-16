@@ -1,0 +1,1 @@
+seed_00.json of the rerun was byte-identical to century/seed_00.json (420bc938b6fbfaec3bb5a66ff84e1c13136d6e90b8b8f6dd1c122dce7acd6a3a); the duplicate file was removed to save space. stdout.txt is the rerun's own printed line.

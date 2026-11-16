@@ -1,0 +1,322 @@
+[
+ {
+  "alive": 23,
+  "day": 75,
+  "keepers": 1,
+  "scouts": 22,
+  "seed": 0,
+  "ticks": 600
+ },
+ {
+  "alive": 32,
+  "day": 365,
+  "keepers": 0,
+  "scouts": 32,
+  "seed": 0,
+  "ticks": 2920
+ },
+ {
+  "alive": 32,
+  "day": 1000,
+  "keepers": 0,
+  "scouts": 32,
+  "seed": 0,
+  "ticks": 8000
+ },
+ {
+  "alive": 27,
+  "day": 75,
+  "keepers": 3,
+  "scouts": 24,
+  "seed": 1,
+  "ticks": 600
+ },
+ {
+  "alive": 31,
+  "day": 365,
+  "keepers": 0,
+  "scouts": 31,
+  "seed": 1,
+  "ticks": 2920
+ },
+ {
+  "alive": 35,
+  "day": 1000,
+  "keepers": 0,
+  "scouts": 35,
+  "seed": 1,
+  "ticks": 8000
+ },
+ {
+  "alive": 35,
+  "day": 75,
+  "keepers": 0,
+  "scouts": 35,
+  "seed": 2,
+  "ticks": 600
+ },
+ {
+  "alive": 41,
+  "day": 365,
+  "keepers": 0,
+  "scouts": 41,
+  "seed": 2,
+  "ticks": 2920
+ },
+ {
+  "alive": 41,
+  "day": 1000,
+  "keepers": 0,
+  "scouts": 41,
+  "seed": 2,
+  "ticks": 8000
+ },
+ {
+  "alive": 25,
+  "day": 75,
+  "keepers": 1,
+  "scouts": 24,
+  "seed": 3,
+  "ticks": 600
+ },
+ {
+  "alive": 32,
+  "day": 365,
+  "keepers": 0,
+  "scouts": 32,
+  "seed": 3,
+  "ticks": 2920
+ },
+ {
+  "alive": 35,
+  "day": 1000,
+  "keepers": 0,
+  "scouts": 35,
+  "seed": 3,
+  "ticks": 8000
+ },
+ {
+  "alive": 30,
+  "day": 75,
+  "keepers": 5,
+  "scouts": 25,
+  "seed": 4,
+  "ticks": 600
+ },
+ {
+  "alive": 31,
+  "day": 365,
+  "keepers": 0,
+  "scouts": 31,
+  "seed": 4,
+  "ticks": 2920
+ },
+ {
+  "alive": 33,
+  "day": 1000,
+  "keepers": 0,
+  "scouts": 33,
+  "seed": 4,
+  "ticks": 8000
+ },
+ {
+  "alive": 32,
+  "day": 75,
+  "keepers": 6,
+  "scouts": 26,
+  "seed": 5,
+  "ticks": 600
+ },
+ {
+  "alive": 38,
+  "day": 365,
+  "keepers": 0,
+  "scouts": 38,
+  "seed": 5,
+  "ticks": 2920
+ },
+ {
+  "alive": 43,
+  "day": 1000,
+  "keepers": 0,
+  "scouts": 43,
+  "seed": 5,
+  "ticks": 8000
+ },
+ {
+  "alive": 31,
+  "day": 75,
+  "keepers": 3,
+  "scouts": 28,
+  "seed": 6,
+  "ticks": 600
+ },
+ {
+  "alive": 34,
+  "day": 365,
+  "keepers": 0,
+  "scouts": 34,
+  "seed": 6,
+  "ticks": 2920
+ },
+ {
+  "alive": 38,
+  "day": 1000,
+  "keepers": 0,
+  "scouts": 38,
+  "seed": 6,
+  "ticks": 8000
+ },
+ {
+  "alive": 36,
+  "day": 75,
+  "keepers": 3,
+  "scouts": 33,
+  "seed": 7,
+  "ticks": 600
+ },
+ {
+  "alive": 37,
+  "day": 365,
+  "keepers": 0,
+  "scouts": 37,
+  "seed": 7,
+  "ticks": 2920
+ },
+ {
+  "alive": 37,
+  "day": 1000,
+  "keepers": 0,
+  "scouts": 37,
+  "seed": 7,
+  "ticks": 8000
+ },
+ {
+  "alive": 33,
+  "day": 75,
+  "keepers": 9,
+  "scouts": 24,
+  "seed": 8,
+  "ticks": 600
+ },
+ {
+  "alive": 31,
+  "day": 365,
+  "keepers": 0,
+  "scouts": 31,
+  "seed": 8,
+  "ticks": 2920
+ },
+ {
+  "alive": 33,
+  "day": 1000,
+  "keepers": 0,
+  "scouts": 33,
+  "seed": 8,
+  "ticks": 8000
+ },
+ {
+  "alive": 32,
+  "day": 75,
+  "keepers": 6,
+  "scouts": 26,
+  "seed": 9,
+  "ticks": 600
+ },
+ {
+  "alive": 34,
+  "day": 365,
+  "keepers": 0,
+  "scouts": 34,
+  "seed": 9,
+  "ticks": 2920
+ },
+ {
+  "alive": 35,
+  "day": 1000,
+  "keepers": 0,
+  "scouts": 35,
+  "seed": 9,
+  "ticks": 8000
+ },
+ {
+  "alive": 35,
+  "day": 75,
+  "keepers": 9,
+  "scouts": 26,
+  "seed": 10,
+  "ticks": 600
+ },
+ {
+  "alive": 32,
+  "day": 75,
+  "keepers": 0,
+  "scouts": 32,
+  "seed": 11,
+  "ticks": 600
+ },
+ {
+  "alive": 29,
+  "day": 75,
+  "keepers": 2,
+  "scouts": 27,
+  "seed": 12,
+  "ticks": 600
+ },
+ {
+  "alive": 27,
+  "day": 75,
+  "keepers": 1,
+  "scouts": 26,
+  "seed": 13,
+  "ticks": 600
+ },
+ {
+  "alive": 27,
+  "day": 75,
+  "keepers": 0,
+  "scouts": 27,
+  "seed": 14,
+  "ticks": 600
+ },
+ {
+  "alive": 21,
+  "day": 75,
+  "keepers": 1,
+  "scouts": 20,
+  "seed": 15,
+  "ticks": 600
+ },
+ {
+  "alive": 29,
+  "day": 75,
+  "keepers": 3,
+  "scouts": 26,
+  "seed": 16,
+  "ticks": 600
+ },
+ {
+  "alive": 31,
+  "day": 75,
+  "keepers": 3,
+  "scouts": 28,
+  "seed": 17,
+  "ticks": 600
+ },
+ {
+  "alive": 28,
+  "day": 75,
+  "keepers": 4,
+  "scouts": 24,
+  "seed": 18,
+  "ticks": 600
+ },
+ {
+  "alive": 32,
+  "day": 75,
+  "keepers": 2,
+  "scouts": 30,
+  "seed": 19,
+  "ticks": 600
+ }
+]

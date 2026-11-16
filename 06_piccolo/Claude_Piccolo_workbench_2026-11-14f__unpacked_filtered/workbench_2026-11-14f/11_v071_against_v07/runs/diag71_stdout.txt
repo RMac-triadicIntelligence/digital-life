@@ -1,0 +1,80 @@
+ARM K1 completed (0.0 s)
+ARM K6 completed (0.0 s)
+ARM PHASE completed (5.9 s)
+ARM RE_SNAPSHOT completed (10.2 s)
+ARM RE_LIFE completed (39.5 s)
+ARM WD completed (13.6 s)
+ARM OD completed (20.4 s)
+ARM LB completed (0.0 s)
+ARM RS completed (17.5 s)
+
+CONSTRUCTION CHECKS (not evidence)
+  K1   FAIL
+  K2   PASS
+  K3   PASS
+  K4   PASS
+  K5   PASS
+  K6   PASS
+  RE1  PASS
+  RS1  PASS
+DIAGNOSTICS
+  PH1  PASS
+  PH2  PASS
+  PH3  PASS
+  RE2  PASS
+  RE3  PASS
+  RE4  PASS
+  RE5  FAIL
+  WD1  FAIL
+  WD2  PASS
+  WD3  PASS
+  WD4  FAIL
+  OD1  PASS
+  OD2  PASS
+  OD3  PASS
+  LB1  PASS
+  LB2  PASS
+  LB3  PASS
+
+PHASE  BURST support by offset: {"0": 0.095, "5": 0.08, "10": 0.975, "15": 0.99, "20": 0.985, "25": 0.105}
+PHASE  SPREAD: {"0": 0.97, "5": 0.97, "10": 0.97, "15": 0.97, "20": 0.965, "25": 0.97}
+PHASE  CONCENTRATED: {"0": 0.08, "5": 0.08, "10": 0.08, "15": 0.08, "20": 0.08, "25": 0.08}
+PHASE  NULL: {"0": 0.0, "5": 0.005, "10": 0.005, "15": 0.005, "20": 0.0, "25": 0.0}
+RE     BURST_ONCE|R15_G60       median 2 mean 2.17 any 1.000 no-new-support 0.984 floor 0.047 phases {'B': 127, 'A': 12}
+RE     BURST_ONCE|R15_Gall      median 3 mean 3.28 any 1.000 no-new-support 0.984 floor 0.391 phases {'B': 190, 'A': 20}
+RE     BURST_ONCE|R30A_Gall     median 0 mean 0.39 any 0.312 no-new-support 0.078 floor 0.000 phases {'A': 25}
+RE     BURST_ONCE|R30B_Gall     median 3 mean 3.06 any 1.000 no-new-support 0.984 floor 0.188 phases {'B': 196}
+RE     NULL_LIFE|R15_G60        median 0 mean 0.12 any 0.109 no-new-support 0.016 floor 0.000 phases {'B': 4, 'A': 4}
+RE     NULL_LIFE|R15_Gall       median 0 mean 0.12 any 0.109 no-new-support 0.016 floor 0.000 phases {'B': 4, 'A': 4}
+RE     NULL_LIFE|R30A_Gall      median 0 mean 0.06 any 0.062 no-new-support 0.000 floor 0.000 phases {'A': 4}
+RE     NULL_LIFE|R30B_Gall      median 0 mean 0.06 any 0.062 no-new-support 0.000 floor 0.000 phases {'B': 4}
+WD     PERSISTENT  median 1 mean 1.156 <=1 0.844 floor 0/32 phases {'A': 34, 'B': 3}
+WD     RECURRING   median 3 mean 3.219 <=1 0.000 floor 32/32 phases {'A': 74, 'B': 29}
+WD     TEMPORARY   median 1 mean 1.031 <=1 0.938 floor 0/32 phases {'B': 30, 'A': 3}
+WD     NULL        median 0 mean 0.062 <=1 1.000 floor 0/32 phases {'B': 1, 'A': 1}
+OD      {"0": {"supported": 194, "crossed": 194, "stale_rejections": 0, "retry_crossed": 0}, "1": {"supported": 194, "crossed": 0, "stale_rejections": 194, "retry_crossed": 194}, "2": {"supported": 194, "crossed": 0, "stale_rejections": 194, "retry_crossed": 194}, "4": {"supported": 194, "crossed": 0, "stale_rejections": 194, "retry_crossed": 194}}
+OD     always-delayed life: [{"i": 0, "reads": 37, "crossings": 0, "canonical_rejections": 8, "audit_ok": true}, {"i": 1, "reads": 37, "crossings": 0, "canonical_rejections": 9, "audit_ok": true}, {"i": 2, "reads": 37, "crossings": 0, "canonical_rejections": 9, "audit_ok": true}, {"i": 3, "reads": 37, "crossings": 0, "canonical_rejections": 4, "audit_ok": true}, {"i": 4, "reads": 37, "crossings": 0, "canonical_rejections": 8, "audit_ok": true}, {"i": 5, "reads": 37, "crossings": 0, "canonical_rejections": 4, "audit_ok": true}, {"i": 6, "reads": 37, "crossings": 0, "canonical_rejections": 7, "audit_ok": true}, {"i": 7, "reads": 37, "crossings": 0, "canonical_rejections": 8, "audit_ok": true}]
+LB      [{"i": 0, "LB1": true, "LB2": true, "LB3": true, "errors": [], "authorized_mutation_records": 1, "grace_crossing_records": 0}, {"i": 1, "LB1": true, "LB2": true, "LB3": true, "errors": [], "authorized_mutation_records": 1, "grace_crossing_records": 0}, {"i": 2, "LB1": true, "LB2": true, "LB3": true, "errors": [], "authorized_mutation_records": 1, "grace_crossing_records": 0}, {"i": 3, "LB1": true, "LB2": true, "LB3": true, "errors": [], "authorized_mutation_records": 1, "grace_crossing_records": 0}, {"i": 4, "LB1": true, "LB2": true, "LB3": true, "errors": [], "authorized_mutation_records": 1, "grace_crossing_records": 0}]
+RS      {"compared": 832, "mismatches": []}
+
+SELF-PREDICTION (expected -> measured)
+  PH1_k0                 +0.095 -> +0.095
+  PH1_k5                 +0.100 -> +0.080
+  PH1_k25                +0.100 -> +0.105
+  PH2_k10                +0.960 -> +0.975
+  PH2_k15                +0.970 -> +0.990
+  PH2_k20                +0.960 -> +0.985
+  RE2_share              +0.950 -> +0.984
+  RE2_median             +3.000 -> +3.000
+  RE3_share_never        +0.700 -> +0.688
+  RE4_R15_Gall_median    +3.000 -> +3.000
+  RE4_R15_G60_median     +2.000 -> +2.000
+  WD1_share_le1          +0.970 -> +0.844
+  WD1_mean               +1.000 -> +1.156
+  WD2_share_floor        +1.000 -> +1.000
+  WD3_share_le1          +0.970 -> +0.938
+  WD4_share_any          +0.000 -> +0.062
+
+receipt 8f93a840739709f7b6048e249a35a3b794d6bc4fa5652c1fe5c3e46e1cc0ac44
+21/25 PASS
+exit_code 1

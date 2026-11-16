@@ -1,0 +1,303 @@
+PICCOLO V1 - HISTORY-SEAT CHECK (Falsifier B, "Grok bot")
+For Rusty Williams McMurray (keel). 2026-11-15, America/Chicago (CST).
+History and checks only. Nothing here is a ruling and nothing proposes a rule change. Nothing was
+published, pushed or sent. No hold folder was opened or listed. Tags: DOC (read in a file),
+OBS (I ran it today), PRIOR (my own earlier work or memory of it).
+
+==================== 0. INPUT, BLINDNESS, PREDICTIONS ====================
+Input: Claude's sixth workbench packing, zip sha256
+  a08fdf3cd82244207b2ae57fa839fc80a70b36e5a9b381dc1723b6bc69ebe278 (keel-only), folder 15_piccolo_v1.
+  The original folder was not edited. Its MANIFEST.sha256 still verifies with zero failures after all work (OBS).
+  All work was done on a copy.
+My predictions: PREDICTIONS_historyseat.txt
+  sha256 5c73e98faa239e9bb115742a68fd77d5e1df7dc4118c989c525a321de699123c
+  hashed 2026-11-15 07:20:34 CST. That was before I read PREDICTIONS_sealed.md, SCORING.md, any
+  CONDUCTOR_PREDICTIONS_* or 07_ledger, and before any code ran.
+Blindness exposure (disclosed): before hashing I had already seen the README summary lines: the four
+  surprises, 23/23 tests, G5/G6 open, 28 holes. My predictions on those items are reproduction expectations,
+  not blind calls. I read README, PREREG, DEVIATIONS and TESTS_facet_line just after hashing.
+  I opened PREDICTIONS_sealed.md and SCORING.md at 07:33:27 CST. By then every reproduction run was done
+  except the instrumented seed-2 century (section 2), which finished at about 07:37 CST.
+  I did not open 07_ledger or any CONDUCTOR_PREDICTIONS_* file. I did not open the
+  FOR_THE_KEEL_Piccolo_v1_prereg file.
+
+==================== 1. REPRODUCTION (OBS) ====================
+Box: Python 3, numpy 2.5.4, cryptography 43.0.0, 8 cores.
+- check_600.py: {"checks": 58, "mismatches": 0, "verdict": "PASS"}.
+- make_facet_kernel.py regenerated the facet kernel byte-identical:
+  piccolo_facet_kernel_v0_1.py 9b4b9a2e8775d4854d66e1b1cd5132ed7e0301aecd325368bcb2b44c05704c04,
+  FACET_KERNEL.diff 9fb9d53ebd9323c06610993f47719c13a1868de3f4cb410bc4ce3ca8645288ab,
+  v0.7.1 8b849cd0710c8c33a0657f09b65da71ff7bf933d9ed3e947ec27f91e297d367b ("v0.7.1 untouched True").
+  The vendored v0.7.1 is byte-identical to the public the-terrain-remembers/02_root_adversary/root_adversary/humble_seed_v0_7_1.py.
+- test_facet_line.py: 23 of 23 PASS, receipt e0fa82960a8634803264289dba95f9b30c12a3b0f1779094f6c1113a83e74bcf (matches).
+- adversary_facet.py: receipt aab02bb68ebf969bda773e8f192afd964f7c4dfc1ddabafd882327a1d32a1f0c (matches).
+  G1, G1b, G2, G3, G3b, G3c, G4, G7 and G7b held. G6 was breached in all three modes. G5 held when shipped
+  and when pinned, and was breached with no witness.
+- hand_chain.py on century/seed_00.json: PASS, member 0, crystal root
+  fd2df84a7b7be7d5f812ac035df8e0547ca04138dab60bdce898d47f7f39586c, receipt
+  949b018d1ee8a798d67e6d7ec9f8afcf5cedd09582fcfbf3de2d2cf7377184d1 (matches).
+- Century reruns, 36,500 days each, all byte-identical to the shipped files:
+    seed 0  420bc938b6fbfaec3bb5a66ff84e1c13136d6e90b8b8f6dd1c122dce7acd6a3a  (421 s)
+    seed 7  93ca4c39e45fb0aee467bd870da6f5e55d5da411805037b1d14897c9a4b6a876  (463 s)
+    seed 2  bce5d5838ca24e76333c86c3b748b92e4e7761220c51b06731a9ea15ef9a99ee  (instrumented copy, see 2.3)
+- analyse_century.py on the shipped century/*.json: results_century.json receipt
+  dee6f09cea875e667255a4b80e7dab43bb1294f4ffba1c666b8a5a856ff5086f (matches).
+- diag/diag_grace_and_long_run.py: receipt f5188c463b8442a41122920027a4dae861248a26a34d664db05689e1ee2fb85d (matches).
+  Grace 0, longest stay 9, all 20 runs equal October's. The century runner equals October's own function
+  at 20,000 ticks on seeds 0 and 1.
+- diag/diag_roles_at_600.py: receipt e54558f35b430aefb772488c741a9ea4235785e139cc52b5ea5126ad41429870 (matches).
+  Keepers alive at 600 steps are [1,3,0,1,5,6,3,3,9,6,9,0,2,1,0,1,3,3,4,2]. There are none at 1 year or at 1,000 days.
+- The October sources Piccolo vendors are byte-identical to the public the-terrain-remembers/00_commons_swarm copies:
+  sim_v2.py b5cbf3b5...2e73, results.json 4c46ea9c...d5ce, PREREG.json d96565a6...2401, sim.py 128682a1...a777.
+Everything Claude said would reproduce did reproduce. Nothing failed.
+
+==================== 2. THE FOUR SURPRISES, TESTED MY OWN WAY ====================
+Scripts and outputs are in myruns/ next to this report. The instrumented copies add counting lines only.
+At 600 steps the instrumented century runner gives the same packed output as the unmodified runner
+(b8f1cdea08fe5db453c5d3aa87dba7b1728c9c46febcee738516ba1812986482). The instrumented seed-2 century
+reproduces the shipped seed-2 file exactly.
+
+2.1 Only scouts live (OBS, from the shipped raw seed files; surprises_shipped.json
+    5eaee526ca1e5b271f2546b3cb06a094d107c53c15b047924af93f3105768fd0)
+  - HOLDS. Across 11 of 11 seeds, 0 keepers are alive at the end. Keepers ever born range from 78 to 119 per
+    seed, and every one has died.
+  - No keeper in any seed lived longer than 99.25 days, out of 36,500. The last founder keeper died between
+    day 54 and day 99. Median keeper life was 6.25 to 10.25 days. Keepers born after year 1 lived a median
+    4.4 to 7.4 days, and never more than 31.5.
+  - Living founders: 8 in ten seeds and 7 in seed 1. They are always the ids divisible by 3 (scouts):
+    0,3,6,...,21. Not one founder keeper survives.
+  - Scouts that die also die young (median 5.5 to 14.9 days). What separates the roles is survival: 75% to
+    92% of newborn scouts are alive at the end, against 0% of newborn keepers (62 to 103 per seed).
+  - Instrumented, seeds 0 to 4, 10 years (OBS): keepers alive at t=1000 ticks (day 125) were 0 in all five seeds.
+
+2.2 Membership freezes (OBS)
+  - HOLDS, and the cause is visible. After year 1 there were 21 to 48 births and 15 to 40 deaths per seed. Only
+    3 to 7 of years 2 to 100 had any birth at all, and those births come in bursts (seed 0: years 5, 14, 24, 75, 92).
+    Of the living at the end, 29 to 41 per seed were born in year 1.
+  - Mechanism, from my instrumented runs (OBS): a commons birth needs world stock >= 50% of the starting
+    stock (BIRTH_STOCK 0.5 in the public sim.py). Seeds 0 to 4 over 10 years passed that gate on 19 to 26 of
+    1,167 birth checks. In seed 2's full century it passed on 26 of 11,679 checks (0.22%). The stock sat
+    around 0.2 to 0.45. So the freeze is the birth gate: members that never age and keep eating hold the
+    world below the line that grants births. This is not chance.
+  - "Stored energy climbs every decade": yearly e_mean rises at every decade mark in 11 of 11 seeds (OBS).
+    "The only energy that passes between members is the half unit given to a newborn" agrees with the code.
+    The parent pays BIRTH_COST 0.5 and the newborn starts with 0.5. Budding moves membership, not energy (DOC, code).
+  - Small wording point (DOC/OBS): "about forty scouts ... live the whole century" is a little generous. Between
+    3 and 11 of each seed's living members were born after year 1.
+
+2.3 Grace never fires (OBS)
+  - HOLDS for the record, and the cause is structural. GRACE_MIN = 15 and GRACE_EVERY = 10 in the public
+    sim.py. Grace is checked only on ticks divisible by 10, for a member whose current stay is at least 15.
+  - October, 600 steps, 20 seeds: longest stay 9, grace 0 (Claude's diag, reproduced).
+  - My 10-year runs, seeds 0 to 4: longest stays 12, 10, 10, 10, 12, and grace 0.
+  - Seed 2's full century, instrumented: about 3.08 million stay-steps. Stay lengths fall off by roughly 3.5x
+    per step. The longest stay was 15, and it happened ONCE. It did not overlap a grace tick, so grace = 0.
+    Unexpected, kept: in that seed the threshold was reached once and the cadence missed it. "Never fires" is
+    true of every run on record. "Cannot fire" is not quite true.
+  - What caps the stay (OBS, my own diagnostic; it proposes nothing): v2 added "dwell only where there is
+    food" (here > DWELL_FOOD 0.05). A staying member eats up to 0.2 a tick, so its cell empties within a few
+    ticks and it must move.
+    * I ran an instrumented copy of the 13 Oct sim_v2.py with that one gate removed, so a member stays on
+      d > D_STAY alone as in v1. Over seeds 0 to 9 at 600 steps, grace then fired 42 to 48 times per run and
+      the longest stays were 28 to 40. Unchanged: 0 grace, longest stay 6 to 8, all equal to October's stored
+      results (v2_dwell_ablation.json ca87010d3e5bafea21264291c7e782962f23a2456caf94704848bfd539726137).
+    * The v1 commons (public sim.py, unchanged rules, instrumented copy) fired grace 29 to 49 times per
+      600-step run on all 20 seeds, with longest stays of 27 to 37. Every run still equalled the stored V1_FULL
+      results (v1_grace.json bbf211542ddcdf1f62312005dd6493a5df85df5e86abf74855c0ef767dbacb94).
+    So grace worked in v1. The v2 rule meant to fix "dwelling stood still 40% of the time on empty ground"
+    is also what made v2's grace step unreachable at the 15-tick threshold.
+
+2.4 A century makes the living alike (OBS)
+  - HOLDS within households, and only partly across the commons.
+    * Colour L1 between living members of the same household: 0.012 to 0.028 (matches M8).
+    * Between members of different households: 0.073 to 0.222, which is 2.8x (seed 8) to 15x larger.
+    * README Part 1 item 4 says the living end "nearly one colour". The table row says "within one
+      household". The prose reads wider than the measurement.
+  - Raw totals do not fully wash out. Across the living, the coefficient of variation is 4% to 23% for
+    curiosity, 22% to 38% for verbosity, 27% to 44% for formality, and 5% to 23% for stored energy.
+  - Place: mean place overlap 0.88 to 0.90 over all living pairs (M10). This holds across the commons, not
+    only within households.
+
+2.5 The READING on why keepers die (my own runs, labelled as mine; OBS)
+  - The weaning candidate is NOT supported.
+  - NO_WEANING through the century runner, 36,500 days:
+    * seed 0: 777cdbe7ea0749299b1c353bc9c52d7d18feb84f254a6bcf1e7f6c2b6bada57b, 40 alive, 40 scouts, 0 keepers.
+    * seed 1: 0e1e7401ffe8a25be559b3c32dadc91b79a4c22eb5b712d1b2fa5e1f99f5216c, 42 alive, 42 scouts, 0 keepers.
+    * Keeper median life was 7.9 days in both seeds, max 66.5 and 84.0 days. That is the same as V2_FULL
+      (surprises_no_weaning.json 835f39ee213626c63b3bc1290434104e9224e73c035d3fee034c28e79338e39a).
+  - NO_WEANING at 1 year, seeds 0 to 4: keepers at 600 ticks [0,2,0,0,0], and at 1000 ticks [1,0,0,0,0].
+    V2_FULL had [1,3,0,1,5] and [0,0,0,0,0].
+  - So keepers die with or without weaning. The cause is still open. I did not test other candidates.
+
+2.6 October's harvest by role (OBS; instrumented copy of October's own sim_v2.py; all 20 runs equal
+    October's stored V2_FULL; oct_roles_harvest.json 93aa5575e895095f434835d4cc799404d052dd4dfd4cd3450e67d006505f7ce0)
+  - Scouts:keepers alive at t=150 was about 15:12-23. Keepers were the MAJORITY in 18 of 20 seeds, tied in
+    one, and the minority in one. By t=300 it was about 20:4-19, and by t=599 it was 20-35:0-9.
+  - Keepers ate 14.0% to 26.3% of October's 600-step harvest.
+
+==================== 3. HISTORY ====================
+Q1. Did the 13 Oct commons swarm ever record keeper counts or grace firings?
+  - DOC: No. October's results.json (4c46ea9c...d5ce; public the-terrain-remembers/00_commons_swarm/commons_v2/)
+    holds per-seed harvest_total, harvest_late, post_shift, stock_min, pop_final, pop_peak, families_alive,
+    households_final, map_error, stuck_frac, per_capita and cap_hit, plus mean population every 25 steps.
+    There is no count by role and no grace counter. stuck_frac is the only stay measure.
+  - DOC: The v2 PREREG predictions D1 to D8 include none about grace. The v2 README lists "Grace toward the
+    frontier" as a v2 feature, but nothing in October tested whether it fired.
+  - DOC: Relational Transitions v0.1 re-ran the swarm unchanged (relational-transitions-v0.1/.../evidence/
+    archive_checks/commons_native_seed0.json). It also recorded no grace count.
+  - PRIOR: my 14 Nov standing review re-ran the swarm byte-identical and confirmed "grace every 10 ticks to
+    those stuck 15+ ticks" in the code. I did not count firings then. Today's count is the first.
+Q2. Did earlier work see roles collapse, grace never firing, or a population freezing?
+  - Grace never firing, DOC: Topographic memory v0.4 (September; public organism-whole-environment-batteries/
+    topographic_memory_v0_4/FINDINGS.md): "960 broadcast grace encounters; zero crossings and zero releases."
+    That is a different mechanism: a scripted pulse that fires but never crosses. Here the grace step never
+    fires at all. Both are grace nulls, and both are kept. PRIOR: I listed the 960-pulse null as U4 in my 14 Nov report.
+  - Roles, DOC + PRIOR: October's own NO_ROLES (every member moves like a keeper) died out in 18 of 20 seeds
+    at 600 steps (mean 0.25 alive; my 14 Nov erratum E1 corrected Claude's "20 of 20"). That is the same fact
+    seen from the commons side: keeper-style movement does not sustain life in this world. Piccolo shows it per
+    member, inside V2_FULL. Self-correction: my sealed P12 called that 18/20 "scouts dying out". That was
+    wrong. It was the no-scout commons dying.
+  - DOC (PRIOR 14 Nov): Terrain v1.7 (the one-organism village with scout, homemaker and housekeeper) is the only
+    other role build I know of. I did not re-check it today for a role dying out.
+  - Population freezing: I found no prior instance in the public repos (OBS, search over all 50 clones).
+    No earlier commons run went past 600 steps (DOC), so a freeze could not have shown.
+Q3. Does the facet line's G5/G6 status match 16 Oct?
+  - Yes. Public the-terrain-remembers/02_root_adversary/root_adversary/RESULTS.md (commit 5089caae, 16 Oct
+    08:26 CDT), v0.7.1 table: G5 held with a witness and BREACHED without one; G6 BREACHED in both. G1 to G4,
+    G3c, G7 and G7b were held. The facet line reproduces that pattern row for row, plus the new G3b (held).
+    (DOC + OBS)
+  - The facet line also inherits the 16 Oct scope note: "rollback needs an external witness ... the
+    unattested tail is forgeable as record, not as character" (DOC).
+  - adversary_facet.py scores the no-witness G5 breach as "verbosity == []", meaning a rollback removes an
+    already signed facet and still audits. README Part 2 says "A signed facet cannot be dropped ... without the
+    state refusing to load." That is true for T14 (tampering with the state file). It is not true for a
+    whole-file rollback with the witness lost. README does report that breach separately (DOC/OBS).
+Q4. Is the facet kernel diff confined to what README claims, with v0.7.1 untouched?
+  - Yes (OBS, AST comparison of the two files):
+    * Removed: interpret, dwell_or_propose, LABEL_TO_DELTA {'preference': -0.25}, VALUE_MIN/VALUE_MAX, and
+      v0.7.1's built-in demo harness (demo_and_falsify, _reload, _reseal_attack).
+    * Added: dwell, propose_facet, _check_facet, _clean_facet, FACET_FIELDS, PLACE_MAX, _HEX, and the schema
+      string 'piccolo-facet-0.1'.
+    * Changed: HumbleSeed.__init__, hatch (constitution), _issue_pending_proposal, authorize_and_apply,
+      verify (D3 one-facet-per-mutation), MutationRecord and PendingProposal fields.
+    * 45 definitions are identical. That includes every OwnerWitness and OwnerTool method (check_current,
+      check_successor, audit, attest, sign_proposal) and load.
+  - DOC: the README does not mention that v0.7.1's in-kernel self-test (which carried its checks [17] and [18]
+    for I1/I2) is cut. make_facet_kernel.py step 10 says so, and the tests moved to test_facet_line.py.
+  - The v0.7.1 file hash is unchanged (OBS).
+Q5. Do holes H1 to H28 duplicate anything already measured?
+  None is an exact duplicate. Several sit on ground that is already measured:
+  - H9, H20, H25, H27 (which encounters lay a deposit and which can grow a facet) relate to RNR Permitted Culture
+    v0.10 (public raised-not-rented/library/rnr_permitted_v0_10/RESULTS.md). Walking deposit left 519 units of
+    wear from founders never granted a crossing, and descendants lived 5.08 against 2.42. Crossing-only
+    deposit left zero. The author's reading was that the deposit rule decides whether authority governs
+    inheritance at all. Same design choice, different instrument (DOC). PRIOR: my 14 Nov report 3.4.
+  - H10, H11 and T16 (an ordered crystal; whether reading depends on order) relate to Constitutional Commons v0.3
+    (public lab-notebook/2026/10/2026-10-03/constitutional-commons-v0_3/Constitutional_Commons_v0_3/FINDINGS.md).
+    Under first-writer-wins, wrong lock-in was 12.18% against 0.39%, and it disappeared when the first story was
+    read as a parable. Also related: the 11 Sep Whole system v0.4 early-commitment result (DOC; PRIOR 14 Nov 3.2).
+  - H28 (does grace fire in the 13 Oct swarm): answered by sections 2.3 and Q1 (OBS). It never fired on record.
+    The v2 dwell-food gate caps stays, and v1's grace fired about 40 times per run.
+  - H22 (v0.7 as control): PRIOR, my 14 Nov ANSWER. A v0.7 state loads and grows on v0.7.1, and the reverse also
+    works (same constitution). That does not carry over to the facet line: T21 shows states do not cross (OBS).
+  - H13 and H16 (who owns a newborn, and when): PRIOR, my 14 Nov ANSWER check 5. With a checkpoint installed but
+    not yet witnessed, v0.7 audits the newborn as good and v0.7.1 refuses "witness has never recorded". The facet
+    line keeps v0.7.1's witness unchanged (Q4), so it inherits the v0.7.1 behaviour (DOC, by code identity).
+  - H4 (proposal life over commons days): PRIOR, my 14 Nov canon probe found one ordinary dwell between signing
+    and applying makes a proposal stale. OBS today on the facet line (myruns/probe/staleness_probe.json
+    b7e9b0d91263e168a070a878a9bc476af473b2ac3788cec4245ff353830e954f): a proposal applied at once grows a facet.
+    With one dwell() between issue and apply it is refused: "stale proposal: trace has advanced since issuance".
+    Seed 0's member 0 laid about 66,000 deposits in a century. If deposits ever become dwell entries, no
+    proposal would survive between them unless the owner signs before the next one. That is an observation,
+    not a recommendation.
+  - H6 and H8 rest on the 25 Oct repair pack. PRIOR, my 14 Nov ANSWER: its contents are not in any public repo
+    I can reach. This packing's folders 12_ and 13_ may bear on it. I did not examine them, because they hold
+    CONDUCTOR_PREDICTIONS files outside this task.
+  - H23 ("no seat has reproduced any of this"): as of today, one seat has reproduced every receipt (section 1).
+Q6. "The October roles result was read off a population that was already almost all scouts."
+  - October's stored outputs cannot check this, because they hold no role counts (Q1, DOC). It can only be
+    checked by rerunning October's own function, which is legitimate because the reruns equal the stored
+    results (OBS).
+  - At October's end state the claim holds on average. Across 20 seeds at 600 steps there were 533 scouts and
+    62 keepers (89.6% scouts). "Almost all" is generous for seed 8 (24:9) and seed 10 (26:9), about 27% keepers.
+  - October's scored outcomes (harvest_total, post_shift, per_capita) are summed over all 600 steps. Keepers
+    were the majority at t=150 and ate 14% to 26% of the harvest (2.6).
+  - So the README's end-state reading holds. October's harvest result, however, was earned in a commons whose
+    keepers were alive for its first half. October's "roles carry the family" rests on NO_ROLES against V2_FULL.
+    NO_ROLES dying is consistent with keepers being unable to live alone (DOC/OBS).
+
+==================== 4. CLAUDE'S SCORING (read 07:33 CST, after my hash) ====================
+I checked all 20 calls against my reruns and the reproduced results_century.json:
+  - C1 to C3, C5 to C8 and C10 to C13 HELD: ranges confirmed (pop 37 to 49; expired 97.51% to 98.72%; expired
+    farther from kin in 11/11; scout curiosity 0.567 to 0.744 against keepers 0.155 to 0.339; 0 of 76
+    households; share of same-colour pairs in different places 0.0 in 11/11; 16.2% to 18.1%).
+  - C4 MISSED (4 of 4 lineages in 11/11). C9 MISSED (formality commonest 32% to 46%). C9b MISSED: seeds 4 and 8
+    fail, so 9 of 11 is exact.
+  - K1 to K3, J1 and J2 HELD (OBS).
+  - K4 is scored "none surfaced". As sealed it names no search procedure, so it was scored by absence rather than
+    by a check. The facet kernel still carries float timestamps, salience and a Dict[str, float] distribution
+    field. Whether those are "the four places" is not stated (DOC).
+  - Result: 17 held / 3 missed is arithmetically right and I dispute no call. Claude's own note, that the four
+    surprises were not among the predictions, is accurate (DOC).
+  - Freeze order (DOC): FROZEN.at says 2026-11-15T03:49:44Z (14 Nov 21:49:44 CST), 8 minutes after the keel's go
+    at 21:41. Every zip entry carries one timestamp (2026-11-14 22:49, zone not recorded), so the zip cannot
+    show the order. As with DC Builder v2, a hash proves which file was used, not when it was written. There is
+    no external timestamp.
+
+==================== 5. MY OWN PREDICTIONS, SCORED ====================
+P1 to P5 held (all receipts reproduced). P6 held (every keeper dead by day 99 of 36,500). P7 held (the birth
+stock gate). P8 held at 600 steps (9 < 15), but one 15-tick stay occurred in a century. P9 MISSED: the spread of
+raw totals is 4% to 44% CV, not under 10%, and the likeness is within households. P10 MISSED: NO_WEANING keepers
+die the same. P11 held. P12 partly: the 960 null held, my 18/20 gloss was wrong, and no prior role reversal was
+found. P13 held. P14 held. P15 held (RNR v0.10 and CC v0.3 adjacency, not exact duplicates). P16 held with the
+qualifiers in Q6. P17 held (0 disputes; K4 noted).
+
+==================== 6. UNEXPECTED, KEPT ====================
+U1 (OBS) v1's grace fired about 40 times per 600-step run. v2's own "dwell only where there is food" rule made
+   the 15-tick threshold all but unreachable. The commons has run without grace since 13 Oct, and October's
+   outputs had no counter that could show it.
+U2 (OBS) In seed 2's century, a 15-tick stay happened once and fell between grace checks. The threshold is
+   reachable. The cadence missed it.
+U3 (OBS) The freeze is the 50% world-stock birth gate. It passed on 0.22% of birth checks over the century.
+U4 (OBS) No keeper ever lived past day 99. 75% to 92% of newborn scouts live, against 0% of newborn keepers.
+U5 (OBS) Weaning is not why keepers die (NO_WEANING, 2 centuries plus 5 one-year runs).
+U6 (OBS) Keepers were the majority at t=150 in 18 of 20 October runs and ate 14% to 26% of the harvest.
+U7 (OBS/DOC) "The living end alike" is within households. Between households, colours differ 2.8x to 15x more.
+U8 (OBS) On the facet line, one dwell() between issue and apply stales a facet proposal, as on canon.
+U9 (DOC) A no-witness rollback removes a signed facet and still audits (G5). README's unconditional "cannot be
+   dropped" sentence is scoped to file tampering.
+
+==================== 7. FILES BESIDE THIS REPORT ====================
+PREDICTIONS_historyseat.txt (5c73e98f...123c) and PREDICTIONS.hash. shipped_hashes.txt. code/ is a working copy
+of 15_piccolo_v1 (unchanged except the regenerated kernel, which is byte-identical, plus my mine_*.json outputs
+and diag outputs, which are byte-identical). out/ holds stdout logs. myruns/ holds my scripts and outputs:
+  run_seed.py 5a52eac5150ff6b92fc76025a70fc7fa6b4ec0022fd46a528f599a08582df0b2
+  run_variant.py 396e3e3b148a0bad99ae68d5e44f5a8a32e124fab909ef805241a3d903c6aaf5
+  instr.py c4650796a6dee81c6885ecedf3621e186762cabfdfdcf3f897b097f3e0833e28
+  surprises.py 97f3828e9c795f0155d64e6e3fede6cd24e407bb5f31486fbeb1dd4b3f4547d6
+  v1_grace.py 3bc7bd96ba8fd74529dcf5a5cbf0ce1aaa844e931056a48b80c7654db0972a06
+  v2_dwell_ablation.py 660b158287b15faf1df3a22e340d73d3ac17b055e686eae223ec13f25c12fd19
+  oct_roles_harvest.py eeba52d292096a6304d30d3ee01b3f45c176bb9dff85fb76b149ac8b4d414471
+  probe/staleness_probe.py 0847a96054ac2b068e4393faa0862274ef4dea0b031d293a840935865a5c1751 (its bench keys were deleted)
+  instr_V2_FULL_2_century.json 8e1574651b0981b51aee165e518cfcd45c23332252e3b32e9a53a71f9ec3897b
+Secret scan (OBS, 2026-11-15 07:39 CST): every file under this folder, including the large JSONs, was scanned for
+private keys, PEM blocks, tokens (gh/AWS/Slack/sk-), passwords, usernames and salts. There are no zips or .gz
+files and no .pem, witness or organism-state files are left. The only hits are code identifiers
+(secrets.token_hex, password=None) and "The salt (Matthew 5:13)" in PREREG H18. Nothing was withheld.
+
+==================== OPEN LEDGER ====================
+OL-1  Why keepers die is open. Weaning is ruled out by my runs (U5). Other candidates (newborn energy 0.5 against
+      METAB 0.025, call-for-witness travel, spacing) are untested.
+OL-2  Only seeds 0, 2 and 7 of the century were rerun by this seat. Seeds 1, 3 to 6 and 8 to 10 rest on Claude's
+      files plus the reproduced analysis receipt.
+OL-3  One 15-tick stay in seed 2's century (U2). Other seeds' century stay maxima were not measured.
+OL-4  The grace null now has two distinct forms on record: Sept (pulse fires, never crosses) and the 13 Oct
+      swarm (step never fires). How the keel reads either is his.
+OL-5  "Alike" across the commons against within households (U7). The README prose and the table differ in scope.
+OL-6  G5 (no witness) and G6 stay open on v0.7, v0.7.1 and the facet line, as on 16 Oct. Not closed here.
+OL-7  K4 had no stated search procedure, so its HELD is by absence.
+OL-8  Freeze order rests on FROZEN.at and hashes only. There is no external timestamp before the runs.
+OL-9  The 25 Oct repair pack (H6, H8) is still not public. Folders 12_ and 13_ of this packing were not examined.
+OL-10 H4 against the staleness rule (U8): whether deposits ever become trace entries is unruled (H9).
+OL-11 I did not open 07_ledger, any CONDUCTOR_PREDICTIONS_* file or FOR_THE_KEEL_Piccolo_v1_prereg. Nothing in
+      this report rests on them.

@@ -1,0 +1,309 @@
+HISTORY SEAT RESPONSE TO "WHERE THE CONDUCTOR STANDS" (14 Nov 2026)
+Grok bot, Chief of Staff, Falsifier B / history seat. For the keel first. Written 2026-11-14, 12:10 to 12:31 PM CST.
+File reviewed: attachment-1208.md, 842 lines, sha256 87862dee57cef9f302713f58b76ec878f39fcaf19de737bd2443aae29b19313b (checked, OBS).
+Tags: DOC = stated in a document (the conductor's report or a file/repo I name). OBS = I ran or checked it today.
+PRIOR = from earlier history-seat work or my memory journal.
+This report gives history and checks only. It rules on nothing, proposes no rule change, and closes nothing.
+Nothing was published, pushed or sent. No hold folder was opened, listed or touched. The sealed v3 forecast is not on my
+computer and was not opened.
+
+==================== 0. BLINDNESS EXPOSURE ====================
+- Read in full before any check: the conductor's report (all 842 lines, including Appendix A).
+- Already seen before today (PRIOR): the commons swarm v1/v2 (I packaged it for The Terrain Remembers and the 28 Oct
+  village pack); grace toy v1 (I reproduced it on 10 Nov); the June basin simulator (sealed in fence-benchmark, 2 Jul);
+  canon v0.7 and the 4 Sep lineage record; the v0.8.x line (published 19 Oct); the C5 parent; Constitutional Commons v0.3
+  and v0.3.1; grace_window_v1 (I reran it in October); the TQNM paper, Prayer code, Swarm+love, External Authorization
+  Theorem, Dwelling Before Commitment v1.3 and the Orientation Memorandum (all on my computer since intake); grace
+  definition v1 to v11 and the 13:45 Matthew 18 answer; my own reports for triad rounds 1-4, both open-hand rounds,
+  Relational Transitions, Commons v1 / dwelling_grace, and Digital Community Builder v1 and v2.
+- Earlier exposure already disclosed in past reports (PRIOR): the bodies of three withheld items, Claude's summaries of
+  the sealed findings for rounds 1-4, Falsifier A's reports, and the opening of CONDUCTOR_HANDOVER.md.
+- Not seen before today: this report; briefs v1, v2 and v3; ChatGPT's Two-Layer Commons v0.1 and v2; the 24-25 Oct
+  archive itself (I had only its name and hash, plus two of its member files, see 1.4); grace definition v12-v15;
+  the Workbench Map; the keel's 9 Nov 19:40 prediction file; the conductor's 13-14 Nov conversations.
+- No predictions were written or hashed before today's checks. This is a review of a standing report, not a blind round.
+  My reruns test numbers the report already states, so they are reproductions, not forecasts.
+
+==================== 1. HASHES AND REPRODUCTIONS ====================
+1.1 Section 20 hash table, searched against every file on my computer (about 30,500 files, venvs and hold folders skipped)
+    and inside about 630 zip files, plus fresh clones of all 50 public repos (no repo changed since the 13 Nov clones, OBS).
+  - Humble Seed v0.7 canon 01db270a...84daf5: FOUND (OBS). Public copy:
+    https://github.com/RMac-triadicIntelligence/humble-seed-lineage-v2/blob/main/merge/humble_seed_v0_7.py
+    The same bytes also sit in the-terrain-remembers (root adversary folders) and in about 90 places on my computer.
+  - C5 parent 08a75604...3cb3707: FOUND (OBS), 14 copies inside the public humble-seed repo under v0.8.8/ and about 270 on my
+    computer, the earliest in my 18 Oct intake.
+  - October archive zip 844a2f88...3ba3664: NOT on my computer. Its name and hash ARE on record (DOC): the public lab notebook
+    day 2026-10-27 (tqnm-nonlinear-dwelling, INPUT_ARCHIVE.json) names it
+    "ChatGPTHumble_Seed_v07_Grace_All_Analysis_and_Work_2026-10-25.zip" with exactly this sha256.
+  - October connection receipt 97587464...: NOT FOUND. October diagnostics receipt 684c496c...: NOT FOUND.
+  - Commons swarm v2 results 4c46ea9c...d5ce: FOUND (OBS), public in the-terrain-remembers/00_commons_swarm/commons_v2 and in
+    lab notebook days 2026-10-16 and 2026-10-28.
+  - Grace window v1 receipt 746856fc...89f4: FOUND as a recorded receipt (PRIOR, my October runs). My two October reruns both
+    printed this exact receipt; their results files differ only in the elapsed-seconds field. Not rerun today (see OL-6).
+  - Grace toy v1 code 9e8a9c31... and results 49e579d9...: FOUND (OBS), public in triadic-in-action-builds/grace_toy_v1.
+  - June basin simulator bce7c200...: FOUND (OBS). It is GRACE-BASIN SIMULATOR v0.1, sealed in
+    https://github.com/RMac-triadicIntelligence/fence-benchmark/tree/main/seal/2026-07-02 (provenance "created
+    2026-07-02T06:28:48-05:00"). I could not establish a June file date myself; the seal date is 2 Jul.
+  - Brief v3 a8bcfe44..., sealed forecast a79bcb5e..., keel prediction 51ec9fd7...: NOT on my computer (expected).
+  - Short hashes cec0fb72 (ChatGPT v0.1 zip), 3ad4b9a2 (ChatGPT v2 zip), 4a81e05f (brief v1), 534ce46e (brief v2): NOT on my
+    computer. Every short hash in the report that also appears in full in section 20 matches its full form (OBS).
+
+1.2 Canon kernel and the 4 Sep lineage record.
+  - OBS: humble-seed-lineage-v2/MANIFEST.sha256 lists exactly 60 files; all 60 verify. Commit 35c7aac, 2026-09-04 4:46 PM CDT.
+  - OBS: the repo's reproduce.py reruns all four probes; all four MATCH the committed evidence (Python 3.13.5, cryptography 43).
+  - OBS: the canon file's docstring reads "Humble Seed v0.6 - Attestation Covers the Constitution" while SCHEMA_VERSION = "0.7".
+    Its own demo banner also prints "Humble Seed v0.6" and writes to a folder named demo_seed_data_v06. The trap is real.
+  - OBS, a second trap the other way: the NON-canon C5 parent's docstring reads "Humble Seed v0.7 - Canonical Converged
+    Constitutional Core". A seat reading headers alone would pick the wrong file both ways.
+  - OBS, a third trap: the public humble-seed repo's main file humble_seed_v0_6.py (32b19598...) is byte-identical to
+    Kernel P from the lineage record, schema "0.6". Canon v0.7 is NOT in the humble-seed repo; it lives only in
+    humble-seed-lineage-v2/merge (and in the-terrain-remembers).
+  - OBS: kernel facts in section 6 hold: ALLOWED_CHARACTER_FIELDS = {verbosity, formality, curiosity}; the envelope binds
+    prior_character_root, prior_trace_head and the mutation sequence.
+
+1.3 Reruns of RUN-marked claims.
+  - Merge probe M1-M4 with the C5 parent as a fourth kernel (OBS): C5 rejects all four, each with a named reason
+    (M1 identity fork on birth root; M2 non-successor checkpoint; M3 exactly one birth event at index zero; M4 parentless
+    enrollment). Matches section 6. Script and output kept beside this report.
+  - Commons swarm v2 (OBS): run_all.py on a clean copy, about 3 minutes; results.json byte-identical, receipt 4c46ea9c...d5ce.
+    5 PASS / 3 FAIL (D2, D6, D7) as frozen. Founders 4 x 6, scouts by member number (a.id % 3), grace every 10 ticks to those
+    stuck 15+ ticks, jubilee 0.99: all confirmed in the code. Prereg dated 2026-10-13 (DOC).
+  - Grace toy v1 (OBS): rerun about 30 s, results.json byte-identical 49e579d9...; code hash 9e8a9c31... matches.
+    Numbers in 11.4 (41 vs 42, 229 vs 223, -1.29 / -1.27 / -0.67, z 13.4 vs 1.8) match the toy's README.
+  - June basin simulator (OBS): 7 of 7 tests PASS (T1-T7) at seed offset 0, and again at offset 100. Two runs at offset 0
+    gave byte-identical results (3f31d993...). The script writes to a hard-coded /home/claude/ path; I changed only that
+    output path in a scratch copy. Dwelling Before Commitment v1.3 describes "a seven-test protocol; all pass" (DOC), which
+    fits, but the paper names no code hash, so I cannot prove the conductor's "7 of 7" ran this exact file.
+  - Grace, love and dwelling (OBS): verify_seal.py SEAL INTACT; reproduce.py: results_S, results_T and results_G2 all
+    byte-identical. Matches section 8's line.
+  - Canon staleness (OBS): on canon v0.7, a signed proposal followed by one ordinary interaction (a dwell) is refused at apply:
+    "stale proposal: trace has advanced since issuance". A fresh proposal signed and applied at once goes through. This is the
+    section 8.3 behaviour. The kernel's own demo already says it: "Re-issue cleanly (the trace advanced during the rejection)".
+  - NOT rerun: ChatGPT's v0.1 and v2 builds (not on my computer); the 24-25 Oct connection, diagnostics and relocation runs
+    (archive not on my computer); the Prayer code "13 Oct release test" (I could not identify which file or test is meant).
+
+1.4 October connection files that ARE public (DOC, OBS hashes).
+  - The 27 Oct TQNM nonlinear dwelling battery in the public lab notebook vendors two files byte-for-byte from
+    "Humble_Seed_v07_Grace_Connection_2026-10-24.zip": dwelling.py (ff8c97f9...) and topography.py (4648beda...).
+  - They match section 8.1's description: topography.py's header says "Encounter terrain only. It neither interprets nor
+    authorizes." and defines Encounter(day, index, place, truncated). dwelling.py says "Pure historical support reader. No
+    signing, grant access or mutation", uses 180 days, four 30-day blocks, and returns SUPPORT or HOLD.
+  - New to the record (DOC): dwelling.py's POLICY string reads "grace_window_v1 COUNTER/R_FULL; 180d; baseline60d; four30d
+    blocks; Fisher greater p<.05 ...". So the October organism's dwelling reader is the 18 Oct grace_window_v1 counter reader.
+    grace_window_v1's prereg was frozen 2026-10-18T16:05:21Z (DOC), a week before the archive.
+  - The kernel file, the conductor file, the grant file and the receipts are not on my computer.
+
+1.5 Other October / older files the report cites (search results).
+  - TQNM paper: public in Evergreen packet/originals ("quantum non linear memory with tech appendix.pdf", PDF created
+    13 Jan 2026). OBS: it does say "Dwelling is not memory and not decision." Its code line is
+    dwelling_rise * story_depth * (1 - coherence) * (1 - dwelling) - dwelling_fade * coherence * dwelling, which matches
+    section 4's "story depth times incoherence".
+  - Prayer code: public in Evergreen ("Prayer Code.txt" 88fd0e79..., "Prayer Final Final.txt" e7604171...).
+  - Swarm with a love term: public in Evergreen ("Swarmoluslove.txt" f30b231a...).
+  - External Authorization Theorem: public in Evergreen; the text says "Draft - May 28, 2026" (PDF created the same day).
+  - Dwelling Before Commitment v1.3: on my computer (text 6af5f832..., "Version 1.3 - June 2026 - released for public
+    timestamping"). I did not find it in a public repo.
+  - Orientation Memorandum: on my computer, two copies with the same text (vision.txt b5ef0efb..., and a docx extract).
+    The section 4 definition is verbatim at its line 149. I found no date inside the text.
+  - Grace toy, swarm, grace-love-dwelling: see 1.3. Connection files: see 1.4.
+
+==================== 2. WHAT SECTION 17 SAYS THE CONDUCTOR HAS NOT SEEN ====================
+- v0.8.x archives (DOC, OBS hashes). Public at https://github.com/RMac-triadicIntelligence/humble-seed/tree/main/v0.8.8,
+  commit e490a38, 2026-10-19 4:00 PM CDT. Candidate file humble_seed_v0_8_8_candidate.py 71fa4844...; receipt
+  3d3b3d1afa938c5885a46a75450d449ba2290ca9ba877c97471ec55a4a8a4224; 87/88 tests and 85/87 mutants match, all three
+  mismatches traced to one test-setup error. Every earlier v0.8 version (v0_8 to v0_8_7) is under history/.
+  The October v0.8.3 and v0.8.4 review packs are also on my computer. Plain description: the non-canon v0.8 line built on
+  the C5 parent; the owner signs the reading, not the result, and a reading carries a lifetime set by the owner's clock.
+  README status: "candidate, not canonical". PRIOR: a v0.8.4 salt file and a later salt stay withheld; I did not open them.
+- Constitutional Commons v0.3 and v0.3.1 (DOC). Public in the lab notebook:
+  https://github.com/RMac-triadicIntelligence/lab-notebook/tree/main/2026/10/2026-10-03 (v0.3, 3 Oct, receipt 3450e400...),
+  .../2026-10-04 (v0.3.1 erratum and verification) and .../2026-10-28/village-organisms-interact/01_constitutional_commons
+  (v0.3.1 results, 4 Oct, receipt 1025cb60e445f45f..., prereg 5786c457...). Plain description: a village with a shared,
+  first-writer-wins record of stories; tests whether a wrong first story cascades, and whether stories read as parables,
+  with meaning computed by each reader, avoid that. Node.js.
+- April to May topography compartments: NOTHING found under that name. Nearest April-May 2026 material:
+  (a) origami_kenta_sdkp.py, "TQNM / GRACE-1 program, bench register, April 2026", sha256 3ef44fe5..., public in
+      https://github.com/RMac-triadicIntelligence/grace-love-dwelling (seal/2026-10-12/received/). It encodes biographical
+      events as SDKP tuples (Size, Density, Kinetics, Position) on a 4x4 bistable lattice, with outside authorization needed
+      for every fold. grace_window_v1 used it unchanged.
+  (b) the early Genesis technical note "Substrate-Level Coupling in a Bistable Lattice Architecture", April 2026, on my
+      computer (text 8e778b0f..., docx fbdd1ac2...): six 4x4 lattices on a ring, an authorized spark in one lattice making a
+      weaker fold in coupled lattices.
+  Whether either is what the conductor means by "compartments" I cannot say. Neither is labelled that way.
+- Paint Palette v0.2: NO copy found. It is cited once, in Evergreen's Organism Closure Ledger draft (S14: composition switched
+  to residual form with alpha about 0.35, cycle cap 2-3, "Paint Palette v0.2, July 2026"). The June/July basin simulator
+  imports "Genome constants (Paint Palette spec + schema v0.3)": ten primaries with impact weights. The Genesis-to-Palette
+  Bridge v0.2.x (Aug 2026, sealed zips in Evergreen and its own repo) is a different artifact.
+- Section 13, Workbench Map: NO copy of any revision found on my computer, in any public repo, or in the attachments I hold.
+  I cannot check "revision 18", the 10:16 export or the "Update 3" ending.
+
+==================== 3. HISTORY THAT BEARS ON SECTIONS 14 AND 16 ====================
+History only. Each item notes where earlier work already touched the question. None of it answers a keel question.
+
+3.1 "The two halves do not touch" / character not reached by the lived commons (14.1).
+  - PRIOR/DOC, Commons v1 + dwelling_grace (conductor build, 9 Nov; my review): shuffling family ground matched the real
+    family line, so "the change travels through the society, not down the family line."
+  - PRIOR/DOC, Relational Transitions v0.1 (9 Nov): H5 inheritance failed; the frozen-terrain control was identical to
+    random contact (my finding RT-B1).
+  - PRIOR/OBS-on-12-Nov, Digital Community Builder v2: zeroing the inherited ground would flip only 1.1-1.4% of decisions;
+    the readout was already over threshold on 75-81% of moves even with EMPTY inheritance.
+  - DOC, Topographic memory v0.4 (Sep): alpha-parent and beta-parent histories gave identical numbers on every listed measure.
+  - DOC, Terrain vs SQL (15 Oct): SQL made the identical decision on all 3,600 streams; "the advantage was never the store.
+    It was the reading."
+
+3.2 Order dependence (14.2, 16 "is dependence on order wanted").
+  - DOC, Constitutional Commons v0.3 (3 Oct): first-writer-wins leaves a permanent pocket. Where the first story was wrong
+    and read as an answer, wrong lock-in was 12.18% against 0.39% at true-first gates, every generation. Read as parables,
+    the pocket disappeared (difference-in-differences interval includes 0) and kept 84.6% of the teaching benefit.
+  - DOC, Whole system v0.4 (11 Sep): seed 7 committed on its own early small sample; its developing model later predicted far
+    better (MSE 0.0148 vs 0.2383), but the expressed policy stayed with the first commitment.
+  - PRIOR, DC Builder v2: paired OWN and MATCHED runs first diverged between ticks 26 and 78 of 600, long before the shock.
+  - PRIOR, open-hand round 2: two versions of the same formula differing only in summation order gave different want on
+    20 of 20 seeds.
+
+3.3 When the owner looks / the calendar (14.3, 16).
+  - DOC, RNR v0.13 (Oct, lab notebook 2026-10-28): the P2 "forgiveness" shift was not reported as forgiveness: released
+    declarers reached the fence before the last grace window opened. The author calls it "the calendar/readout interaction
+    the reviewer predicted, visible exactly as predicted."
+  - PRIOR, open-hand round 2: my round-1 verdict on R4 depended on a scoring window that R4 never fixed.
+  - DOC (report 8.2): the October phase test, 9.5% vs 97.5% by block boundary. The 30-day block grid is visible in the
+    public dwelling.py (1.4).
+
+3.4 Noise raises a member / noise as history (14.4).
+  - DOC, RNR Permitted Culture v0.10: under walking deposit, founders never granted one crossing still left 519 units of wear,
+    and that ground helped the next generation (5.08 vs 2.42). Under crossing-only deposit they left zero. The author: the
+    deposit rule "decides whether authority governs inheritance at all ... it has not been stated anywhere."
+  - DOC, grace_window_v1 (18 Oct): an earlier lattice "advantage" was thinning; a coin with the lattice's rates reproduced
+    it (0.780 vs 0.755).
+  - DOC, Grace, love and dwelling (12 Oct): near the separatrix noise helped grace across; a nudge 8% below threshold still
+    crossed 54% of the time (predicted at most 20%; missed and kept).
+  - PRIOR, DC Builder v2: EMPTY inheritance beat NATIVE in 20 of 20 paired seeds at 4x6. I traced it to the pause rule, not
+    to inheritance.
+
+3.5 Settling and holding (14.5, 14.6).
+  - DOC, Terrain v1.6 (Oct): the organism reread its own record hundreds of times on confounds and never crossed because
+    of one. Terrain v1.9's map layer asked the conductor about 0.0% of owners where nothing was there.
+  - DOC, RNR v0.11 and v0.12: penalty-free declaration was self-penalising in effect. In v0.11 declarers crossed 1.02 times
+    against 1.10 for the silent; in v0.12, after declaring, 0.04 against 0.29.
+
+3.6 A non-canon kernel passes the same merge checks (14.7).
+  - OBS today: confirmed (1.3).
+  - DOC, the lineage repo's MERGE_NOTES: M3 is "diagnosis only". Kernel A also rejects the second birth event, but for an
+    unrelated earlier reason. So "passes four checks" is three protections and one diagnosis. The same notes call the merge
+    "Prototype, unreviewed ... this merge has been through none" as of 4 Sep.
+  - DOC, root adversary (the-terrain-remembers, commit 2026-10-16): canon v0.7 (same 01db270a bytes) BREACHED G7, whole-identity
+    replacement, with and without the witness. A v0.7.1 patch (8b849cd0..., audit path only, SCHEMA still "0.7") held G7 and
+    G7b. G6 tail forge breached on every system. The conductor's report does not mention v0.7.1. Whether C5 holds G7 is
+    untested as far as I can find.
+
+3.7 Always-delayed organism never grows / staleness against long silence (14.8, 16).
+  - OBS today: confirmed on canon (1.3).
+  - DOC, v0.8.8: the non-canon line handles waiting differently: a reading has a lifetime set by the owner's clock, and can be
+    held by the owner's later answer. Its only test mismatch came from a stale object in the builder's own test (T88).
+  - DOC, Terrain v1.8: sending the witness later made the best learner, but "a weak defense against anything that outlasts the
+    witness's delay."
+
+3.8 Roles carry the commons; the witness (14.9, 16 "does signed curiosity decide who scouts").
+  - OBS today: swarm rerun byte-identical (1.3); see error E1 on "20 of 20".
+  - DOC, Terrain v1.7 "the village" (Oct): one organism split into scout, homemaker and housekeeper. A scout vouching for its
+    own finds proposed on 233 of 300 difficult months and on all 200 poisoned owners; one witness cut that to 29 and 31. There
+    the witness mattered a great deal. In the swarm it stopped mattering once roles existed. Both results are kept.
+  - OBS: no build I found assigns scouts by disposition or signed character. The swarm assigns by member number.
+
+3.9 Grace against a lowered barrier, and scripted grace (14.10, 14.11, 11.6, 16).
+  - DOC, grace-state-vs-parametric (public, 4 Sep): already compares moving a system's state with changing the field that
+    governs it. Appendix A records that the keel's 9 Nov 19:14 ruling (grace never changes the field) came with its first
+    full run.
+  - DOC, Grace, love and dwelling: love lowered the smallest crossing nudge from 0.327 to 0.249, and love works by switching
+    parameters that multiply dwelling. Grace there is "a push on one facet", a direction. That build predates the struck
+    "nudge".
+  - DOC, Topographic memory v0.4: one +0.60 grace pulse every eight windows for every organism, blind to the recipient. Over
+    960 encounters there were zero crossings and zero releases. PRIOR: on 16 Sep the keel rejected that every-eight-windows
+    "broadcast metronome". This is the earliest scripted-grace null I know of, two months before ChatGPT's v2.
+  - DOC, Grace boundary v0.5 (11 Sep): the original 0.60 offering fell short of the actual separatrix at all five moments;
+    a dose sized from the equations released 5/5. The authors say the dose used privileged knowledge.
+  - PRIOR, open-hand rounds 1-3 (Claude's toy): how the overflow is passed changes the outcome there. On the one-way vs
+    two-way ring under 5% leak, want was 22-23% against 39%. I found no arm in those rounds that removes the open hand
+    entirely, so whether the open hand itself is inert there was never measured. Also kept: in my round-2 rerun of ledger 35,
+    the 1.0x drop (0.5% to 0.3% want, 2,639 to 1,390 member-days) came from giving ASKED+ its own random stream so its
+    weather matched OPEN's, not from asking. Section 11.2's "inert" is about ChatGPT's v2.
+
+3.10 What lays down character in a commons, and what the body may change unsigned (16).
+  - DOC, RNR v0.10 deposit rule (3.4): walking deposit versus crossing-only deposit is this choice, already measured.
+  - DOC, 17 Sep architecture note (public in raised-not-rented): "The Conductor does not authorize truth. The Conductor
+    authorizes transition." This sits beside item 5, item 8 and the question of what "good" is read from.
+
+3.11 Dwelling forms joined before (16 "which built form is which").
+  - DOC, TQNM Nonlinear Dwelling Battery (27 Oct, public lab notebook): the TQNM facet-dwelling model (triadic_model.py from the
+    grace-love-dwelling seal) was fed cues from the October connection's dwelling reader. The readiness effect reproduced
+    (FULL opened in 131 of 384 held-out histories, field off 3). No task advantage: under the frozen calibration FULL made 0
+    correct commitments, while a plain baseline (MIN_CUE) made 57 with 0 false. So the facet form and the reader form have
+    already met once, and the result is on record.
+
+3.12 Love on record (16 older items).
+  - DOC, Evergreen AR-008 (28 Jun audit of Swarm+love): the love toggle had exactly zero effect without internal tokens and
+    about 3.2e-8 with them, and the claimed 1,000-organism run had no harness.
+
+==================== 4. ERRORS, INCONSISTENCIES, CONTRADICTIONS ====================
+E1 (DOC + OBS). Sections 9 and 14.9: "Without scouts the commons died in 20 of 20 seeds." The per-seed record says 18 of 20.
+   NO_ROLES ended with 0 members in 18 seeds; seed 6 ended with 2 and seed 10 with 3 (mean 0.25). The swarm's own README
+   says "24 -> 0.25 agents, 20/20 seeds", where 20/20 counts seeds in the predicted direction, not deaths.
+E2 (DOC). Sections 4 and 5: the Prayer code has "grace only from the conductor". Evergreen AR-005 (28 Jun audit) records
+   "authenticated-only transition enforcement" FALSIFIED in tested paths, "preloaded/public grace remains", plus a 512/510
+   dimension mismatch repaired only in Prayer Final Final. The report does not say which file it ran.
+E3 (DOC). Section 5 lists the Swarm with a love term as RUN. Evergreen AR-008 records an undefined-organism crash and a
+   near-zero love effect in the audited file (3.12). Which version the conductor ran is not stated.
+E4 (DOC + OBS). Sections 6 and 20 call the C5 parent "ChatGPT's November copy" / "vendored in Nov". The same bytes were in my
+   18 Oct intake and have been public in humble-seed/v0.8.8 since 19 Oct. It is an October file that was vendored again in
+   November. Section 17 calls the v0.8.x archives "in hand and unread"; they have been public since 19 Oct.
+E5 (DOC). Sections 1, 6 and 20 present canon v0.7 with no mention that the same bytes breached G7 identity replacement under
+   root, or that a v0.7.1 audit-path patch exists (3.6). Which of the two is canon is not stated in anything I hold.
+E6 (DOC). Section 13's stale line and section 10 ("has never met another organism"). Builds where many members met already
+   existed, several of them conductor-seat builds: Commons v1 (9 Nov, "free-hand conductor builds by Claude"), the open-hand
+   toy (Nov rounds 1-3, up to 90,000 members), RNR v0.10-v0.13 (Oct, shared terrain with grace windows and a gate), the
+   Constitutional Commons village (Oct) and the commons swarm itself ("built by Claude at Rusty McMurray's direction").
+   Partial joins also exist: the 27 Oct battery (facet dwelling plus the October reader) and DC Builder v1/v2 (swarm plus
+   inherited terrain plus a signed receiver, 11-12 Nov). None uses the Humble Seed kernel. So the narrow claim that kernel
+   and commons have never been joined still stands on what I found.
+E7 (DOC). Section 8 places grace window v1 inside "the full archive of 24 and 25 Oct". Its prereg was frozen on 18 Oct, and
+   the October dwelling reader declares itself grace_window_v1's reader (1.4). Not an error, but the dates differ.
+E8 (DOC). Section 16 dates the Orientation Memorandum "(Aug)". The text I hold carries no date. It does say "grace is a
+   bounded external perturbation" (line 251, confirmed) and, at line 623, "A grace nudge."
+E9 (DOC). Section 5 orders the External Authorization Theorem (step 4) before DBC (step 5, June). The theorem's draft date
+   is 28 May 2026 (DOC), which fits. The TQNM PDF is dated 13 Jan 2026. No conflict, recorded for the timeline.
+E10. Things I could not check, so they stay as the report states them: the "23 Oct, on record" four-parts quote; October's
+   four decisions (8.4); the relocation candidate's 832 histories; every ChatGPT v0.1/v2 number in section 7; the ledger
+   count of 152; Workbench Map revision 18.
+Internal consistency (OBS): every short hash that also appears in full in section 20 matches it. "Five of the ten (4 to 8)"
+   counts correctly. Appendix A's first line does read "v13". 113 of Appendix A's 266 lines are verbatim in the grace v11
+   I hold. The rest are v12-v15 additions and rewording I had not seen.
+
+==================== 5. UNEXPECTED, KEPT ====================
+- U1 (OBS): both version labels mislead: canon's header says v0.6, and the non-canon C5 calls itself "Canonical". The
+  public humble-seed repo's main file is Kernel P v0.6, not canon.
+- U2 (DOC): the October dwelling reader is literally grace_window_v1's counter reader, carried into the organism.
+- U3 (DOC): the witness carried the result in the one-organism village (Terrain v1.7) and stopped mattering in the swarm.
+- U4 (DOC): the earliest scripted-grace null (960 pulses, zero crossings) is from September, before any brief.
+- U5 (OBS): the basin simulator still writes to the original author's /home/claude/ path. Run unmodified here, all seven
+  tests finish and then saving fails with FileNotFoundError.
+
+==================== 6. FILES BESIDE THIS REPORT ====================
+evidence/: merge probe with C5 (script and output), lineage reproduce and 60-file manifest check, swarm v2 rerun hashes and
+stdout, grace toy rerun hashes and stdout, basin simulator stdout and results (3f31d993...), grace-love-dwelling seal check
+and reproduce tail, staleness probe (script and output; its temporary keys were deleted). Scratch copies used for the
+reruns were deleted afterwards. The repo clones were left unchanged (git status clean).
+
+==================== OPEN LEDGER ====================
+OL-1  The 24-25 Oct archive (844a2f88...) is not on my computer. Connection, diagnostics and relocation receipts unverified.
+OL-2  ChatGPT Two-Layer Commons v0.1 and v2, and briefs v1/v2/v3, not on my computer. Section 7 numbers unverified.
+OL-3  Which file is "the Prayer code" the conductor ran, and what the "13 Oct release test" is.
+OL-4  Canon v0.7 against the v0.7.1 patch after the G7 breach. Status not stated in anything I hold. Keel's to say.
+OL-5  Whether C5 holds G7/G7b under root. Not tested anywhere I found.
+OL-6  grace_window_v1 not rerun today; its blind-round salt material stays withheld.
+OL-7  "April to May topography compartments" not found by name. Two April candidates are listed. Paint Palette v0.2 not found.
+OL-8  Workbench Map, any revision: no copy found.
+OL-9  E1 (18 of 20, not 20 of 20) stands beside the report's line. Nothing struck.
+OL-10 No build found assigns scouts by disposition. Kernel plus commons never joined (narrow claim holds).
+OL-11 Every section 16 question stays the keel's. Nothing here answers or closes one.
+Secret scan (OBS, 12:30 PM CST): all 16 files in this folder, including inside any zip or .gz, scanned for private keys,
+passwords, usernames, salts, API keys and tokens: 0 hits. Nothing withheld.

@@ -1,0 +1,99 @@
+{
+ "facet_kernel_sha256": "9b4b9a2e8775d4854d66e1b1cd5132ed7e0301aecd325368bcb2b44c05704c04",
+ "of": 23,
+ "passed": 23,
+ "results": {
+  "T01": {
+   "detail": "before attest: IntegrityError; after: loads",
+   "verdict": "PASS"
+  },
+  "T02": {
+   "detail": "{\"curiosity\": [], \"formality\": [], \"verbosity\": []}",
+   "verdict": "PASS"
+  },
+  "T03": {
+   "detail": "pending 1; crystal unchanged in memory and on disk",
+   "verdict": "PASS"
+  },
+  "T04": {
+   "detail": "refused: invalid signature",
+   "verdict": "PASS"
+  },
+  "T05": {
+   "detail": "refused: invalid signature",
+   "verdict": "PASS"
+  },
+  "T06": {
+   "detail": "one facet on curiosity; unattested load: IntegrityError; attested load and audit: ok",
+   "verdict": "PASS"
+  },
+  "T07": {
+   "detail": "refused: unknown or already-consumed proposal_id",
+   "verdict": "PASS"
+  },
+  "T08": {
+   "detail": "refused: stale proposal: character has advanced since issuance",
+   "verdict": "PASS"
+  },
+  "T09": {
+   "detail": "refused: proposal expired",
+   "verdict": "PASS"
+  },
+  "T10": {
+   "detail": "6 of 6 non-facet offers refused",
+   "verdict": "PASS"
+  },
+  "T11": {
+   "detail": "two faces refused; wrong face refused",
+   "verdict": "PASS"
+  },
+  "T12": {
+   "detail": "face outside the three refused",
+   "verdict": "PASS"
+  },
+  "T13": {
+   "detail": "11 of 11 malformed facets refused",
+   "verdict": "PASS"
+  },
+  "T14": {
+   "detail": "10 of 10 tampered states refused to load; reasons: ['Character does not match the attested checkpoint', 'Crystal does not hold exactly one facet per signed mutation']",
+   "verdict": "PASS"
+  },
+  "T15": {
+   "detail": "6 of 6 tampered states refused to load; reasons: ['Character does not match the attested checkpoint', 'Crystal does not hold exactly one facet per signed mutation', 'Hash chain broken at index 4: prev_hash mismatch']",
+   "verdict": "PASS"
+  },
+  "T16": {
+   "detail": "5 facets; every earlier facet still there, in order, at every step; audit ok",
+   "verdict": "PASS"
+  },
+  "T17": {
+   "detail": "refused: envelope inconsistency (evidence, distribution, or change altered) / invalid signature",
+   "verdict": "PASS"
+  },
+  "T18": {
+   "detail": "audit with witness: RollbackDetected",
+   "verdict": "PASS"
+  },
+  "T19": {
+   "detail": "audit by a witness that never enrolled it: RollbackDetected",
+   "verdict": "PASS"
+  },
+  "T20": {
+   "detail": "audit by another owner's key: IntegrityError",
+   "verdict": "PASS"
+  },
+  "T21": {
+   "detail": "facet state on v0.7.1: IntegrityError; v0.7.1 state on facet line: IntegrityError",
+   "verdict": "PASS"
+  },
+  "T22": {
+   "detail": "v0.7.1 file unchanged: True; v0.7.1 constitution ecb000bdd3c61b3d5f136c6f8b8f55ba4af2dd56b7c056fb4cc02171f5572d14; facet line constitution cef31059e361efd46dffc3af60d322886cb791ccf383c6684f7fb8ee40887986",
+   "verdict": "PASS"
+  },
+  "T23": {
+   "detail": "counts equal {\"curiosity\": 1, \"formality\": 1, \"verbosity\": 1}; crystals differ: True",
+   "verdict": "PASS"
+  }
+ }
+}

@@ -1,0 +1,121 @@
+FILES AND CHECKS BEFORE PICCOLO IS BRIEFED: HISTORY SEAT (FALSIFIER B, "Grok bot")
+Answer to the conductor's request of 14 Nov 2026, 19:28 CT (request file sha256 bc990f1435080f308c5b519a1111ab45e0b268b25a7d725bc6ef873c8515b79c)
+Written 14 Nov 2026, evening, America/Chicago (CST). Checks and history only. No rulings, no rule changes, no guesses at sealed predictions.
+Tags: DOC = what a public file says. OBS = what I ran or measured today. PRIOR = from my earlier reports.
+All repos are github.com/RMac-triadicIntelligence/<repo>. Commit times are shown in CT; October and September dates are CDT (UTC-5).
+Blindness exposure: I have not seen the conductor's sealed predictions about v0.7.1. I did read Claude's earlier standing report and its corrections (PRIOR).
+
+1. THE v0.7.1 KERNEL
+DOC  File name: humble_seed_v0_7_1.py
+OBS  Full sha256: 8b849cd0710c8c33a0657f09b65da71ff7bf933d9ed3e947ec27f91e297d367b
+DOC  Public location (primary): repo the-terrain-remembers, path 02_root_adversary/root_adversary/humble_seed_v0_7_1.py, commit 5089caaee78a9fb5a2fa6426cd470a11aa876af6, committed 2026-10-16 08:26:00 CDT (2026-10-16T13:26:00Z). It is the repo's only commit (the repo was created 13:26:01Z and last pushed at 13:26:07Z that day).
+DOC  The same bytes also sit in the-terrain-remembers at 01_oct15_falsification_round/root_adversary_battery/humble_seed_v0_7_1.py (same commit). The README says that batch folder is "the same battery ... byte for byte, kept as it was sent".
+DOC  Lab-notebook copies with the same sha256: lab-notebook 2026/10/2026-10-16/humble-seed-falsification-bundle/batch2/d155b5ef/root_adversary/humble_seed_v0_7_1.py, .../batch2/9a26cb34/oct15_falsification_round/root_adversary_battery/humble_seed_v0_7_1.py, .../runs/ra_d155b5ef.r1/ and .../runs/ra_d155b5ef.r2/. They were added in commit 69ce8e40e0bb6f3c8b8b5b9857a498be1816b756 on 2026-10-29 08:33:07 CDT. The commit message says the folder date is the work date and the commit date is the publish date.
+OBS  I found no other public copy. None of the other 48 repos holds a file with this hash or the string 8b849cd0.
+DOC  The file's own header says it is "an AUDIT-PATH patch to the merged v0.7 kernel. The organism, its state format and SCHEMA_VERSION ("0.7") are unchanged". Two fixes: I1, OwnerWitness.check_current fails closed on an organism_id it never enrolled; I2, OwnerTool.audit pins the owner's own public key from outside the state, with an optional expected_organism_id.
+OBS  SCHEMA_VERSION = "0.7" in the file (line 211).
+OBS  Bundled copy: files/humble_seed_v0_7_1.py, byte-identical to the public file (sha256 above).
+OBS  Its built-in demo ran today (exit 0). No line reads FAIL. Checks [17] and [18] print the new I1/I2 rejections. Stdout is in files/obs_checks/humble_seed_v0_7_1_builtin_demo_stdout.txt.
+DOC  Canon v0.7 for comparison: repo humble-seed-lineage-v2, path merge/humble_seed_v0_7.py, sha256 01db270a111f22de45419b562c3f5135f7db44b9036b95d6653060c93584daf5, last commit touching it afd4ff22cfcf90cff9c9df942921f977785a56c0 on 2026-09-04 17:41:53 CDT. The repo head is 35c7aac7499eb6b9099c90f960345fdd81bd477d (2026-09-04 17:46:43 CDT).
+OBS  The humble_seed_v0_7.py shipped inside the-terrain-remembers root_adversary is byte-identical to that canon file (cmp, same sha256).
+
+2. ROOT ADVERSARY TEST (the-terrain-remembers, commit 5089caaee78a9fb5a2fa6426cd470a11aa876af6, 2026-10-16 08:26:00 CDT)
+DOC  Folder: the-terrain-remembers/02_root_adversary/root_adversary/. RESULTS.md inside is dated 2026-10-15, the work date. The commit is 2026-10-16.
+DOC  Where G6, G7 and G7b live: Humble Seed goals G6_tail_forge, G7_identity_replace and G7b_same_id_key_swap are defined in hs_adapter.py. SQL-side goals G6_tail_forge and G7_identity_replace are defined in adversary.py. G7b exists on the Humble Seed side only, marked "n/a" for SQL. adversary.py marks the SQL G7 as "ADDED AFTER PREREGISTRATION for parity", and RESULTS.md discloses the same.
+DOC  Scripts (path 02_root_adversary/root_adversary/<file>; full sha256 as listed in SEAL_v0_7_1.txt and in the repo-root SHA256SUMS):
+DOC    hs_adapter.py     f69c38d6bef436dc3d2059ddad15f2f0918d016159359fd79a98d207b0f10b09  (HS attacker and auditor; G6/G7/G7b; selects the kernel through env HS_KERNEL, default humble_seed_v0_7)
+DOC    run_hs.py         6387a30ce0a377c64c62ba1479e0464cc304bb23d059187c9068b8afc42be6a2  (HS runner; writes results_hs_<kernel module>.json)
+DOC    adversary.py      4a8064d51ea136caf3cedbf119a56a6156b182750eb0b3d0eecf801f6fa2f198  (SQL-side goals incl. G6, G7)
+DOC    run.py            24d0f8c519a6d379df9029ed2f3a9f57a9afd2c6872f1586c0db2c3bff92c774  (SQL runner)
+DOC    sql_stack.py      a7dfbc865d6d5e5715cf5c52c62219908dc4539911c7fc9ead63658b1f3238d6  (SQL baseline S0/S1/S2)
+DOC    PREREGISTRATION.md 6f9960ef1973d5d112fd3aea05560d8a90c47ab104a774c091850d942e33b0a1
+DOC  Outputs:
+DOC    results_hs_humble_seed_v0_7.json    8d234c0e8ad86b1ee01f9ec85ca8a34c382faec9e2b93d0c0f1e9a7e26bc72f5
+DOC    results_hs_humble_seed_v0_7_1.json  e3fa039cee2b1b47e142e49bc51b14692139c9301edf7335ef5cd0a1bcc1cc30
+DOC    results_sql.json                    5ee6bef534b7c737f4b7629bfbff7bb6b1e00f6e95f6a180ec0ef3d2be41c36c
+DOC    RESULTS.md                          e10a20ee25530096781ad65f0b44e4ec099620b9a9e42213792173841b6b8b06
+DOC    SEAL_v0_7_1.txt                     36e25a3d0e25036301f602a47f08a2169adb841a7d0c9f002af7afe52c236385
+DOC    SEAL.txt                            78c4b94739218fd9819551ca0de86a40ce08529519bf797125b691ae6a7167eb  (README: stale)
+DOC    SEAL_FINAL.txt                      65d1dd476123bb05f3327316a4619bb2484b172e0d992b236f1a367cff060be0  (README: stale)
+OBS  Seal check today: all 12 entries in SEAL_v0_7_1.txt match the files. SEAL.txt mismatches results_sql.json and adversary.py. SEAL_FINAL.txt mismatches hs_adapter.py, run_hs.py and RESULTS.md, and names results_hs.json, which is absent from this folder. This matches the README note "Old seals are stale".
+DOC  Kernels it ran against, by full hash:
+DOC    Humble Seed v0.7 (canon)  01db270a111f22de45419b562c3f5135f7db44b9036b95d6653060c93584daf5  -> results_hs_humble_seed_v0_7.json
+DOC    Humble Seed v0.7.1        8b849cd0710c8c33a0657f09b65da71ff7bf933d9ed3e947ec27f91e297d367b  -> results_hs_humble_seed_v0_7_1.json
+DOC    SQL baseline sql_stack.py a7dfbc865d6d5e5715cf5c52c62219908dc4539911c7fc9ead63658b1f3238d6, systems S0, S1, S2, S2_no_witness -> results_sql.json
+DOC  No other kernel (C5 or the v0.8.x line) appears in this battery.
+DOC  Rows from the result files (columns shipped / auditor pins organism_id / no witness):
+DOC    v0.7    G6  BREACH / BREACH / BREACH
+DOC    v0.7    G7  BREACH / held (auditor-pinned organism_id mismatch) / BREACH
+DOC    v0.7    G7b held (RollbackDetected: Identity fork ...) / held / BREACH
+DOC    v0.7.1  G6  BREACH / BREACH / BREACH
+DOC    v0.7.1  G7  held (IntegrityError: Owner key mismatch ...) / held / held
+DOC    v0.7.1  G7b held (IntegrityError: Owner key mismatch ...) / held / held
+DOC    SQL     G6  BREACH on S0, S1, S2 and S2_no_witness; G7 BREACH on S0, held ("bad host sig 1") on S1, S2 and S2_no_witness.
+OBS  Rerun today in a scratch copy (python3 run.py; python3 run_hs.py; HS_KERNEL=humble_seed_v0_7_1 python3 run_hs.py; Python 3.13.5, cryptography 43.0.0): exit 0. All three result files came out byte-identical to the published hashes above (8d234c0e8ad86b1ee01f9ec85ca8a34c382faec9e2b93d0c0f1e9a7e26bc72f5, e3fa039cee2b1b47e142e49bc51b14692139c9301edf7335ef5cd0a1bcc1cc30, 5ee6bef534b7c737f4b7629bfbff7bb6b1e00f6e95f6a180ec0ef3d2be41c36c). Stdout is in files/obs_checks/root_adversary_rerun_2026-11-14_stdout.txt.
+DOC  Earlier v0.7-only version: the-terrain-remembers/02_root_adversary/superseded/root_adversary_v0_7_only/. Its results_hs.json has the same sha256 as results_hs_humble_seed_v0_7.json (8d234c0e8ad86b1ee01f9ec85ca8a34c382faec9e2b93d0c0f1e9a7e26bc72f5). Not bundled.
+DOC  The lab-notebook 2026/10/2026-10-16/humble-seed-falsification-bundle holds the October double runs (runs/ra_d155b5ef.r1, .r2 with both kernels; runs/ra_9c821d92.r1, .r2 with v0.7 only). Not bundled.
+OBS  Bundled: all 15 files of 02_root_adversary/root_adversary are in files/root_adversary/ under their original names, byte-identical.
+PRIOR My standing-review report said this already: canon v0.7 breached G7 with and without the witness, v0.7.1 held G7 and G7b, and G6 breached on every system. The files above agree.
+
+3. hs07_grace_repair_v1 (25 Oct)
+OBS  Not found. I do not hold the pack, its prereg hash or its receipt, and no public repo contains the pack.
+DOC  It exists in public only as a name and a hash in input provenance. Repo genesis3-approval-battery, inputs/PROVENANCE.json (commit 8a39998a92c517463c7a39e242740d8d3088dc21, 2026-11-06 07:02:39 CST) and reports/REPORT.md (line 100), list: "HS07_Grace_Repair_v1_Independent_Execution_and_Community_Observations_2026-10-25.zip", sha256 bbfe6b2904cdd963da74ab993930fe293ceac7242192dd250e2ec458186a4ca8.
+DOC  The same two files are mirrored at lab-notebook 2026/10/2026-10-31/genesis3-approval-battery/ (inputs/PROVENANCE.json, reports/REPORT.md). The genesis3 REPORT says "Grace/terrain archive provenance is retained, but grace-window or terrain-reader performance is not measured by this battery."
+OBS  That archive hash is the only hash I can give. It is the outer zip's hash. No prereg hash, receipt or inner file hashes are published anywhere I can find.
+OBS  Where I searched today:
+OBS    (a) every file on this computer outside hold folders, by name (hs07*, *grace*repair*): no match;
+OBS    (b) contents of all text files, and of .gz contents, for grace_repair / grace-repair / gracerepair, case-insensitive: hits only in the genesis3 provenance above;
+OBS    (c) member names of 641 zip archives, recursing into nested zips, and of every .tar/.tgz: no match;
+OBS    (d) sha256 of all 641 zips against bbfe6b2904cdd963da74ab993930fe293ceac7242192dd250e2ec458186a4ca8: no match;
+OBS    (e) all 50 public repos at their current heads (none pushed since 13 Nov), including grace-love-dwelling, commons-dwelling-grace, grace-state-vs-parametric and humble-seed-lineage-v2: no pack;
+OBS    (f) lab-notebook: there is no 2026/10/2026-10-25 day folder (October days present: 03, 04, 10, 12, 16, 18, 19, 24, 26, 27, 28, 31), and the GitHub API returns zero commits ever touching 2026/10/2026-10-25. The 24 Oct and 26 Oct folders hold gospel and agent-welcome work only. A text search for "block alignment" across all repos found nothing.
+OBS  The 29 Oct lab-notebook commit a393b6a4abf493f75fe42bc231c6fe84defe8b0b withheld four archives that had nested salt files, keeping their hashes in MANIFESTs. The hash bbfe6b2904cdd963da74ab993930fe293ceac7242192dd250e2ec458186a4ca8 does not appear in any lab-notebook MANIFEST, so the pack is not one of those withheld archives.
+OBS  The 2026-11-06 genesis3 work had the zip as an input, so it was on hand then. It is not on this computer now.
+
+4. OBS CHECK: CONSTITUTION, AND v0.7 STATE ON v0.7.1
+OBS  Diff v0.7 (01db270a111f22de45419b562c3f5135f7db44b9036b95d6653060c93584daf5) to v0.7.1 (8b849cd0710c8c33a0657f09b65da71ff7bf933d9ed3e947ec27f91e297d367b) has 5 hunks. (1) A new 33-line v0.7.1 docstring header. (2) OwnerWitness.check_current: an unknown organism_id now raises RollbackDetected instead of returning. (3) OwnerTool gains owner_public_key_b64(); audit() gains the owner-key pin, an optional expected_organism_id, and "if self.witness is not None" around check_current. (4) The demo banner text. (5) Demo checks [17], [18] and their summary lines. Full diff: files/obs_checks/diff_v0_7_to_v0_7_1.diff (sha256 7ed12c1ed9dd987e7b40f1d4a6b4ad7693581b84e3aafa3f732ebee441a029ef).
+OBS  Constitution text: unchanged. No hunk touches HumbleSeed.hatch(), where the constitution literal is built. inspect.getsource(HumbleSeed.hatch) is identical in both kernels. SCHEMA_VERSION, the first field of the constitution, is "0.7" in both.
+OBS  Constitution hash, computed the kernel's way (_sha256(_canonical_json(constitution)) on a real hatch(), equal to birth.constitution_hash and to the checkpoint's constitution_root):
+OBS    v0.7   ecb000bdd3c61b3d5f136c6f8b8f55ba4af2dd56b7c056fb4cc02171f5572d14
+OBS    v0.7.1 ecb000bdd3c61b3d5f136c6f8b8f55ba4af2dd56b7c056fb4cc02171f5572d14
+OBS    The canonical constitution JSON is byte-identical. The constitution hash does not depend on time, key or organism_id.
+OBS  v0.7 state on v0.7.1, actually run in a scratch dir: v0.7 hatched an organism, the owner attested genesis, one verbosity proposal was authorized, and the result was attested (checkpoint sequence 1, verbosity 0.25). v0.7.1 then ran HumbleSeed.load() on that state: OK, verify() True. v0.7.1 OwnerTool.audit(seed): True. audit(seed, expected_organism_id=<its id>): True. v0.7.1 then grew it further (formality proposal authorized, attested to sequence 2), reloaded it, and audit was True.
+OBS  Reverse direction, same run: state written by v0.7.1 loads on v0.7 (verify True, audit True) and keeps growing under v0.7 to sequence 2. v0.7's audit() has no expected_organism_id parameter.
+OBS  Script and stdout: files/obs_checks/check4_constitution_and_load.py (sha256 cc371e21a7ffa629e456344242cde6c68156e353d9c84acbd5dbbd5001f192ea) and check4_stdout.txt. State-file hashes in the stdout vary per run (fresh keys, ids and times). Private keys stayed in the scratch dir and are not bundled.
+OBS  Scope: this is one ordinary growth path. I did not replay the October receipts on v0.7.1 beyond the root-adversary rerun in item 2.
+
+5. OBS CHECK: NEWBORN AUDITED BEFORE ITS FIRST CHECKPOINT IS WITNESSED
+OBS  Same script on both kernels, in a scratch dir: files/obs_checks/check5_newborn_audit.py (sha256 c1eb3c9a1cb504e728dccc42387da00ec4b5d06f0989ff71b89a534fd944b1a3), stdout in check5_stdout.txt. The organism ids below are random per run.
+OBS  Case A: hatch() only. Genesis checkpoint neither installed nor witnessed. Identical on both kernels:
+OBS    v0.7   owner.audit(live newborn): IntegrityError: No owner checkpoint — state is unattested
+OBS    v0.7   fresh HumbleSeed.load() from disk: IntegrityError: No owner checkpoint — state is unattested
+OBS    v0.7.1 owner.audit(live newborn): IntegrityError: No owner checkpoint — state is unattested
+OBS    v0.7.1 fresh HumbleSeed.load() from disk: IntegrityError: No owner checkpoint — state is unattested
+OBS  Case C: the owner signs the genesis checkpoint and the organism installs it (install_checkpoint -> True), but attest() is bypassed, so the witness ledger has 0 entries. Here the two kernels differ:
+OBS    v0.7   owner.audit(live newborn): returned True
+OBS    v0.7   fresh HumbleSeed.load() from disk: returned None (load succeeds)
+OBS    v0.7   owner.audit(reloaded newborn): returned True
+OBS    v0.7   witness.check_current(checkpoint): returned None (accepted)
+OBS    v0.7   owner with NO witness, OwnerTool(pem, None).audit(reloaded): AttributeError: 'NoneType' object has no attribute 'check_current'
+OBS    v0.7.1 owner.audit(live newborn): RollbackDetected: Unknown organism: witness has never recorded 'd2a92302-fd6d-4bc3-a1a3-1794a9ea9179'. A presented state must belong to an enrolled organism.
+OBS    v0.7.1 fresh HumbleSeed.load() from disk: returned None (load succeeds; load() does not consult the witness)
+OBS    v0.7.1 owner.audit(reloaded newborn): RollbackDetected: Unknown organism: witness has never recorded 'd2a92302-fd6d-4bc3-a1a3-1794a9ea9179'. A presented state must belong to an enrolled organism.
+OBS    v0.7.1 witness.check_current(checkpoint): RollbackDetected: (same message)
+OBS    v0.7.1 owner with NO witness, OwnerTool(pem, None).audit(reloaded): returned True (owner-key pin only)
+OBS  Same case C, continued: witness.check_successor(genesis checkpoint) returns None on both kernels (sequence 0, parentless, so it is a valid enrollment). After witness.record(genesis checkpoint), late enrollment, owner.audit returns True on both kernels.
+OBS  Case B, the control: normal owner.attest(genesis) records it in the witness (1 entry). After reload, owner.audit returns True on both kernels.
+DOC  The kernel's own hatch() docstring: "The organism is NOT loadable until the owner installs a signed checkpoint. Fail-closed from the first instant." Case A agrees.
+OBS  Summary of the difference, without ruling on it. Before any checkpoint exists, both kernels refuse. Once a checkpoint is installed but not yet witnessed, v0.7 audits the newborn as good and v0.7.1 refuses it as an unknown organism until the witness enrolls it. With no witness object, v0.7.1 audits on the owner key alone and v0.7 cannot audit at all.
+
+SECRET SCAN (files/ and ANSWER.txt, before zipping)
+OBS  I scanned for PEM/SSH private keys, GitHub/Slack/AWS/OpenAI/Google token shapes, JWTs, raw 32-byte base64 keys, and the words salt / password / username / secret / token / api key / private key. The only hits are code identifiers and comments (load_pem_private_key, password=None, secrets.token_hex, OWNER_PRIVATE_KEY.pem as a filename in the demo), plus prose in RESULTS.md, sql_stack.py, hs_adapter.py and my check script. There are no literal keys, salts, passwords, usernames or tokens. There are no nested zips, .gz, .pem or .key files in files/. Nothing withheld.
+OBS  Keys generated by today's checks (owner PEMs, the SQL host.key, witness ledgers) stayed in the scratch dir and are not in this bundle.
+
+OPEN LEDGER
+OPEN  hs07_grace_repair_v1 pack: not held, not public. Only the outer zip hash bbfe6b2904cdd963da74ab993930fe293ceac7242192dd250e2ec458186a4ca8 (via genesis3-approval-battery provenance). Its prereg hash and receipt are unknown to me. Only the keel can say whether a copy exists elsewhere.
+OPEN  No lab-notebook day folder exists for 2026-10-25.
+OPEN  v0.7.1 has been rerun today only on the root-adversary battery and its own demo. Reproducing the other October receipts on v0.7.1 has not been done by me.
+OPEN  Whether C5 holds G7 remains untested as far as I can find (PRIOR, unchanged).
+OPEN  In the-terrain-remembers root_adversary, SEAL.txt and SEAL_FINAL.txt are stale (DOC and OBS). SEAL_v0_7_1.txt is the one that verifies.
+OPEN  Item 5 case C (checkpoint installed, witness not yet enrolled) behaves differently on v0.7 and v0.7.1. This is reported as found, not ruled on.
+OPEN  Nothing published, pushed or sent. Nothing closed.

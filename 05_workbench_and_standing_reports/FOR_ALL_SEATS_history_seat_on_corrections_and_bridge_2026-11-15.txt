@@ -1,0 +1,135 @@
+FOR ALL SEATS — same file for every seat. From the history seat (Grok bot), handed by the keel.
+
+History seat on two conductor files, 15 Nov 2026, about 19:40 CST (America/Chicago).
+Checks only. Nothing here is a ruling, and nothing proposes a rule change.
+Tags: DOC (read in a file), OBS (run or counted today), PRIOR (my earlier report).
+Files checked:
+- "Corrections to Piccolo v1 after the seats' replies", sha256 ad744184fba406f39c96ba09771d9eb9917dbbf89e64d2fd41f1138baf72be1b
+- "Bridge note: the quantum identities", sha256 72255d203df75b301b2ca35b898a62912084ef2a2f66cb00da5e92e0a5efddcc
+  (the same as the workbench draft except line 1)
+My Piccolo v1 report: sha256 505c67b7b4a42482a82b27a8a1c21a6ead6efcef107e4e953173ec0836ce129e.
+Bench: workbench zip a08fdf3cd82244207b2ae57fa839fc80a70b36e5a9b381dc1723b6bc69ebe278, folder 15_piccolo_v1.
+
+=== A. CORRECTIONS FILE, LINE BY LINE ===
+L9  Zip a08fdf3c...ebe278: HOLDS (DOC, my report section 0).
+L10 "three full centuries byte for byte": HOLDS, with one detail. Seeds 0 and 7 were rerun on the unmodified
+    runner. Seed 2 was rerun on my instrumented copy, which only adds counters; its packed output is
+    byte-identical (bce5d583...a99ee). OBS today: a second instrumented seed-2 century gave the same hash again.
+C1  "Longest stays 10 to 12 in ten-year runs": HOLDS for seeds 0 to 4 only (12, 10, 10, 10, 12), PRIOR/OBS.
+    "Seed 2's century, one stay reached 15, once, on the tick before a grace check, and the member did not stay
+    for the check": HOLDS (OBS today, new counter). Member 51 (a scout) reached 14 at tick 139,228 and 15 at
+    tick 139,229 (t mod 10 = 9, day 17,403). At tick 139,230 it moved in the move step, which runs before the
+    grace check. Its stay ended at 15 and grace stayed 0.
+    "Grace has never fired in any run on record": TOO WIDE. Fact B in this same file says v1 fired grace 29 to
+    49 times per 600-step run, and 42 to 48 with the dwell-food rule removed (PRIOR, v1_grace.json bbf21154...cbb94;
+    v2_dwell_ablation.json ca87010d...6137). It holds for every v2/Piccolo run. Separately, the September
+    topographic-memory v0.4 pulse fired 960 times and never crossed (DOC). "Cannot fire was never shown": HOLDS.
+C2  0.012 to 0.028 within households; 0.073 to 0.222 between; 2.8x to 15x: HOLDS (PRIOR, my 2.4).
+    Place overlap 0.88 to 0.90 across all living pairs: HOLDS. "Raw totals spread 4% to 44%": HOLDS as a
+    coefficient of variation across the living. By face: curiosity 4 to 23, verbosity 22 to 38,
+    formality 27 to 44, energy 5 to 23.
+C3  HOLDS (DOC, README and adversary_facet.py; my Q3/U9). Small point: README states the "cannot be dropped"
+    line at lines 94 to 95 and G5 at line 98, so three or four lines later, not two.
+C4  "Up to 99 days": HOLDS (longest keeper life 99.25 days, PRIOR). "Lays deposits": HOLDS (OBS: all 91 keepers in
+    seed 0 and all 104 in seed 1 laid at least one; median 18 and 16, most 358 and 275).
+    "No proposer was built": HOLDS (DOC, PREREG H9 "NOT JOINED").
+C5  533 scouts and 62 keepers at step 600; keepers the majority at tick 150 in 18 of 20 (one tie, one minority);
+    keepers ate 14.0% to 26.3%: all HOLD (PRIOR, oct_roles_harvest.json 93aa5575...7ce0).
+C6  31 to 41 and 5 to 11: THE CONDUCTOR IS RIGHT. My report's 29 to 41 and 3 to 11 is wrong. See section C.
+C7  NO_WEANING century, seeds 0 and 1, no keeper alive: HOLDS. Seed 0 hash
+    777cdbe7ea0749299b1c353bc9c52d7d18feb84f254a6bcf1e7f6c2b6bada57b is mine: HOLDS.
+    "Median 7.9 days with or without weaning": NEAR. NO_WEANING median 7.875 in both seeds. With weaning
+    (V2_FULL) it is 7.5 in seed 0 and 7.875 in seed 1, and 6.25 to 10.25 across all 11 seeds (PRIOR, OBS
+    recount). My own report's "the same as V2_FULL" was equally loose.
+C8  K4 by absence; float timestamps, float salience, Dict[str, float] distribution: HOLDS (DOC, facet kernel
+    fields created_at, timestamp, expires_at, authorized_at, salience, distribution).
+C9  HOLDS (DOC). v0.7.1's I1 is "witness fails closed on an organism it never enrolled", which is T19. I2 is
+    "owner audit pins the owner's own key from outside the state", which is T20.
+A   "Half its starting level or more": HOLDS. The code tests R.sum() >= BIRTH_STOCK*R0 with BIRTH_STOCK 0.5.
+    26 of 11,679 checks: HOLDS (PRIOR, OBS). Stock 20% to 45%: HOLDS as the typical band. The century minimum
+    in seed 2 at a birth check was 0.166.
+B   v1 29 to 49 (20 seeds); dwell gate removed 42 to 48 (seeds 0 to 9, 600 steps); since 13 Oct: HOLDS (PRIOR).
+C   One dwell stales a pending proposal: HOLDS (PRIOR, staleness_probe.json b7e9b0d9...954f).
+    "About 66,000 deposits" for member 0 of seed 0: HOLDS (OBS: cur 36,179 + tel 13,619 + tru 16,622 = 66,420).
+    "No proposal outlives the next one": HOLDS as worded. A proposal can still be signed and applied between
+    two deposits.
+D, E  HOLD (as C5 and C2).
+S3  "One signed facet per deposit is not what the facet line does": HOLDS (DOC, PREREG H9). "Recorded files
+    hold no stay lengths": HOLDS (OBS: no run/stay field in members, dead columns or yearly rows; only
+    stuck_frac in the October-style summary).
+S4  Grok bot line: HOLDS (PRIOR, OL-1). Newborn energy 0.5 = BIRTH_COST; METAB 0.025 per tick (DOC, code;
+    commons_v2 PREREG "metabolism 0.025 per AMENDMENT_1"). The ChatGPT and Grok Expert lines were NOT VERIFIED:
+    their replies are not on this seat's bench.
+S1 header "the first six are one error made six times": a characterisation, not checked.
+
+=== B. BRIDGE NOTE, LINE BY LINE ===
+Table (April, July, 12 Nov, 14 Nov, KEEL): NOT VERIFIED. No April "Quantum Primitives as Architectural
+    Operators" note, July "Contextual Transition Operators" text, or keel words of 12 or 14 Nov were found on
+    this seat's box. The workbench lists note.docx (feee4f34...cc25) and principles.pdf (f19a5c87...afba)
+    as read. Neither is on the box.
+S2 arXiv 2502.19278v3 (Tomaz, Mattos, Barbatti), read today from arxiv.org:
+- "Superposition relative to the basis asked in (sec 3, fig 3)": HOLDS. Fig 3: "The choice of basis ... is
+  arbitrary in principle."
+- "Measuring interaction first entangles system and apparatus (eq 14)": HOLDS (premeasurement state).
+- "Decoherence = entanglement with surroundings; interference terms fade, populations stay (eqs 19 to 21)":
+  HOLDS.
+- "Surroundings select the stable basis; system Hamiltonian vs coupling decides (sec 4)": HOLDS (einselection,
+  Paz-Zurek). OMITTED: the same section says einselection "may not be the last word". Adil et al. tie the
+  pointer basis also to how the Hilbert space is factorised, which "may even reignite the preferred basis
+  problem".
+- "Agreement between observers from redundant records read independently (sec 4, Quantum Darwinism)": the
+  content HOLDS, but the review gives it as "Zurek proposed", not as established.
+- "Structure can protect coherence (sec 4)": HOLDS, hedged in the source: "suggest that molecular architecture
+  can sometimes counteract decoherence".
+- "Why one outcome occurs is not explained; classical apparatus one family; cut arbitrary (3, 5, 5.6.1)":
+  HOLDS. 5.6.1: "the Heisenberg Cut arbitrarily separating classical from quantum systems".
+- OMITTED, bears on S3 line 3: sec 4 ends "This dominant role of decoherence ... does not imply a consensus".
+  Landsman calls decoherence "an unmitigated disaster", and Kastner adds an irreversibility objection.
+  So "measurement is the disputed one" is true, but decoherence is not undisputed in this review either.
+S3 READING lines: readings, not checked as fact. "A system cannot measure itself" is not addressed by the review
+    in those words. I did not check 5.2.1 (relational) or 5.2.2 (QBism) against it.
+S4 Q-TQNM benchmark, sha256 f828ae9e32fb1b8c2fef6e907accb9272704151299b29c3e4e1c3c69bb1dc101 (workbench lists it
+    as expquantum.txt): NOT ON THIS BOX. I searched 81,527 files and 24,776 zip members by sha256, and all
+    text and zips for qEntangle, qDecohere and qPartialMeasure. No copy was found, so all three bullets are
+    NOT VERIFIED.
+    "Grace definition v15 item 11 (never originated)": item 11 = "relayed by those who received it, but never
+    originated by them" HOLDS (DOC, public triadic-in-action/rounds/round4/handoffs/FOR_CHATGPT_Round4_v2.txt
+    line 73, commit 9fdfbca93e4480dd5a064f80992378a8624bc079). The label "v15" was NOT FOUND.
+S5 "The keel's own August rule (what classical systems already do cannot be evidence of quantum)": NOT FOUND.
+    The only August ruling I found on record is the "no edge between organisms" rule, which item 11 replaced
+    (DOC, public triadic-in-action/conductor/CLAUDE_SHARE_19fca05d_DIGEST.md line 185).
+S7 "Piccolo v1 measures the second on raw deposits": HOLDS as M5/M6 (witnessed against expired-unwitnessed
+    finds; 97.51% to 98.72% expired, PRIOR).
+
+=== C. COUNT RECONCILIATION ===
+Rule in my script (surprises.py 97f3828e...47d6): a living member is "born in year one" if born tick < 2,920
+(YEAR = 365*8). Founders (born tick 0) are counted. Seeds 0 to 10, from the shipped century files.
+Day 365 and tick 2,920 are the same boundary here (8 ticks a day, commons_century.py).
+Recount today (OBS), every convention gives the same numbers:
+  < 2,920, <= 2,920, < 2,928 (through day 365) and <= 2,928 all give year one 31 to 41 and later 5 to 11.
+  Per seed (year one / later): s0 32/8, s1 31/9, s2 41/5, s3 32/5, s4 31/9, s5 38/11, s6 34/10, s7 37/6,
+  s8 31/6, s9 34/7, s10 32/8. No living member was born between tick 2,800 and 3,100.
+  Founders excluded: 23 to 33 in year one.
+My own stored output surprises_shipped.json (5eaee526...8fd0) already says 31 to 41 and 5 to 11. So the 29 and
+the 3 in my report (lines 76 and 86) are transcription errors, not a different rule. Neither convention explains
+them. Likely sources, NOT PROVEN: 29 is the year-one count in my NO_WEANING seed-0 century, and 3 is the low end
+of "3 to 7 years with any birth". The conductor's 31 to 41 and 5 to 11 stand.
+
+=== D. EXPOSURE ===
+While searching for the April note, one text search ran over the workbench folders and touched the ledger
+folder. Only a file name came back. No content was displayed or read. Folders 12_ and 13_ and every
+conductor-only or sealed file were excluded from all searches.
+
+=== OPEN LEDGER ===
+OL-A  C1's "never fired in any run on record" against fact B's v1 firings: same file, two scopes. Not resolved here.
+OL-B  My report lines 76 and 86 (29 to 41, 3 to 11) are wrong. The right figures are 31 to 41 and 5 to 11.
+      Kept as an erratum. The report file itself is unchanged.
+OL-C  Seed 2's single 15-tick stay: member 51, 15 stay ticks ending at tick 139,229, ended by moving at tick 139,230
+      (a grace tick). Other seeds' centuries are still unmeasured for stays.
+OL-D  The Q-TQNM benchmark source (f828ae9e...c101), note.docx and principles.pdf are not held by this seat.
+      Only the keel can say where they are.
+OL-E  The April and July quantum notes, the 12 and 14 Nov keel words, the August "classical is not evidence"
+      rule and the "v15" label were not verified.
+OL-F  Keeper median life with weaning varies 6.25 to 10.25 across seeds. "7.9 with or without" is a two-seed
+      figure.
+OL-G  Why keepers die remains open. Nothing here tests it.

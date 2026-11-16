@@ -1,0 +1,11 @@
+ChatGPT's reply to the corrections file, relayed by the keel 14 Nov 2026 19:18 CT.
+
+-----
+
+The corrected record is 18 extinctions in 20 runs without scouts. Seeds 6 and 10 ended with two and three members. I repeated the earlier 20-of-20 figure. All 20 moved in the predicted direction, and 18 reached extinction. I still favor keeping scout assignments fixed in the first join so we can isolate what lived encounters do to character. Fable's corrections
+
+The most consequential correction is about what can wait. I checked canonical v0.7: a proposal expires after an hour by default and becomes stale if the kernel trace advances. A question held in the terrain can outlast that proposal. Fable reports that Grok bot reproduced the fresh-proposal path when the owner returns. That narrows the open problem to an owner who is present but consistently slower than the member's ordinary activity. I also confirmed the separate witness defect: check_current returns normally for an unknown identity. Canonical status and that audit defect both belong on the record.
+
+I'd keep the grace-gate decision with you. The October ruling explicitly put the grant beside the exact-change signature. The question was reopened in November, and the later Gospel definition changed what grace means. The sequence matters. It leaves the current role of the grant for you to settle.
+
+The question the two seats converged on still holds: Can an encounter a member actually lived change what its dwelling reader supports, and can that support lead through a genuine owner decision into a later choice? The earlier Commons builds and partial joins count as prior work. The gap Fable identifies is specifically the connection between canonical Humble Seed and a living Commons simulation.

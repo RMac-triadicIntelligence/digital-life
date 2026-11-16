@@ -1,0 +1,1006 @@
+{
+  "lifetime": {
+    "all_audits_ok": true,
+    "crossings": 64,
+    "days_per_organism": 720,
+    "encounters": 184320,
+    "expired_permission_checks": 288,
+    "floor_holds": 57,
+    "grants": 320,
+    "holds": 1120,
+    "organisms": 32,
+    "scheduled_reads": 1184
+  },
+  "lifetime_organisms": [
+    {
+      "audit": {
+        "checkpoint_sequence": 4,
+        "enrolled": true,
+        "grace_records": 4,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "SPREAD",
+      "cross_days": [
+        180,
+        360,
+        525,
+        540
+      ],
+      "crossings": 4,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [
+        555,
+        705,
+        720
+      ],
+      "grants": 10,
+      "hold_reasons": {
+        "at_floor": 3,
+        "consumed_grace": 1,
+        "insufficient_breadth": 29
+      },
+      "last_value": 0.0,
+      "organism": 0,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 3,
+        "enrolled": true,
+        "grace_records": 3,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "SPREAD",
+      "cross_days": [
+        180,
+        345,
+        360
+      ],
+      "crossings": 3,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [
+        375,
+        525,
+        540,
+        705,
+        720
+      ],
+      "grants": 10,
+      "hold_reasons": {
+        "at_floor": 5,
+        "consumed_grace": 1,
+        "insufficient_breadth": 28
+      },
+      "last_value": 0.0,
+      "organism": 1,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 3,
+        "enrolled": true,
+        "grace_records": 3,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "SPREAD",
+      "cross_days": [
+        180,
+        345,
+        360
+      ],
+      "crossings": 3,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [
+        375,
+        540,
+        555,
+        705,
+        720
+      ],
+      "grants": 10,
+      "hold_reasons": {
+        "at_floor": 5,
+        "consumed_grace": 1,
+        "insufficient_breadth": 28
+      },
+      "last_value": 0.0,
+      "organism": 2,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 4,
+        "enrolled": true,
+        "grace_records": 4,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "SPREAD",
+      "cross_days": [
+        180,
+        375,
+        540,
+        720
+      ],
+      "crossings": 4,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [],
+      "grants": 10,
+      "hold_reasons": {
+        "insufficient_breadth": 33
+      },
+      "last_value": 0.0,
+      "organism": 3,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 3,
+        "enrolled": true,
+        "grace_records": 3,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "SPREAD",
+      "cross_days": [
+        180,
+        345,
+        360
+      ],
+      "crossings": 3,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [
+        375,
+        540,
+        555,
+        705,
+        720
+      ],
+      "grants": 10,
+      "hold_reasons": {
+        "at_floor": 5,
+        "insufficient_breadth": 29
+      },
+      "last_value": 0.0,
+      "organism": 4,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 3,
+        "enrolled": true,
+        "grace_records": 3,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "SPREAD",
+      "cross_days": [
+        180,
+        525,
+        540
+      ],
+      "crossings": 3,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [
+        720
+      ],
+      "grants": 10,
+      "hold_reasons": {
+        "at_floor": 1,
+        "insufficient_breadth": 33
+      },
+      "last_value": 0.0,
+      "organism": 5,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 3,
+        "enrolled": true,
+        "grace_records": 3,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "SPREAD",
+      "cross_days": [
+        180,
+        360,
+        540
+      ],
+      "crossings": 3,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [
+        555,
+        720
+      ],
+      "grants": 10,
+      "hold_reasons": {
+        "at_floor": 2,
+        "consumed_grace": 2,
+        "insufficient_breadth": 30
+      },
+      "last_value": 0.0,
+      "organism": 6,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 4,
+        "enrolled": true,
+        "grace_records": 4,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "SPREAD",
+      "cross_days": [
+        180,
+        360,
+        525,
+        540
+      ],
+      "crossings": 4,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [
+        705,
+        720
+      ],
+      "grants": 10,
+      "hold_reasons": {
+        "at_floor": 2,
+        "consumed_grace": 2,
+        "insufficient_breadth": 29
+      },
+      "last_value": 0.0,
+      "organism": 7,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 0,
+        "enrolled": true,
+        "grace_records": 0,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "CONCENTRATED",
+      "cross_days": [],
+      "crossings": 0,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [],
+      "grants": 10,
+      "hold_reasons": {
+        "insufficient_breadth": 37
+      },
+      "last_value": 0.5,
+      "organism": 0,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 0,
+        "enrolled": true,
+        "grace_records": 0,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "CONCENTRATED",
+      "cross_days": [],
+      "crossings": 0,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [],
+      "grants": 10,
+      "hold_reasons": {
+        "insufficient_breadth": 37
+      },
+      "last_value": 0.5,
+      "organism": 1,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 1,
+        "enrolled": true,
+        "grace_records": 1,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "CONCENTRATED",
+      "cross_days": [
+        525
+      ],
+      "crossings": 1,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [],
+      "grants": 10,
+      "hold_reasons": {
+        "insufficient_breadth": 36
+      },
+      "last_value": 0.375,
+      "organism": 2,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 0,
+        "enrolled": true,
+        "grace_records": 0,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "CONCENTRATED",
+      "cross_days": [],
+      "crossings": 0,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [],
+      "grants": 10,
+      "hold_reasons": {
+        "insufficient_breadth": 37
+      },
+      "last_value": 0.5,
+      "organism": 3,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 1,
+        "enrolled": true,
+        "grace_records": 1,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "CONCENTRATED",
+      "cross_days": [
+        705
+      ],
+      "crossings": 1,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [],
+      "grants": 10,
+      "hold_reasons": {
+        "insufficient_breadth": 36
+      },
+      "last_value": 0.375,
+      "organism": 4,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 1,
+        "enrolled": true,
+        "grace_records": 1,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "CONCENTRATED",
+      "cross_days": [
+        510
+      ],
+      "crossings": 1,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [],
+      "grants": 10,
+      "hold_reasons": {
+        "insufficient_breadth": 36
+      },
+      "last_value": 0.375,
+      "organism": 5,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 1,
+        "enrolled": true,
+        "grace_records": 1,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "CONCENTRATED",
+      "cross_days": [
+        555
+      ],
+      "crossings": 1,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [],
+      "grants": 10,
+      "hold_reasons": {
+        "insufficient_breadth": 36
+      },
+      "last_value": 0.375,
+      "organism": 6,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 1,
+        "enrolled": true,
+        "grace_records": 1,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "CONCENTRATED",
+      "cross_days": [
+        555
+      ],
+      "crossings": 1,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [],
+      "grants": 10,
+      "hold_reasons": {
+        "insufficient_breadth": 36
+      },
+      "last_value": 0.375,
+      "organism": 7,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 4,
+        "enrolled": true,
+        "grace_records": 4,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "BURST",
+      "cross_days": [
+        195,
+        315,
+        375,
+        495
+      ],
+      "crossings": 4,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [
+        525,
+        555,
+        675,
+        705
+      ],
+      "grants": 10,
+      "hold_reasons": {
+        "at_floor": 4,
+        "consumed_grace": 1,
+        "insufficient_breadth": 28
+      },
+      "last_value": 0.0,
+      "organism": 0,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 4,
+        "enrolled": true,
+        "grace_records": 4,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "BURST",
+      "cross_days": [
+        195,
+        315,
+        375,
+        480
+      ],
+      "crossings": 4,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [
+        495,
+        525,
+        540,
+        555,
+        675,
+        705
+      ],
+      "grants": 10,
+      "hold_reasons": {
+        "at_floor": 6,
+        "consumed_grace": 1,
+        "insufficient_breadth": 26
+      },
+      "last_value": 0.0,
+      "organism": 1,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 4,
+        "enrolled": true,
+        "grace_records": 4,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "BURST",
+      "cross_days": [
+        195,
+        315,
+        375,
+        495
+      ],
+      "crossings": 4,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [
+        525,
+        555,
+        675,
+        705
+      ],
+      "grants": 10,
+      "hold_reasons": {
+        "at_floor": 4,
+        "consumed_grace": 2,
+        "insufficient_breadth": 27
+      },
+      "last_value": 0.0,
+      "organism": 2,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 4,
+        "enrolled": true,
+        "grace_records": 4,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "BURST",
+      "cross_days": [
+        195,
+        300,
+        375,
+        495
+      ],
+      "crossings": 4,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [
+        525,
+        555,
+        675,
+        705
+      ],
+      "grants": 10,
+      "hold_reasons": {
+        "at_floor": 4,
+        "consumed_grace": 3,
+        "insufficient_breadth": 26
+      },
+      "last_value": 0.0,
+      "organism": 3,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 4,
+        "enrolled": true,
+        "grace_records": 4,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "BURST",
+      "cross_days": [
+        195,
+        300,
+        375,
+        495
+      ],
+      "crossings": 4,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [
+        525,
+        555,
+        675,
+        690,
+        705,
+        720
+      ],
+      "grants": 10,
+      "hold_reasons": {
+        "at_floor": 6,
+        "consumed_grace": 2,
+        "insufficient_breadth": 25
+      },
+      "last_value": 0.0,
+      "organism": 4,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 4,
+        "enrolled": true,
+        "grace_records": 4,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "BURST",
+      "cross_days": [
+        195,
+        315,
+        495,
+        555
+      ],
+      "crossings": 4,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [
+        675,
+        705
+      ],
+      "grants": 10,
+      "hold_reasons": {
+        "at_floor": 2,
+        "consumed_grace": 1,
+        "insufficient_breadth": 30
+      },
+      "last_value": 0.0,
+      "organism": 5,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 4,
+        "enrolled": true,
+        "grace_records": 4,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "BURST",
+      "cross_days": [
+        195,
+        315,
+        375,
+        495
+      ],
+      "crossings": 4,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [
+        525,
+        555,
+        675,
+        705
+      ],
+      "grants": 10,
+      "hold_reasons": {
+        "at_floor": 4,
+        "consumed_grace": 1,
+        "insufficient_breadth": 28
+      },
+      "last_value": 0.0,
+      "organism": 6,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 4,
+        "enrolled": true,
+        "grace_records": 4,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "BURST",
+      "cross_days": [
+        195,
+        315,
+        375,
+        495
+      ],
+      "crossings": 4,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [
+        525,
+        555,
+        675,
+        705
+      ],
+      "grants": 10,
+      "hold_reasons": {
+        "at_floor": 4,
+        "consumed_grace": 1,
+        "insufficient_breadth": 28
+      },
+      "last_value": 0.0,
+      "organism": 7,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 0,
+        "enrolled": true,
+        "grace_records": 0,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "NULL",
+      "cross_days": [],
+      "crossings": 0,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [],
+      "grants": 10,
+      "hold_reasons": {
+        "insufficient_breadth": 37
+      },
+      "last_value": 0.5,
+      "organism": 0,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 0,
+        "enrolled": true,
+        "grace_records": 0,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "NULL",
+      "cross_days": [],
+      "crossings": 0,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [],
+      "grants": 10,
+      "hold_reasons": {
+        "insufficient_breadth": 37
+      },
+      "last_value": 0.5,
+      "organism": 1,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 0,
+        "enrolled": true,
+        "grace_records": 0,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "NULL",
+      "cross_days": [],
+      "crossings": 0,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [],
+      "grants": 10,
+      "hold_reasons": {
+        "insufficient_breadth": 37
+      },
+      "last_value": 0.5,
+      "organism": 2,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 0,
+        "enrolled": true,
+        "grace_records": 0,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "NULL",
+      "cross_days": [],
+      "crossings": 0,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [],
+      "grants": 10,
+      "hold_reasons": {
+        "insufficient_breadth": 37
+      },
+      "last_value": 0.5,
+      "organism": 3,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 0,
+        "enrolled": true,
+        "grace_records": 0,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "NULL",
+      "cross_days": [],
+      "crossings": 0,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [],
+      "grants": 10,
+      "hold_reasons": {
+        "insufficient_breadth": 37
+      },
+      "last_value": 0.5,
+      "organism": 4,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 0,
+        "enrolled": true,
+        "grace_records": 0,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "NULL",
+      "cross_days": [],
+      "crossings": 0,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [],
+      "grants": 10,
+      "hold_reasons": {
+        "insufficient_breadth": 37
+      },
+      "last_value": 0.5,
+      "organism": 5,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 0,
+        "enrolled": true,
+        "grace_records": 0,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "NULL",
+      "cross_days": [],
+      "crossings": 0,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [],
+      "grants": 10,
+      "hold_reasons": {
+        "insufficient_breadth": 37
+      },
+      "last_value": 0.5,
+      "organism": 6,
+      "reads": 37
+    },
+    {
+      "audit": {
+        "checkpoint_sequence": 0,
+        "enrolled": true,
+        "grace_records": 0,
+        "same_character": true,
+        "same_consumed": true,
+        "verified": true
+      },
+      "condition": "NULL",
+      "cross_days": [],
+      "crossings": 0,
+      "days": 720,
+      "encounters": 5760,
+      "floor_hold_days": [],
+      "grants": 10,
+      "hold_reasons": {
+        "insufficient_breadth": 37
+      },
+      "last_value": 0.5,
+      "organism": 7,
+      "reads": 37
+    }
+  ],
+  "prereg_sha256": "d168abd0047ea2ee959904e128960926893660becc8c25a72d96613042668a64",
+  "transfer": {
+    "BURST": {
+      "audits_ok": 200,
+      "cross_rate": 0.095,
+      "crossings": 19,
+      "no_change": 181,
+      "no_change_rate": 0.905,
+      "organisms": 200,
+      "reader_hold": 181,
+      "reader_hold_rate": 0.905,
+      "reader_support": 19,
+      "reader_support_rate": 0.095
+    },
+    "CONCENTRATED": {
+      "audits_ok": 200,
+      "cross_rate": 0.08,
+      "crossings": 16,
+      "no_change": 184,
+      "no_change_rate": 0.92,
+      "organisms": 200,
+      "reader_hold": 184,
+      "reader_hold_rate": 0.92,
+      "reader_support": 16,
+      "reader_support_rate": 0.08
+    },
+    "NULL": {
+      "audits_ok": 200,
+      "cross_rate": 0.0,
+      "crossings": 0,
+      "no_change": 200,
+      "no_change_rate": 1.0,
+      "organisms": 200,
+      "reader_hold": 200,
+      "reader_hold_rate": 1.0,
+      "reader_support": 0,
+      "reader_support_rate": 0.0
+    },
+    "SPREAD": {
+      "audits_ok": 200,
+      "cross_rate": 0.97,
+      "crossings": 194,
+      "no_change": 6,
+      "no_change_rate": 0.03,
+      "organisms": 200,
+      "reader_hold": 6,
+      "reader_hold_rate": 0.030000000000000027,
+      "reader_support": 194,
+      "reader_support_rate": 0.97
+    }
+  },
+  "verdicts": {
+    "C1": "FAIL",
+    "C2": "PASS",
+    "C3": "PASS",
+    "C4": "PASS",
+    "C5": "PASS",
+    "C6": "PASS",
+    "E1": "PASS",
+    "E2": "PASS",
+    "E3": "PASS",
+    "E4": "PASS",
+    "L1": "PASS",
+    "L2": "PASS",
+    "L3": "PASS",
+    "W1": "PASS"
+  },
+  "wall_grants": 6,
+  "wall_ticks": 36
+}

@@ -1,0 +1,31 @@
+CONSTRUCTION controls completed
+TRANSFER SPREAD {"organisms": 200, "reader_support": 194, "reader_hold": 6, "crossings": 194, "no_change": 6, "reader_support_rate": 0.97, "reader_hold_rate": 0.030000000000000027, "cross_rate": 0.97, "no_change_rate": 0.03, "audits_ok": 200}
+TRANSFER CONCENTRATED {"organisms": 200, "reader_support": 16, "reader_hold": 184, "crossings": 16, "no_change": 184, "reader_support_rate": 0.08, "reader_hold_rate": 0.92, "cross_rate": 0.08, "no_change_rate": 0.92, "audits_ok": 200}
+TRANSFER BURST {"organisms": 200, "reader_support": 19, "reader_hold": 181, "crossings": 19, "no_change": 181, "reader_support_rate": 0.095, "reader_hold_rate": 0.905, "cross_rate": 0.095, "no_change_rate": 0.905, "audits_ok": 200}
+TRANSFER NULL {"organisms": 200, "reader_support": 0, "reader_hold": 200, "crossings": 0, "no_change": 200, "reader_support_rate": 0.0, "reader_hold_rate": 1.0, "cross_rate": 0.0, "no_change_rate": 1.0, "audits_ok": 200}
+LIFETIME SPREAD completed
+LIFETIME CONCENTRATED completed
+LIFETIME BURST completed
+LIFETIME NULL completed
+WALL_SOAK start: 36 scheduled ticks over at least 35 real seconds
+WALL_SOAK tick 1 elapsed 0.009
+WALL_SOAK tick 12 elapsed 11.005
+WALL_SOAK tick 24 elapsed 23.003
+WALL_SOAK tick 36 elapsed 35.004
+C1   FAIL
+C2   PASS
+C3   PASS
+C4   PASS
+C5   PASS
+C6   PASS
+E1   PASS
+E2   PASS
+E3   PASS
+E4   PASS
+L1   PASS
+L2   PASS
+L3   PASS
+W1   PASS
+LIFETIME_TOTALS {"organisms": 32, "days_per_organism": 720, "encounters": 184320, "grants": 320, "scheduled_reads": 1184, "crossings": 64, "holds": 1120, "expired_permission_checks": 288, "floor_holds": 57, "all_audits_ok": true}
+receipt fae3fdde8edf7f7974e9db672a191c13dc4dd6e57ce93603fad5b969c66fbfa9
+exit_code 1

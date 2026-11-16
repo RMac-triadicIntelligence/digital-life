@@ -1,0 +1,1551 @@
+{
+ "arms": {
+  "H": {
+   "pooled": {
+    "KF": {
+     "alive": 0,
+     "dead": 48,
+     "gave_f": 0.0,
+     "gave_s": 0.0,
+     "got_f": 0.0,
+     "got_s": 0.0,
+     "intake_per_tick": 0.11021,
+     "life_max_of_dead": 442,
+     "life_median_of_dead": 189.0,
+     "mode_share": {
+      "B": 0.659,
+      "C": 0.006,
+      "D": 0.2841,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.0,
+      "T": 0.0509,
+      "W": 0.0
+     },
+     "n": 48,
+     "returned": 728.38,
+     "survive": {
+      "240": [
+       5,
+       48,
+       0.1042
+      ],
+      "80": [
+       36,
+       48,
+       0.75
+      ],
+      "800": [
+       0,
+       48,
+       0.0
+      ]
+     }
+    },
+    "KN": {
+     "alive": 7,
+     "dead": 11470,
+     "gave_f": 0.0,
+     "gave_s": 0.0,
+     "got_f": 0.0,
+     "got_s": 0.0,
+     "intake_per_tick": 0.04387,
+     "life_max_of_dead": 351,
+     "life_median_of_dead": 60.0,
+     "mode_share": {
+      "B": 0.8148,
+      "C": 0.0,
+      "D": 0.1845,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.0,
+      "T": 0.0006,
+      "W": 0.0
+     },
+     "n": 11477,
+     "returned": 20776.15,
+     "survive": {
+      "240": [
+       42,
+       11408,
+       0.0037
+      ],
+      "80": [
+       3157,
+       11471,
+       0.2752
+      ],
+      "800": [
+       0,
+       11133,
+       0.0
+      ]
+     }
+    },
+    "SF": {
+     "alive": 0,
+     "dead": 24,
+     "gave_f": 0.0,
+     "gave_s": 0.0,
+     "got_f": 0.0,
+     "got_s": 0.0,
+     "intake_per_tick": 0.09659,
+     "life_max_of_dead": 2171,
+     "life_median_of_dead": 1003.5,
+     "mode_share": {
+      "B": 0.0,
+      "C": 0.0,
+      "D": 0.3112,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.6859,
+      "T": 0.0029,
+      "W": 0.0
+     },
+     "n": 24,
+     "returned": 1547.1,
+     "survive": {
+      "240": [
+       24,
+       24,
+       1.0
+      ],
+      "80": [
+       24,
+       24,
+       1.0
+      ],
+      "800": [
+       14,
+       24,
+       0.5833
+      ]
+     }
+    },
+    "SN": {
+     "alive": 129,
+     "dead": 5611,
+     "gave_f": 0.0,
+     "gave_s": 0.0,
+     "got_f": 0.0,
+     "got_s": 0.0,
+     "intake_per_tick": 0.07782,
+     "life_max_of_dead": 6437,
+     "life_median_of_dead": 485,
+     "mode_share": {
+      "B": 0.0,
+      "C": 0.0,
+      "D": 0.2855,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.7132,
+      "T": 0.0013,
+      "W": 0.0
+     },
+     "n": 5740,
+     "returned": 189521.45,
+     "survive": {
+      "240": [
+       4324,
+       5705,
+       0.7579
+      ],
+      "80": [
+       5485,
+       5738,
+       0.9559
+      ],
+      "800": [
+       1648,
+       5567,
+       0.296
+      ]
+     }
+    }
+   },
+   "seeds": {
+    "0": {
+     "births_after_y1": 4448,
+     "births_total": 4983,
+     "cap_hit": false,
+     "deaths_after_y1": 4445,
+     "e_max_final": 1.0,
+     "extinct_at": null,
+     "f_gifts": 0,
+     "f_given": 0.0,
+     "households": 8,
+     "keepers_alive": 6,
+     "keepers_by_year": [
+      2,
+      10,
+      4,
+      13,
+      8,
+      7,
+      7,
+      7,
+      10,
+      6
+     ],
+     "lineages_alive": 1,
+     "lineages_with_both": 1,
+     "max_after_cap": 1.0,
+     "pop": 41,
+     "pop_by_year": [
+      38,
+      50,
+      43,
+      55,
+      54,
+      48,
+      53,
+      50,
+      50,
+      41
+     ],
+     "returned": 73844.99,
+     "s_gifts": 0,
+     "s_given": 0.0,
+     "scouts_alive": 35,
+     "stock_last": 0.5832,
+     "stock_yearly_mean": 0.48,
+     "with_no_keeper": 0,
+     "with_ticks": 0
+    },
+    "1": {
+     "births_after_y1": 5100,
+     "births_total": 5624,
+     "cap_hit": false,
+     "deaths_after_y1": 5093,
+     "e_max_final": 1.0,
+     "extinct_at": null,
+     "f_gifts": 0,
+     "f_given": 0.0,
+     "households": 11,
+     "keepers_alive": 1,
+     "keepers_by_year": [
+      2,
+      5,
+      11,
+      5,
+      4,
+      10,
+      8,
+      11,
+      11,
+      1
+     ],
+     "lineages_alive": 2,
+     "lineages_with_both": 1,
+     "max_after_cap": 1.0,
+     "pop": 52,
+     "pop_by_year": [
+      45,
+      49,
+      55,
+      42,
+      47,
+      51,
+      46,
+      59,
+      55,
+      52
+     ],
+     "returned": 71809.24,
+     "s_gifts": 0,
+     "s_given": 0.0,
+     "scouts_alive": 51,
+     "stock_last": 0.4454,
+     "stock_yearly_mean": 0.507,
+     "with_no_keeper": 0,
+     "with_ticks": 0
+    },
+    "2": {
+     "births_after_y1": 5969,
+     "births_total": 6610,
+     "cap_hit": false,
+     "deaths_after_y1": 5971,
+     "e_max_final": 1.0,
+     "extinct_at": null,
+     "f_gifts": 0,
+     "f_given": 0.0,
+     "households": 11,
+     "keepers_alive": 0,
+     "keepers_by_year": [
+      2,
+      12,
+      12,
+      11,
+      10,
+      0,
+      8,
+      13,
+      10,
+      0
+     ],
+     "lineages_alive": 1,
+     "lineages_with_both": 0,
+     "max_after_cap": 1.0,
+     "pop": 43,
+     "pop_by_year": [
+      45,
+      56,
+      48,
+      33,
+      46,
+      33,
+      45,
+      49,
+      40,
+      43
+     ],
+     "returned": 66918.84,
+     "s_gifts": 0,
+     "s_given": 0.0,
+     "scouts_alive": 43,
+     "stock_last": 0.5312,
+     "stock_yearly_mean": 0.565,
+     "with_no_keeper": 0,
+     "with_ticks": 0
+    }
+   }
+  },
+  "HS": {
+   "pooled": {
+    "KF": {
+     "alive": 0,
+     "dead": 48,
+     "gave_f": 0.0,
+     "gave_s": 0.0,
+     "got_f": 0.0,
+     "got_s": 254.77,
+     "intake_per_tick": 0.05125,
+     "life_max_of_dead": 728,
+     "life_median_of_dead": 351.0,
+     "mode_share": {
+      "B": 0.747,
+      "C": 0.0028,
+      "D": 0.2266,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.0,
+      "T": 0.0236,
+      "W": 0.0
+     },
+     "n": 48,
+     "returned": 742.8,
+     "survive": {
+      "240": [
+       41,
+       48,
+       0.8542
+      ],
+      "80": [
+       48,
+       48,
+       1.0
+      ],
+      "800": [
+       0,
+       48,
+       0.0
+      ]
+     }
+    },
+    "KN": {
+     "alive": 43,
+     "dead": 7376,
+     "gave_f": 0.0,
+     "gave_s": 0.0,
+     "got_f": 0.0,
+     "got_s": 28820.38,
+     "intake_per_tick": 0.01758,
+     "life_max_of_dead": 2805,
+     "life_median_of_dead": 167.0,
+     "mode_share": {
+      "B": 0.8075,
+      "C": 0.0,
+      "D": 0.1921,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.0,
+      "T": 0.0003,
+      "W": 0.0
+     },
+     "n": 7419,
+     "returned": 18429.67,
+     "survive": {
+      "240": [
+       2617,
+       7391,
+       0.3541
+      ],
+      "80": [
+       5694,
+       7412,
+       0.7682
+      ],
+      "800": [
+       227,
+       7261,
+       0.0313
+      ]
+     }
+    },
+    "SF": {
+     "alive": 0,
+     "dead": 24,
+     "gave_f": 0.0,
+     "gave_s": 341.53,
+     "got_f": 0.0,
+     "got_s": 0.0,
+     "intake_per_tick": 0.07218,
+     "life_max_of_dead": 2834,
+     "life_median_of_dead": 788.5,
+     "mode_share": {
+      "B": 0.0,
+      "C": 0.0,
+      "D": 0.2749,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.7249,
+      "T": 0.0002,
+      "W": 0.0
+     },
+     "n": 24,
+     "returned": 716.05,
+     "survive": {
+      "240": [
+       22,
+       24,
+       0.9167
+      ],
+      "80": [
+       24,
+       24,
+       1.0
+      ],
+      "800": [
+       11,
+       24,
+       0.4583
+      ]
+     }
+    },
+    "SN": {
+     "alive": 87,
+     "dead": 3623,
+     "gave_f": 0.0,
+     "gave_s": 28733.62,
+     "got_f": 0.0,
+     "got_s": 0.0,
+     "intake_per_tick": 0.06264,
+     "life_max_of_dead": 5246,
+     "life_median_of_dead": 502,
+     "mode_share": {
+      "B": 0.0,
+      "C": 0.0,
+      "D": 0.2606,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.739,
+      "T": 0.0005,
+      "W": 0.0
+     },
+     "n": 3710,
+     "returned": 67813.25,
+     "survive": {
+      "240": [
+       2784,
+       3697,
+       0.753
+      ],
+      "80": [
+       3451,
+       3707,
+       0.9309
+      ],
+      "800": [
+       1233,
+       3632,
+       0.3395
+      ]
+     }
+    }
+   },
+   "seeds": {
+    "0": {
+     "births_after_y1": 2782,
+     "births_total": 3110,
+     "cap_hit": false,
+     "deaths_after_y1": 2780,
+     "e_max_final": 1.0,
+     "extinct_at": null,
+     "f_gifts": 0,
+     "f_given": 0.0,
+     "households": 10,
+     "keepers_alive": 15,
+     "keepers_by_year": [
+      15,
+      23,
+      6,
+      12,
+      21,
+      20,
+      17,
+      29,
+      16,
+      15
+     ],
+     "lineages_alive": 1,
+     "lineages_with_both": 1,
+     "max_after_cap": 1.0,
+     "pop": 45,
+     "pop_by_year": [
+      43,
+      49,
+      31,
+      46,
+      47,
+      48,
+      49,
+      62,
+      46,
+      45
+     ],
+     "returned": 32567.25,
+     "s_gifts": 242238,
+     "s_given": 9423.51,
+     "scouts_alive": 30,
+     "stock_last": 0.5738,
+     "stock_yearly_mean": 0.446,
+     "with_no_keeper": 0,
+     "with_ticks": 0
+    },
+    "1": {
+     "births_after_y1": 3108,
+     "births_total": 3507,
+     "cap_hit": false,
+     "deaths_after_y1": 3102,
+     "e_max_final": 1.0,
+     "extinct_at": null,
+     "f_gifts": 0,
+     "f_given": 0.0,
+     "households": 11,
+     "keepers_alive": 18,
+     "keepers_by_year": [
+      16,
+      28,
+      29,
+      10,
+      14,
+      16,
+      12,
+      20,
+      14,
+      18
+     ],
+     "lineages_alive": 1,
+     "lineages_with_both": 1,
+     "max_after_cap": 1.0,
+     "pop": 47,
+     "pop_by_year": [
+      41,
+      56,
+      61,
+      38,
+      38,
+      44,
+      38,
+      51,
+      46,
+      47
+     ],
+     "returned": 29611.29,
+     "s_gifts": 248598,
+     "s_given": 9775.53,
+     "scouts_alive": 29,
+     "stock_last": 0.4876,
+     "stock_yearly_mean": 0.472,
+     "with_no_keeper": 0,
+     "with_ticks": 0
+    },
+    "2": {
+     "births_after_y1": 4093,
+     "births_total": 4512,
+     "cap_hit": false,
+     "deaths_after_y1": 4099,
+     "e_max_final": 1.0,
+     "extinct_at": null,
+     "f_gifts": 0,
+     "f_given": 0.0,
+     "households": 10,
+     "keepers_alive": 10,
+     "keepers_by_year": [
+      15,
+      22,
+      22,
+      17,
+      27,
+      11,
+      27,
+      24,
+      17,
+      10
+     ],
+     "lineages_alive": 1,
+     "lineages_with_both": 1,
+     "max_after_cap": 1.0,
+     "pop": 38,
+     "pop_by_year": [
+      44,
+      52,
+      51,
+      36,
+      56,
+      36,
+      58,
+      58,
+      44,
+      38
+     ],
+     "returned": 25523.23,
+     "s_gifts": 227193,
+     "s_given": 9876.11,
+     "scouts_alive": 28,
+     "stock_last": 0.5868,
+     "stock_yearly_mean": 0.504,
+     "with_no_keeper": 0,
+     "with_ticks": 0
+    }
+   }
+  },
+  "HSF": {
+   "pooled": {
+    "KF": {
+     "alive": 0,
+     "dead": 48,
+     "gave_f": 2.57,
+     "gave_s": 0.0,
+     "got_f": 0.0,
+     "got_s": 269.14,
+     "intake_per_tick": 0.05027,
+     "life_max_of_dead": 1232,
+     "life_median_of_dead": 353.5,
+     "mode_share": {
+      "B": 0.7514,
+      "C": 0.0028,
+      "D": 0.2227,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.0,
+      "T": 0.0232,
+      "W": 0.0
+     },
+     "n": 48,
+     "returned": 738.32,
+     "survive": {
+      "240": [
+       41,
+       48,
+       0.8542
+      ],
+      "80": [
+       48,
+       48,
+       1.0
+      ],
+      "800": [
+       1,
+       48,
+       0.0208
+      ]
+     }
+    },
+    "KN": {
+     "alive": 46,
+     "dead": 7651,
+     "gave_f": 90.52,
+     "gave_s": 0.0,
+     "got_f": 59.75,
+     "got_s": 28930.6,
+     "intake_per_tick": 0.01732,
+     "life_max_of_dead": 2032,
+     "life_median_of_dead": 168,
+     "mode_share": {
+      "B": 0.8081,
+      "C": 0.0,
+      "D": 0.1915,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.0,
+      "T": 0.0004,
+      "W": 0.0
+     },
+     "n": 7697,
+     "returned": 18044.13,
+     "survive": {
+      "240": [
+       2614,
+       7692,
+       0.3398
+      ],
+      "80": [
+       5999,
+       7697,
+       0.7794
+      ],
+      "800": [
+       223,
+       7539,
+       0.0296
+      ]
+     }
+    },
+    "SF": {
+     "alive": 0,
+     "dead": 24,
+     "gave_f": 0.0,
+     "gave_s": 284.08,
+     "got_f": 0.0,
+     "got_s": 0.0,
+     "intake_per_tick": 0.0677,
+     "life_max_of_dead": 2613,
+     "life_median_of_dead": 578.5,
+     "mode_share": {
+      "B": 0.0,
+      "C": 0.0,
+      "D": 0.2594,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.7396,
+      "T": 0.001,
+      "W": 0.0
+     },
+     "n": 24,
+     "returned": 452.29,
+     "survive": {
+      "240": [
+       24,
+       24,
+       1.0
+      ],
+      "80": [
+       24,
+       24,
+       1.0
+      ],
+      "800": [
+       9,
+       24,
+       0.375
+      ]
+     }
+    },
+    "SN": {
+     "alive": 87,
+     "dead": 3763,
+     "gave_f": 0.0,
+     "gave_s": 28915.67,
+     "got_f": 33.34,
+     "got_s": 0.0,
+     "intake_per_tick": 0.06254,
+     "life_max_of_dead": 4715,
+     "life_median_of_dead": 485,
+     "mode_share": {
+      "B": 0.0,
+      "C": 0.0,
+      "D": 0.2602,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.7393,
+      "T": 0.0005,
+      "W": 0.0
+     },
+     "n": 3850,
+     "returned": 68172.27,
+     "survive": {
+      "240": [
+       2883,
+       3847,
+       0.7494
+      ],
+      "80": [
+       3661,
+       3850,
+       0.9509
+      ],
+      "800": [
+       1196,
+       3771,
+       0.3172
+      ]
+     }
+    }
+   },
+   "seeds": {
+    "0": {
+     "births_after_y1": 2859,
+     "births_total": 3178,
+     "cap_hit": false,
+     "deaths_after_y1": 2863,
+     "e_max_final": 1.0,
+     "extinct_at": null,
+     "f_gifts": 871,
+     "f_given": 24.71,
+     "households": 12,
+     "keepers_alive": 10,
+     "keepers_by_year": [
+      18,
+      23,
+      25,
+      24,
+      20,
+      15,
+      17,
+      22,
+      16,
+      10
+     ],
+     "lineages_alive": 2,
+     "lineages_with_both": 2,
+     "max_after_cap": 1.0,
+     "pop": 39,
+     "pop_by_year": [
+      43,
+      47,
+      50,
+      54,
+      52,
+      38,
+      48,
+      53,
+      40,
+      39
+     ],
+     "returned": 31893.65,
+     "s_gifts": 243754,
+     "s_given": 9365.31,
+     "scouts_alive": 29,
+     "stock_last": 0.4935,
+     "stock_yearly_mean": 0.456,
+     "with_no_keeper": 0,
+     "with_ticks": 0
+    },
+    "1": {
+     "births_after_y1": 3171,
+     "births_total": 3537,
+     "cap_hit": false,
+     "deaths_after_y1": 3165,
+     "e_max_final": 1.0,
+     "extinct_at": null,
+     "f_gifts": 1002,
+     "f_given": 29.58,
+     "households": 11,
+     "keepers_alive": 24,
+     "keepers_by_year": [
+      22,
+      33,
+      20,
+      8,
+      16,
+      23,
+      19,
+      23,
+      21,
+      24
+     ],
+     "lineages_alive": 2,
+     "lineages_with_both": 2,
+     "max_after_cap": 1.0,
+     "pop": 56,
+     "pop_by_year": [
+      50,
+      60,
+      54,
+      34,
+      47,
+      48,
+      44,
+      53,
+      55,
+      56
+     ],
+     "returned": 29727.68,
+     "s_gifts": 241009,
+     "s_given": 9838.59,
+     "scouts_alive": 32,
+     "stock_last": 0.4234,
+     "stock_yearly_mean": 0.449,
+     "with_no_keeper": 0,
+     "with_ticks": 0
+    },
+    "2": {
+     "births_after_y1": 4338,
+     "births_total": 4832,
+     "cap_hit": false,
+     "deaths_after_y1": 4355,
+     "e_max_final": 1.0,
+     "extinct_at": null,
+     "f_gifts": 1366,
+     "f_given": 38.8,
+     "households": 13,
+     "keepers_alive": 12,
+     "keepers_by_year": [
+      23,
+      21,
+      19,
+      17,
+      22,
+      9,
+      17,
+      28,
+      27,
+      12
+     ],
+     "lineages_alive": 1,
+     "lineages_with_both": 1,
+     "max_after_cap": 1.0,
+     "pop": 38,
+     "pop_by_year": [
+      55,
+      54,
+      47,
+      39,
+      55,
+      33,
+      49,
+      57,
+      60,
+      38
+     ],
+     "returned": 25785.67,
+     "s_gifts": 226755,
+     "s_given": 9995.85,
+     "scouts_alive": 26,
+     "stock_last": 0.5415,
+     "stock_yearly_mean": 0.493,
+     "with_no_keeper": 0,
+     "with_ticks": 0
+    }
+   }
+  },
+  "HSFW": {
+   "pooled": {
+    "KF": {
+     "alive": 0,
+     "dead": 48,
+     "gave_f": 35.12,
+     "gave_s": 0.0,
+     "got_f": 0.0,
+     "got_s": 171.36,
+     "intake_per_tick": 0.05934,
+     "life_max_of_dead": 624,
+     "life_median_of_dead": 239.0,
+     "mode_share": {
+      "B": 0.7205,
+      "C": 0.0034,
+      "D": 0.2453,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.0,
+      "T": 0.0307,
+      "W": 0.0
+     },
+     "n": 48,
+     "returned": 625.05,
+     "survive": {
+      "240": [
+       23,
+       48,
+       0.4792
+      ],
+      "80": [
+       47,
+       48,
+       0.9792
+      ],
+      "800": [
+       0,
+       48,
+       0.0
+      ]
+     }
+    },
+    "KN": {
+     "alive": 39,
+     "dead": 9633,
+     "gave_f": 2717.01,
+     "gave_s": 0.0,
+     "got_f": 294.01,
+     "got_s": 26941.92,
+     "intake_per_tick": 0.01927,
+     "life_max_of_dead": 1876,
+     "life_median_of_dead": 137,
+     "mode_share": {
+      "B": 0.5435,
+      "C": 0.0,
+      "D": 0.1363,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.0,
+      "T": 0.0002,
+      "W": 0.32
+     },
+     "n": 9672,
+     "returned": 18671.43,
+     "survive": {
+      "240": [
+       2221,
+       9610,
+       0.2311
+      ],
+      "80": [
+       6768,
+       9665,
+       0.7003
+      ],
+      "800": [
+       100,
+       9382,
+       0.0107
+      ]
+     }
+    },
+    "SF": {
+     "alive": 0,
+     "dead": 24,
+     "gave_f": 0.0,
+     "gave_s": 442.04,
+     "got_f": 0.0,
+     "got_s": 0.0,
+     "intake_per_tick": 0.07114,
+     "life_max_of_dead": 3018,
+     "life_median_of_dead": 764.5,
+     "mode_share": {
+      "B": 0.0,
+      "C": 0.0,
+      "D": 0.2795,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.7196,
+      "T": 0.0009,
+      "W": 0.0
+     },
+     "n": 24,
+     "returned": 455.97,
+     "survive": {
+      "240": [
+       22,
+       24,
+       0.9167
+      ],
+      "80": [
+       24,
+       24,
+       1.0
+      ],
+      "800": [
+       10,
+       24,
+       0.4167
+      ]
+     }
+    },
+    "SN": {
+     "alive": 67,
+     "dead": 4770,
+     "gave_f": 0.0,
+     "gave_s": 26671.25,
+     "got_f": 2458.12,
+     "got_s": 0.0,
+     "intake_per_tick": 0.06099,
+     "life_max_of_dead": 5894,
+     "life_median_of_dead": 179.0,
+     "mode_share": {
+      "B": 0.0,
+      "C": 0.0,
+      "D": 0.2462,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.6486,
+      "T": 0.0004,
+      "W": 0.1048
+     },
+     "n": 4837,
+     "returned": 59802.95,
+     "survive": {
+      "240": [
+       2266,
+       4808,
+       0.4713
+      ],
+      "80": [
+       3339,
+       4834,
+       0.6907
+      ],
+      "800": [
+       1069,
+       4693,
+       0.2278
+      ]
+     }
+    }
+   },
+   "seeds": {
+    "0": {
+     "births_after_y1": 3619,
+     "births_total": 4059,
+     "cap_hit": false,
+     "deaths_after_y1": 3613,
+     "e_max_final": 1.0,
+     "extinct_at": null,
+     "f_gifts": 30344,
+     "f_given": 846.45,
+     "households": 10,
+     "keepers_alive": 19,
+     "keepers_by_year": [
+      9,
+      17,
+      12,
+      21,
+      12,
+      11,
+      20,
+      15,
+      22,
+      19
+     ],
+     "lineages_alive": 1,
+     "lineages_with_both": 1,
+     "max_after_cap": 1.0,
+     "pop": 41,
+     "pop_by_year": [
+      35,
+      41,
+      32,
+      51,
+      38,
+      40,
+      52,
+      40,
+      49,
+      41
+     ],
+     "returned": 28799.55,
+     "s_gifts": 195059,
+     "s_given": 8671.63,
+     "scouts_alive": 22,
+     "stock_last": 0.6079,
+     "stock_yearly_mean": 0.488,
+     "with_no_keeper": 105818,
+     "with_ticks": 240154
+    },
+    "1": {
+     "births_after_y1": 4275,
+     "births_total": 4767,
+     "cap_hit": false,
+     "deaths_after_y1": 4284,
+     "e_max_final": 1.0,
+     "extinct_at": null,
+     "f_gifts": 30346,
+     "f_given": 880.15,
+     "households": 11,
+     "keepers_alive": 15,
+     "keepers_by_year": [
+      19,
+      25,
+      19,
+      13,
+      17,
+      19,
+      14,
+      18,
+      21,
+      15
+     ],
+     "lineages_alive": 1,
+     "lineages_with_both": 1,
+     "max_after_cap": 1.0,
+     "pop": 36,
+     "pop_by_year": [
+      45,
+      52,
+      50,
+      39,
+      43,
+      41,
+      39,
+      40,
+      46,
+      36
+     ],
+     "returned": 27210.68,
+     "s_gifts": 192243,
+     "s_given": 8920.32,
+     "scouts_alive": 21,
+     "stock_last": 0.558,
+     "stock_yearly_mean": 0.507,
+     "with_no_keeper": 135309,
+     "with_ticks": 265227
+    },
+    "2": {
+     "births_after_y1": 5092,
+     "births_total": 5683,
+     "cap_hit": false,
+     "deaths_after_y1": 5116,
+     "e_max_final": 1.0,
+     "extinct_at": null,
+     "f_gifts": 34659,
+     "f_given": 1025.54,
+     "households": 10,
+     "keepers_alive": 5,
+     "keepers_by_year": [
+      23,
+      26,
+      25,
+      14,
+      21,
+      15,
+      19,
+      28,
+      23,
+      5
+     ],
+     "lineages_alive": 1,
+     "lineages_with_both": 1,
+     "max_after_cap": 1.0,
+     "pop": 29,
+     "pop_by_year": [
+      53,
+      60,
+      51,
+      36,
+      52,
+      41,
+      46,
+      59,
+      57,
+      29
+     ],
+     "returned": 23545.16,
+     "s_gifts": 194836,
+     "s_given": 9521.34,
+     "scouts_alive": 24,
+     "stock_last": 0.5907,
+     "stock_yearly_mean": 0.554,
+     "with_no_keeper": 163858,
+     "with_ticks": 308166
+    }
+   }
+  },
+  "baseline": {
+   "pooled": {
+    "KF": {
+     "alive": 0,
+     "dead": 48,
+     "gave_f": 0.0,
+     "gave_s": 0.0,
+     "got_f": 0.0,
+     "got_s": 0.0,
+     "intake_per_tick": 0.02093,
+     "life_max_of_dead": 600,
+     "life_median_of_dead": 170.0,
+     "mode_share": {
+      "B": 0.7475,
+      "C": 0.0049,
+      "D": 0.2043,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.0,
+      "T": 0.0433
+     },
+     "n": 48,
+     "returned": 0.0,
+     "survive": {
+      "240": [
+       19,
+       48,
+       0.3958
+      ],
+      "80": [
+       40,
+       48,
+       0.8333
+      ],
+      "800": [
+       0,
+       48,
+       0.0
+      ]
+     }
+    },
+    "KN": {
+     "alive": 0,
+     "dead": 197,
+     "gave_f": 0.0,
+     "gave_s": 0.0,
+     "got_f": 0.0,
+     "got_s": 0.0,
+     "intake_per_tick": 0.01867,
+     "life_max_of_dead": 421,
+     "life_median_of_dead": 57,
+     "mode_share": {
+      "B": 0.8342,
+      "C": 0.0013,
+      "D": 0.1564,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.0,
+      "T": 0.0082
+     },
+     "n": 197,
+     "returned": 0.0,
+     "survive": {
+      "240": [
+       5,
+       197,
+       0.0254
+      ],
+      "80": [
+       73,
+       197,
+       0.3706
+      ],
+      "800": [
+       0,
+       197,
+       0.0
+      ]
+     }
+    },
+    "SF": {
+     "alive": 23,
+     "dead": 1,
+     "gave_f": 0.0,
+     "gave_s": 0.0,
+     "got_f": 0.0,
+     "got_s": 0.0,
+     "intake_per_tick": 0.03858,
+     "life_max_of_dead": 88,
+     "life_median_of_dead": 88,
+     "mode_share": {
+      "B": 0.0,
+      "C": 0.0,
+      "D": 0.2439,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.7561,
+      "T": 0.0
+     },
+     "n": 24,
+     "returned": 0.0,
+     "survive": {
+      "240": [
+       23,
+       24,
+       0.9583
+      ],
+      "80": [
+       24,
+       24,
+       1.0
+      ],
+      "800": [
+       23,
+       24,
+       0.9583
+      ]
+     }
+    },
+    "SN": {
+     "alive": 89,
+     "dead": 11,
+     "gave_f": 0.0,
+     "gave_s": 0.0,
+     "got_f": 0.0,
+     "got_s": 0.0,
+     "intake_per_tick": 0.03823,
+     "life_max_of_dead": 341,
+     "life_median_of_dead": 123,
+     "mode_share": {
+      "B": 0.0,
+      "C": 0.0,
+      "D": 0.2436,
+      "N": 0.0,
+      "R": 0.0,
+      "S": 0.7564,
+      "T": 0.0
+     },
+     "n": 100,
+     "returned": 0.0,
+     "survive": {
+      "240": [
+       91,
+       100,
+       0.91
+      ],
+      "80": [
+       96,
+       100,
+       0.96
+      ],
+      "800": [
+       89,
+       100,
+       0.89
+      ]
+     }
+    }
+   },
+   "seeds": {
+    "0": {
+     "births_after_y1": 10,
+     "births_total": 86,
+     "cap_hit": false,
+     "deaths_after_y1": 8,
+     "e_max_final": 598.1466,
+     "extinct_at": null,
+     "f_gifts": 0,
+     "f_given": 0.0,
+     "households": 5,
+     "keepers_alive": 0,
+     "keepers_by_year": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "lineages_alive": 4,
+     "lineages_with_both": 0,
+     "max_after_cap": null,
+     "pop": 34,
+     "pop_by_year": [
+      32,
+      32,
+      32,
+      32,
+      34,
+      34,
+      34,
+      34,
+      34,
+      34
+     ],
+     "returned": 0.0,
+     "s_gifts": 0,
+     "s_given": 0.0,
+     "scouts_alive": 34,
+     "stock_last": 0.373,
+     "stock_yearly_mean": 0.334,
+     "with_no_keeper": 0,
+     "with_ticks": 0
+    },
+    "1": {
+     "births_after_y1": 23,
+     "births_total": 107,
+     "cap_hit": false,
+     "deaths_after_y1": 18,
+     "e_max_final": 472.1408,
+     "extinct_at": null,
+     "f_gifts": 0,
+     "f_given": 0.0,
+     "households": 5,
+     "keepers_alive": 0,
+     "keepers_by_year": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "lineages_alive": 4,
+     "lineages_with_both": 0,
+     "max_after_cap": null,
+     "pop": 36,
+     "pop_by_year": [
+      31,
+      35,
+      35,
+      35,
+      35,
+      35,
+      35,
+      36,
+      36,
+      36
+     ],
+     "returned": 0.0,
+     "s_gifts": 0,
+     "s_given": 0.0,
+     "scouts_alive": 36,
+     "stock_last": 0.4094,
+     "stock_yearly_mean": 0.342,
+     "with_no_keeper": 0,
+     "with_ticks": 0
+    },
+    "2": {
+     "births_after_y1": 6,
+     "births_total": 104,
+     "cap_hit": false,
+     "deaths_after_y1": 5,
+     "e_max_final": 342.647,
+     "extinct_at": null,
+     "f_gifts": 0,
+     "f_given": 0.0,
+     "households": 8,
+     "keepers_alive": 0,
+     "keepers_by_year": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "lineages_alive": 4,
+     "lineages_with_both": 0,
+     "max_after_cap": null,
+     "pop": 42,
+     "pop_by_year": [
+      41,
+      41,
+      41,
+      43,
+      42,
+      42,
+      42,
+      42,
+      42,
+      42
+     ],
+     "returned": 0.0,
+     "s_gifts": 0,
+     "s_given": 0.0,
+     "scouts_alive": 42,
+     "stock_last": 0.4101,
+     "stock_yearly_mean": 0.331,
+     "with_no_keeper": 0,
+     "with_ticks": 0
+    }
+   }
+  }
+ },
+ "ticks": 29200
+}

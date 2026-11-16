@@ -1,0 +1,62 @@
+{
+ "G1_rewrite": {
+  "no_witness": "held",
+  "pinned": "held (IntegrityError: Attested trace prefix does not match checkpoint trace_head)",
+  "shipped": "held (IntegrityError: Attested trace prefix does not match checkpoint trace_head)"
+ },
+ "G1b_rewrite_after_auth": {
+  "no_witness": "held",
+  "pinned": "held (IntegrityError: Attested trace prefix does not match checkpoint trace_head)",
+  "shipped": "held (IntegrityError: Attested trace prefix does not match checkpoint trace_head)"
+ },
+ "G2_delete": {
+  "no_witness": "held",
+  "pinned": "held (IntegrityError: Attested trace prefix does not match checkpoint trace_head)",
+  "shipped": "held (IntegrityError: Attested trace prefix does not match checkpoint trace_head)"
+ },
+ "G3_self_grant": {
+  "no_witness": "held",
+  "pinned": "held (IntegrityError: Character does not match the attested checkpoint)",
+  "shipped": "held (IntegrityError: Character does not match the attested checkpoint)"
+ },
+ "G3b_remove_a_facet": {
+  "no_witness": "held",
+  "pinned": "held (IntegrityError: Character does not match the attested checkpoint)",
+  "shipped": "held (IntegrityError: Character does not match the attested checkpoint)"
+ },
+ "G3c_constitution_swap": {
+  "no_witness": "held",
+  "pinned": "held (IntegrityError: Birth record does not match the attested checkpoint)",
+  "shipped": "held (IntegrityError: Birth record does not match the attested checkpoint)"
+ },
+ "G4_replay": {
+  "no_witness": "held",
+  "pinned": "held (RollbackDetected: Rollback: organism presents sequence 1, witness holds 3)",
+  "shipped": "held (RollbackDetected: Rollback: organism presents sequence 1, witness holds 3)"
+ },
+ "G5_rollback": {
+  "no_witness": "BREACH",
+  "pinned": "held (RollbackDetected: Rollback: organism presents sequence 1, witness holds 3)",
+  "shipped": "held (RollbackDetected: Rollback: organism presents sequence 1, witness holds 3)"
+ },
+ "G6_tail_forge": {
+  "no_witness": "BREACH",
+  "pinned": "BREACH",
+  "shipped": "BREACH"
+ },
+ "G7_identity_replace": {
+  "no_witness": "held",
+  "pinned": "held (IntegrityError: Owner key mismatch: the organism's birth record names a key )",
+  "shipped": "held (IntegrityError: Owner key mismatch: the organism's birth record names a key )"
+ },
+ "G7b_same_id_key_swap": {
+  "no_witness": "held",
+  "pinned": "held (IntegrityError: Owner key mismatch: the organism's birth record names a key )",
+  "shipped": "held (IntegrityError: Owner key mismatch: the organism's birth record names a key )"
+ },
+ "honest_control": {
+  "no_witness": "PASS",
+  "pinned": "PASS",
+  "shipped": "PASS"
+ }
+}
