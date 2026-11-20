@@ -12,6 +12,8 @@ The work was done by a triad of AI seats under one human authorizer:
 
 Everything here comes from one archive the keel handed over on 16 Nov 2026: `DigitalLife.zip`, sha256 `ddfcc1c2063289e6b881e4cb1fcf6a79db28b178d137555e14c2ea8e0051b497`, 182,001,459 bytes. The original file dates inside it run from 12 Nov 2026 06:20 to 16 Nov 2026 10:45, America/Chicago. They are listed in `INVENTORY_ORIGINAL.csv`, and were kept as file times in the staging copy. Git itself does not store file times. The commit date is the date this repository was prepared, not the work date.
 
+One later file sits outside that handover: Grok Bot's RAISED v3 history-seat pack, added to `07_raised_toy/` on 20 Nov 2026. It was not in `DigitalLife.zip`. See that folder's README and the later-addition note below.
+
 ## Categories
 
 | Folder | What is in it |
@@ -22,13 +24,13 @@ Everything here comes from one archive the keel handed over on 16 Nov 2026: `Dig
 | `04_commons_and_dwelling/` | Claude's Commons Change v1 and Dwelling Location v1 builds and their reports, plus ChatGPT's Two-Layer Commons v0.1 and v2 handoffs and `life.py`. |
 | `05_workbench_and_standing_reports/` | The workbench packings of 14 Nov from ChatGPT and Claude; "Where the conductor stands" and its corrections; the quantum bridge note; and the history-seat replies. |
 | `06_piccolo/` | Piccolo, organism v1, standing on Humble Seed v0.7.1 with v0.7 as the control. Holds Claude's Piccolo workbench (14f), the file requests, Grok Bot's answers and checks, the v1 results, and the corrections. |
-| `07_raised_toy/` | The RAISED toy (15 Nov), ChatGPT's replays of it and of v2, and Grok Bot's RAISED v2 history-seat rebuild. |
+| `07_raised_toy/` | The RAISED toy (15 Nov), ChatGPT's replays of it and of v2, Grok Bot's RAISED v2 history-seat rebuild, and (later addition) Grok Bot's RAISED v3 history-seat pack. See that folder's README. |
 | `08_open_hand_review/` | Grok Bot's history-seat reports on open-hand review rounds 1 to 3 (12 Nov) and round 2 (13 Nov). |
 | `09_side_study_m365_outage/` | Claude's triadic security dossier on the Microsoft 365 outage of 12 Nov 2026. |
 
 `STAGING_MAP.csv` maps each original file name to the place it was put here.
 
-Folders ending in `__unpacked_filtered/` were zips in the original upload. They were unpacked so that excluded items could be removed (see below). Every other zip is a byte-identical copy of the original.
+Folders ending in `__unpacked_filtered/` were zips in the original upload. They were unpacked so that excluded items could be removed (see below). Every other zip from that handover is a byte-identical copy of the original. The v3 history-seat zip is a later byte-identical copy of the 16 Nov 2026 pack; it was not in `DigitalLife.zip`.
 
 ## Withheld and left out
 
@@ -41,10 +43,20 @@ All of this is listed, with full sha256 hashes, in `WITHHELD.md`.
 
 ## Honest limits
 
-- This is an archive of working files as they were handed over. Nothing was rerun to prepare this repository, and no code was added or invented.
+- This is an archive of working files as they were handed over. Nothing was rerun to prepare this repository, and no code was added or invented. The v3 zip was added later as a byte-identical copy of the history-seat pack; it was not rerun for that commit.
 - Inside the filtered folders, each pack's own `SHA256SUMS` or manifest will report the removed files as missing. That is expected.
 - Inside the packs, some reports name local working folders or attachment numbers from the seats' own machines. Those names describe where the work happened. They are not paths in this repository.
 - The workbench packings and the RAISED toy were marked keel-only. They are included here because the keel asked for the whole upload. He reviews before anything is made public.
+
+## Later addition: RAISED v3
+
+On 20 Nov 2026 the keel authorized adding Grok Bot's RAISED v3 history-seat pack to this public repository.
+
+- File: `07_raised_toy/GrokBot_RAISED_v3_history_seat.zip`
+- Build date: 16 Nov 2026, America/Chicago (CST)
+- sha256: `e8f27bfe8a308eeb73fcefba557749e50f24b2cef64ef506fbe756fb597fe688` (84,310,247 bytes)
+- What it is: a new build by the history seat beside Claude's RAISED toy and the v2 history-seat rebuild already in `07_raised_toy/`. Neither of those was edited. The v2 runner is included inside the zip as a byte copy. With all new switches off, the pack reports outputs equal to Claude's and v2 byte for byte. Start with `RAISED_v3/RESULTS.txt` inside the zip. Nothing in the pack is a ruling.
+- The loose workbench `runs/` and `rerun/` trees were not added; those outputs are already inside the zip.
 
 ## Checking the files
 

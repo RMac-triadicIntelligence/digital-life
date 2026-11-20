@@ -13,3 +13,9 @@
 - **SQLite and JSON evidence files:** these hold only public keys, hashes and signatures.
 - **People:** no email addresses or phone numbers were found. The only name present is the keel's, as author.
 - **Second pass on the staging tree:** zero secret hits. The only matches were mentions of withheld file names and "WRONG COPY" headers. Those headers are addressed to the history seat, or to files the keel handed over himself.
+
+## Later addition (RAISED v3)
+
+- **When:** 20 Nov 2026, America/Chicago (CST), by Grok Bot, before the file was added to this repository.
+- **Coverage:** the contents of `07_raised_toy/GrokBot_RAISED_v3_history_seat.zip` (734 files after unzip; two were Python bytecode under `vendor/`). This zip was not part of the 16 Nov `DigitalLife.zip` handover.
+- **Result:** no emails; no `.env` files; no private-key headers; no cloud or code-host token prefixes; no credential-style assignments. No Medicaid, Medicare, grift-investigator, LEIE, NPPES, or HCPCS content in names or text. Ten-digit sequences were sha256 fragments, a hash prefix in `PREDICTIONS.txt`, or decimal fractions in simulation `returned` fields. Nothing was withheld from this pack.
